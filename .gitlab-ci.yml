@@ -5,7 +5,7 @@ build:
   stage: build
   only:
     - master
-  image: michidk/texlive-docker
+  image: image: aergus/latex
   script:
   - make pdf
   only:
