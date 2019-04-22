@@ -1,5 +1,6 @@
 stages:
   - build
+  - deploy
 
 build:
   stage: build
@@ -11,3 +12,28 @@ build:
   only:
   - master
 
+deploy:
+  stage: deploy
+  only:
+    - master
+  image: debian:stable
+  before_script:
+  - apt-get update
+  - apt-get install -y git
+  - mkdir -p ~/.ssh
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+  - chmod 600 ~/.ssh/id_rsa
+  - ssh-keyscan -H gitlab.com >> ~/.ssh/known_hosts
+  - git config --global user.email "gitlab-ci@lohr-it.de"
+  - git config --global user.name "GitLab CI"
+  script:
+  - git clone --depth 1 --single-branch -b out git@github.com:michidk/bachelor-thesis.git repo
+  - mv repo/.git repo-.git
+  - rm -rf repo
+  - mkdir repo
+  - mv repo-.git repo/.git
+  - cd repo
+  - cp -r ../out/* .
+  - git add .
+  - git diff --staged --quiet || git commit -m "Uploaded artifacts"
+  - git push
