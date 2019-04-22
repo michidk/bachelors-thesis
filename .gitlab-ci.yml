@@ -9,6 +9,10 @@ build:
   image: aergus/latex
   script:
   - make pdf
+  - mv out/main.pdf out/thesis.pdf
+  artifacts:
+    paths:
+    - out/thesis.pdf
   only:
   - master
 
@@ -33,7 +37,7 @@ deploy:
   - mkdir repo
   - mv repo-.git repo/.git
   - cd repo
-  - cp -r ../out/* .
+  - cp ../out/thesis.pdf .
   - git add .
   - git diff --staged --quiet || git commit -m "Uploaded artifacts"
   - git push
