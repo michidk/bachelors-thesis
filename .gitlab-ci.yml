@@ -6,7 +6,7 @@ build:
   stage: build
   only:
     - master
-  image: image: aergus/latex
+  image: aergus/latex
   script:
   - make pdf
   only:
