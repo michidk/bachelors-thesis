@@ -7,7 +7,7 @@ build:
     - master
   image: michidk/texlive-docker
   script:
-  - latexmk -interaction=nonstopmode -outdir=out -pdf -halt-on-error main
+  - make pdf
   only:
   - master
 
