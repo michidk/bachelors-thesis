@@ -1,0 +1,23 @@
+{
+    "latex-workshop.latex.recipes": [{
+        "name": "xelatex",
+        "tools": ["xelatex", "biber", "xelatex", "xelatex"]
+    }],
+        "latex-workshop.latex.tools": [{
+        "name": "xelatex",
+        "command": "xelatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "%DOC%"
+        ]
+    }, {
+        "name": "biber",
+        "command": "biber",
+        "args": [
+            "%DOCFILE%"
+        ]
+    }],
+    "latex-workshop.view.pdf.viewer": "tab",
+}

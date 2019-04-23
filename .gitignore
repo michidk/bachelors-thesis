@@ -1,2 +1,12 @@
 /out/*
-/logos/*.pdf
+*.fls
+*.log
+*.aux
+*.bcf
+*.lof
+*.lot
+*.out
+*.pdf
+*.run.xml
+*.synctex.gz
+*.toc
