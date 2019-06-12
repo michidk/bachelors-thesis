@@ -6,9 +6,10 @@
 *.lof
 *.lot
 *.out
-*.pdf
+main.pdf
 *.run.xml
 *.synctex.gz
 *.toc
 *.blg
 *.bbl
+*.fdb_latexmk
