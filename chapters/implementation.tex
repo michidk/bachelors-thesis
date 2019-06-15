@@ -1,0 +1,19 @@
+\chapter{Implementation}\label{chapter:implementation}
+
+\section{Ubi-Interact}\label{section:ubi-interact}
+
+\ac{UBII} is a framework for distributed applications, which enables to connect all kinds of different devices together. A centralized server is used to manage the system in a local network. The abstraction into devices, topics and interactions allows to decouple the implementation of a software from device specific environments.
+
+\subsection{Architecture}\label{subsection:architecture}
+
+The core components of the \ac{UBII} framework are:
+\begin{description}
+    \item[Client] describes a network participant, which is defined by an unique identifier and a network socket adress.
+    \item[Devices] can be registered by clients. A device is an abstraction for a virtual device, which groups different components like input and output devices together. A source for such an input device component, could be any sensor e.g.\ a hardware button or an \ac{IMU}. Output devices like a lamp or display can be represented by output device components.
+    Devices are defined by unique identifier, a client and a list of components. Components are defined by a topic, a message format and wether it publishes input or output data.
+    \item[Topics] are data channels which are addressed by a name. Clients can publish messages to topics, which are registered by a device. Clients are also able to receive messages, after subscribing to a topic. Such messages (topic data) are formatted as JSON\footnote{JSON is a standardized data exchange format, that uses human-readable text. It is often used for web-based data communication.} -string, whose structure is defined by the device.
+    \item[Interactions] are reactive components which are defined by devices. They operate on topics and are defined by a source code snippet\footnote{Currently only JavaScript is supported as a script language.}. Interactions are executed in a fixed interval on the \ac{UBII} server. They can subscribe to topics and use the the received topic data as input. The output of the interaction is published into another topic. It is also possible to keep data to use in future executions (persistent state).
+\end{description}
+
+
+

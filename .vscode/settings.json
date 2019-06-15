@@ -3,21 +3,34 @@
         "name": "xelatex",
         "tools": ["xelatex", "biber", "xelatex", "xelatex"]
     }],
-        "latex-workshop.latex.tools": [{
+    "latex-workshop.latex.tools": [{
         "name": "xelatex",
         "command": "xelatex",
         "args": [
             "-synctex=1",
             "-interaction=nonstopmode",
             "-file-line-error",
+            "-output-directory=out",
             "%DOC%"
         ]
     }, {
         "name": "biber",
         "command": "biber",
         "args": [
+            "--output_directory=out",
             "%DOCFILE%"
         ]
     }],
     "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.chktex.enabled": true,
+    "latex-workshop.latex.outDir": "%DIR%/out",
+    "cSpell.words": [
+        "Neurorobotics",
+        "Plecher",
+        "Sandro",
+        "hidelinks",
+        "lstlistings",
+        "mathpazo",
+        "pgfplots"
+    ],
 }
