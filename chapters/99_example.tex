@@ -4,14 +4,109 @@
 \chapter{Introduction}\label{chapter:asdf}
 
 \section{Section}
+
+
+\subsection{Cite Tests}
 Citation test~\parencite{Afonso.2017} vs~\cite{Afonso.2017}.\\
 More~\cite[pre][post]{Afonso.2017}\\
-Also possible:~\footcite{Afonso.2017}\\
+Also possible~\footcite{Afonso.2017}\\
 \\
 Acronym test \ac{VR} cool.\\
 And a second time \ac{VR} awesome.\\
 
-\subsection{Subsection}
+\tikzstyle{box}=[
+  rectangle,
+  rectangle split, 
+  rectangle split draw splits=false,
+  rounded corners,
+  minimum height=0.5cm,
+  inner sep=4pt,
+  text centered,
+]
+
+\subsection{Draw Test}
+\begin{figure}[htpb]
+	\begin{tikzpicture}
+
+		\node[box, draw=TUMBlue, very thick, text width=5cm, rectangle split parts=3] at (0,0) {
+      \Large\textbf{Client}\normalsize
+
+      \nodepart{two}
+      Network device
+      
+      \nodepart{three}
+			\tikz\node[box, draw=TUMSecondaryBlue, thick, text width=4.5cm, rectangle split parts=5] {
+        \Large\textbf{Device}\normalsize
+  
+        \nodepart{two}
+        Group of components
+        
+        \nodepart{three}
+        \tikz\node[box, draw=TUMSecondaryBlue2, thick, text width=4cm, rectangle split parts=2] {
+          \Large\textbf{Component}\normalsize
+    
+          \nodepart{two}
+          \begin{itemize}[noitemsep, topsep=0pt, label={--}]
+            \item Topic
+            \item Message Format
+            \item Input or Output
+          \end{itemize}
+        };
+        \nodepart{four}
+        \tikz\node[box, draw=TUMSecondaryBlue2, thick, text width=4cm, rectangle split parts=2] {
+          \Large\textbf{Component}\normalsize
+    
+          \nodepart{two}
+          \begin{itemize}[noitemsep, topsep=0pt, label={--}]
+            \item Topic
+            \item Message Format
+            \item Input or Output
+          \end{itemize}
+        };
+        \nodepart{five}
+        \tikz\node[box, draw=TUMSecondaryBlue2, thick, text width=4cm, rectangle split parts=1] {
+          \Large\textbf{. . .}\normalsize     
+        };
+			};
+    };
+    
+    \node[box, draw=TUMBlue, very thick, text width=7cm, rectangle split parts=4] (session) at (8.5,0) {
+      \Large\textbf{Session}\normalsize
+  
+      \nodepart{two}
+      Server-side specification
+      
+      \nodepart{three}
+			\tikz\node[box, draw=TUMSecondaryBlue, thick, text width=4.5cm, rectangle split parts=5] {
+        \Large\textbf{Interaction}\normalsize
+  
+        \nodepart{two}
+        Group of components
+        
+        
+      };
+
+      \nodepart{four}
+			\tikz\node[box, draw=TUMSecondaryBlue, thick, text width=4.5cm, rectangle split parts=5] {
+        \Large\textbf{Mappings}\normalsize
+  
+        \nodepart{two}
+        Maps topics to the interaction inputs/outputs.
+			};
+    };
+
+    \node[box, draw=TUMBlue, very thick, text width=7cm, rectangle split parts=2, below of = session, node distance=5cm] {
+      \Large\textbf{Topic}\normalsize
+  
+      \nodepart{two}
+      Topic list and topic data
+    };
+		
+	\end{tikzpicture}
+\caption{Do not forget!}\label{fig:sample-drawing2}
+\end{figure}
+
+\subsection{Other Tests}
 
 See~\autoref{tab:sample}, \autoref{fig:sample-drawing}, \autoref{fig:sample-plot}, \autoref{fig:sample-listing}.
 
