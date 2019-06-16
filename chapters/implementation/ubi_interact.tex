@@ -1,8 +1,5 @@
-% !TeX root = ../main.tex
+% !TeX root = ../../main.tex
 % chktex-file 24
-\chapter{Implementation}\label{chapter:implementation}
-
-
 \section{Ubi-Interact}\label{section:ubi-interact}
 
 \ac{UBII} is a framework for distributed applications, which enables to connect all kinds of different devices together. A centralized server is used to manage the system in a local network. It is currently developed and maintained by Sandro Weber, who is also the advisor for this thesis. The abstraction into devices, topics and interactions allows to decouple the implementation of a software from device specific environments.
@@ -26,17 +23,14 @@ The main components of the \ac{UBII} framework are:
   \begin{subfigure}{.5\textwidth}
     \centering
     \includegraphics[width=3cm]{figures/ubii_er_client.pdf}
-    \caption{The client components.}
-    \label{fig:ubii_er_client}
+    \caption{The client components.}\label{fig:ubii_er_client}
   \end{subfigure}%
   \begin{subfigure}{.5\textwidth}
     \centering
     \includegraphics[width=7cm]{figures/ubii_er_server.pdf}
-    \caption{The session components.}
-    \label{fig:ubii_er_server}
+    \caption{The session components.}\label{fig:ubii_er_server}
   \end{subfigure}
-  \caption[UBII Components Diagram]{Relationships of the core components in an entity relationship diagram.}
-  \label{fig:ubii_er}
+  \caption[UBII Components Diagram]{Relationships of the core components in an entity relationship diagram.}\label{fig:ubii_er}
 \end{figure}
 
 
@@ -77,7 +71,7 @@ The code snippet has to define a function, which accepts three parameters:
     }
   \end{lstlisting}
   \end{tabular}
-  \caption[Basic Interaction]{An example for an interaction written in JavaScript. This interaction calculates the squared distance of two points. One of the points comes from the input, while the other one is stored in the state. To achieve this, the euclidean vector norm of the subtraction of both vectors without the square root is calculated and compared with a threshold constant. The result is then written into the output as a boolean data type.}\label{fig:ubii_interaction_example}
+  \caption[A basic UBII interaction in JavaScript.]{An example for an interaction written in JavaScript. This interaction calculates the squared distance of two points. One of the points comes from the input, while the other one is stored in the state. To achieve this, the euclidean vector norm of the subtraction of both vectors without the square root is calculated and compared with a threshold constant. The result is then written into the output as a boolean data type.}\label{fig:ubii_interaction_example}
 \end{figure}
 
 Interactions should be designed generalized, so that they are easy to reuse. They can be used to discretize data, converting data to other formats or just to outsource some logic from the application. Concrete examples include detecting button presses, changing coordinate spaces and evaluate data.

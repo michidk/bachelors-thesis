@@ -1,8 +1,8 @@
 {
     "latex-workshop.latex.recipes": [{
         "name": "xelatex",
-        "toolsb": ["xelatex", "biber", "xelatex", "xelatex"],
-        "tools": ["xelatex"]
+        "tools": ["xelatex", "biber", "xelatex", "xelatex"],
+        "toolsb": ["xelatex"]
     }],
     "latex-workshop.latex.tools": [{
         "name": "xelatex",
@@ -51,5 +51,40 @@
         "showspaces",
         "showstringspaces",
         "tabsize"
+    ],
+    "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "c",
+        "cpp",
+        "csharp",
+        "css",
+        "git-commit",
+        "go",
+        "handlebars",
+        "html",
+        "jade",
+        "java",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "jsonc",
+        "latex",
+        "less",
+        "makefile",
+        "markdown",
+        "php",
+        "plaintext",
+        "pug",
+        "python",
+        "restructuredtext",
+        "rust",
+        "scala",
+        "scss",
+        "tex",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "yaml",
+        "yml"
     ],
 }
