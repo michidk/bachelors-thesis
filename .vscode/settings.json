@@ -1,7 +1,7 @@
 {
     "latex-workshop.latex.recipes": [{
         "name": "xelatex",
-        "tools_old": ["xelatex", "biber", "xelatex", "xelatex"],
+        "toolsb": ["xelatex", "biber", "xelatex", "xelatex"],
         "tools": ["xelatex"]
     }],
     "latex-workshop.latex.tools": [{
@@ -29,9 +29,26 @@
         "Neurorobotics",
         "Plecher",
         "Sandro",
+        "UBII",
+        "breaklines",
+        "captionpos",
+        "checktex",
+        "chktex",
+        "darkgray",
+        "extendedchars",
         "hidelinks",
+        "keywordstyle",
         "lstlistings",
         "mathpazo",
-        "pgfplots"
+        "morecomment",
+        "morestring",
+        "ndkeywords",
+        "ndkeywordstyle",
+        "numbersep",
+        "numberstyle",
+        "pgfplots",
+        "showspaces",
+        "showstringspaces",
+        "tabsize"
     ],
 }
