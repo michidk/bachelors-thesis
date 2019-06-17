@@ -1,18 +1,19 @@
 % !TeX root = ../../main.tex
 \section{Technology Stack}\label{section:technology-stack}
 
-Since most of the existing software for \ac{UBII} was written in \acf{JS}\footnote{\ac{JS} is a just-in-time compiled scripting language, widely used in web technology. It is a dynamic prototype-based language, which supports object-orientated programming.} using a fully web-based architecture, I decided to adapt this approach. This has one major advantage: platform independence. Most modern devices can run web-based software, which means they can also run our software. Also the software is served by a web server, which means the user does not have to install the software onto his device.
-
-A web interface with some \ac{UBII} content (the \ac{UBII} front end), demos and debugging tools was already written, so I included my demos in this interface as well. The interface uses Vue.js as web framework.
-
-\subsection{Vue.js}\label{subsection:vuejs}
-Vue.js\footnote{Official Website: \href{https://vuejs.org/}{www.vuejs.org}} is a modern \ac{JS} web framework\footnote{A web framework is a software framework which provides a standard way to build web applications. It comes with tools and libraries to automate and make the development of web applications easier.}. Being released in 2014 and developed by Evan You~\cite[17]{Koetsier.2016}, it is a relatively young framework. But it quickly gained traction and is quite popular now~\cite[12\psq]{Koetsier.2016}.
-Modules like Vue.js itself, Vue.js plugins and other JavaScript libraries are managed using the package manager npm~\footnote{Npm stands for \enquote{Node Package Manager} and is also used in the~\ac{UBII} server itself. Official website: \href{https://www.npmjs.com/}{www.npmjs.com}}.
+Since most of the existing software for \ac{UBII} was written in \acf{JS}\footnote{\ac{JS} is a just-in-time compiled scripting language, widely used in web technology. It is a dynamic prototype-based language, which supports object-orientated programming.} using a fully web-based architecture, I decided to adapt this approach. This has one major advantage: platform independence. Most modern devices can run web-based software, which means they can also run the software. Also the software is served by a web server, which means the user does not have to install the software onto his device.
 
 \begin{figure}[htpb]
-    \centering
-    \includegraphics[width=12cm]{figures/ubii_front_end.pdf}
-    \caption[The UBII Front End]{A screenshot of the UBII front end which was developed by Sandro Weber, Daniel Dyrda and me.}\label{fig:ubii_front_end}
-  \end{figure}
+  \centering
+  \includegraphics[width=12cm]{figures/ubii_front_end.pdf}
+  \caption[The UBII Front End]{A screenshot of the UBII front end rendering a 3D cube.}\label{fig:ubii_front_end}
+\end{figure}
 
-The~\ac{UBII} front end has multiple Vue components for 
+A web interface with some \ac{UBII} content (the \ac{UBII} front end), demos and debugging tools was already written\footnote{The front end was developed by Sandro Weber, Daniel Dyrda and me.}, so I included my demos in this interface as well. The technology stack of the front end was built with the following technologies:
+\begin{description}
+  \item[Web APIs] are \acfp{API} available in modern web browsers to provide access to functionality or data outside the browser. The WebAPI is an additional layer of abstraction on top of the operating system ones. While this has the advantage that the API is the same on every device, this also prevents the access to the raw sensor data\footnote{The specification is available on \href{https://w3c.github.io/deviceorientation/}{www.w3c.github.io/deviceorientation}}. In this thesis the WebVR \ac{API}, which enables to render to external \ac{VR} headsets and the device orientation \ac{API}, which gives access to the data of the \acf{IMU}\footnote{An IMU is an electronic component which is part of most smart phones and allows to measure force, angular rate and magnetic field.} of a device, are used.
+  \item[Vue.js]\footnote{Vue.js: Website: \href{https://vuejs.org/}{www.vuejs.org}, Source~code: \href{https://github.com/vuejs/vue}{www.github.com/vuejs/vue}} is a modern open source \acl{JS} web framework\footnote{A web framework is a software framework which provides a standard way to build web applications. It comes with tools and libraries to automate and make the development of web applications easier.}~\cite{EvanYou.2019}. Being released in 2014 and developed by Evan You, it is a relatively young framework~\cite[17]{Koetsier.2016}. But it quickly gained traction and is quite popular now~\cite[12\psq]{Koetsier.2016}.
+  Modules like Vue.js itself, Vue.js plugins and other \acl{JS} libraries are managed using the package manager npm~\footnote{\enquote{NPM} stands for \enquote{Node Package Manager} and is also used in the~\ac{UBII} server itself. Website: \href{https://www.npmjs.com/}{www.npmjs.com}}.
+  \item[Three.js]\footnote{Three.js: Website: \href{https://threejs.org/}{www.threejs.org}, Source~code: \href{https://github.com/mrdoob/three.js/}{www.github.com/mrdoob/three.js}} is a lightweight open source library which utilizes WebGL to render \ac{3D} computer graphics~\cite{RicardoCabello.2019}. It can be used to render scenes to the display as well as to a VR headset using WebVR. This high-level library comes with a lot of features, similar to a game engine, like scenes, effects, lights, animation, geometrie and much more.
+  \item[UBII Client] is an \acl{JS} client for the \ac{UBII} system. It abstracts the protocol and provides high-level functions to register devices as well as send and receive topic data.
+\end{description}
