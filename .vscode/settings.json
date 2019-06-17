@@ -1,8 +1,8 @@
 {
     "latex-workshop.latex.recipes": [{
         "name": "xelatex",
-        "toolsb": ["xelatex", "biber", "xelatex", "xelatex"],
-        "tools": ["xelatex"]
+        "tools": ["xelatex", "biber", "xelatex", "xelatex"],
+        //"tools": ["xelatex"]
     }],
     "latex-workshop.latex.tools": [{
         "name": "xelatex",
@@ -26,6 +26,7 @@
     "latex-workshop.chktex.enabled": true,
     "latex-workshop.latex.outDir": "%DIR%/out",
     "cSpell.words": [
+        "Dyrda",
         "Neurorobotics",
         "Plecher",
         "Sandro",

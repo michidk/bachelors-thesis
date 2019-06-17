@@ -14,6 +14,9 @@
   maxbibnames=99,
   giveninits,
   uniquename=init]{biblatex}
+\usepackage{url}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000} % break urls in bibliography
 \usepackage{graphicx}
 \usepackage{scrhack} % necessary for listings package
 \usepackage{listings}
@@ -32,6 +35,8 @@
 \usepackage{subcaption}
 \usepackage{perpage}
 \MakePerPage{footnote} % reset footnotes each page
+
+
 
 \bibliography{bibliography}
 
