@@ -17,7 +17,7 @@
       1. Three.js
       1. WebVR]
    1. Smart device
-   1. Demos
+   1. Experiments
       1. Model Inspector
          1. Goal _// and task_
          1. Setup _// and scene_
