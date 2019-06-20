@@ -1,0 +1,11 @@
+% !TeX root = ../../main.tex
+\section{Experiments}\label{section:experiments}
+
+Three main experiments were implemented to show how the smartphone can help with common interactions when using \ac{VR} software.
+To achieve consistency amongst all experiments in terms of look and functionality, a parent class was implemented. The parent class uses modules like a sky module, I implemented, to set up a basic scene. Also the connection to the \ac{UBII} server is handled. 
+
+\subsection{Model Viewer}\label{subsection:model-viewer}
+
+This experiment implements an \ac{3D} model viewer. When a smart device connects to the \ac{UBII} network, a new instance of a model is created. This model can be rotated, by rotating the smart phone running the smart device client. The rotation of the phone, published on the orientation topic is applied to the model.
+
+% insert image
