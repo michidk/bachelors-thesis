@@ -17,15 +17,6 @@
     - give random word to enter (same length and all lower case)
     - track how long it takes
 
-- survey
-  - create 5 point array for following questions:
-    - how often did you use a vr headset
-    - how often use smartphones
-    - how often use computer for work
-    - how often play computer games
-    - how much do you know about vr
-    - are you interested in VR?
-    - do you have experience with motion controllers (WII mote, Oculus touch)
 
 # Notes
 
