@@ -1,6 +1,6 @@
 # Thesis Planned Structure
 
-1. Introduction
+1. Introduction // similar to kickoff slides
    1. Virtual Reality
    1. Smartphones
    1. Motivation
