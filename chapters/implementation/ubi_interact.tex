@@ -1,24 +1,27 @@
 % !TeX root = ../../main.tex
 % chktex-file 24
+% chktex-file 46
 \section{Ubi-Interact}\label{section:ubi-interact}
+\setcounter{footnote}{0} % for some reason, the footnote wants to start at 2
 
-\ac{UBII} is a framework for distributed applications, which enables to connect all kinds of different devices together. A centralized server is used to manage the system in a local network. It is currently developed and maintained by Sandro Weber, who is also the advisor for this thesis. The abstraction into devices, topics and interactions allows to decouple the implementation of a software from device specific environments.
+\ac{UBII}\footnote{UBII is currently developed and maintained by Sandro Weber, who is also the advisor for this thesis.} is a framework for distributed applications, which enables to connect all kinds of different devices together. A centralized server is used to manage the system in a local network.  The abstraction into devices, topics and interactions allows to decouple the implementation of a software from device specific environments.
 
 
 \subsection{Architecture}\label{subsection:architecture}
 
 The main components of the \ac{UBII} framework are:
 \begin{description}
-	\item[Clients] describe a basic network participant. For every client registered in the system, exists one network socket adress. So clients are an abstraction of a physical network device. They are defined by a \ac{UID}. 
-	\item[Devices] can be registered by clients. A device is an abstraction for a virtual device, which groups different input and output devices together. It is defined by a \ac{UID} and a list of components.
-  \item[Components] contain the topic name, message format for input/output devices and wether it publishes input or receives output data. A data source for such an input device, could be any sensor for example a button or the camera. Data output examples for input devices are lamps and displays.
-  \item[Message Formats] are strings which identify a certain data format. Most common data types are available. For example \textit{Vector4\( \times \)4} (a four by four matrix), \textit{Vector2} (a two-dimensional vector) or \textit{boolean} (a binary value) are built in.
-	\item[Topics] are data channels which are addressed by a name. Clients can publish messages to topics, which are registered by a device. Clients are also able to receive messages, after subscribing to a topic. Such messages (also called \enquote{topic data}) are formatted as JSON\footnote{JSON is a standardized data exchange format, that uses human-readable text. It is often used for web-based data communication.}-string, whose structure is defined by the device.
+	\item[Clients] describe a basic network participant. For every client registered in the system, also exists one network socket adress. Clients are an abstraction of a physical network device. They are defined by an \ac{UID}. 
+	\item[Devices] can be registered by clients. A \ac{UBII}-device groups different input and output devices together. It is defined by a \ac{UID} and a list of components.
+  \item[Components] contain the topic name, message formats for input/output devices and wether it publishes input or receives output data. A data source for such an input device, could be any sensor for example a button or a camera. Data output examples for input devices are lamps and displays.
+  \item[Message Formats] define the format of data published to a topic. Even though it is possible to implement custom ones, ost common data types are available. For example \lstinline[mathescape=true]{Vector4$\times$4} (a four by four matrix), \lstinline{Vector2} (a two-dimensional vector) or \lstinline{boolean} (a binary value) are built-in.
+	\item[Topics] are data channels which are addressed by a name. Clients can publish messages to topics, which are registered by a device. Clients are able to receive messages, after subscribing to a topic. Such messages (also called \enquote{topic data}) are formatted as JSON\footnote{JSON is a standardized data exchange format, that uses human-readable text. It is often used for web-based data communication.}-string, whose structure is defined by the device.
 	\item[Sessions] operate on the server, but can be specified by the client. They are defined by a \ac{UID} as well as a list of interactions and \textbf{input/output mappings}. The mappings are defined by a message format and topic name.
 	\item[Interactions] are reactive components. They operate on topics and are defined by a source code snippet\footnote{Currently only JavaScript is supported as a script language.}. Interactions are executed in a fixed interval on the \ac{UBII} server. They can subscribe to topics and use the received topic data as input, given an input/output mapping description. The output of the interaction is published into another topic. It is also possible to keep data to use in future executions (persistent state).
+	\item[Services] are channels, used to send commands or requests to the \ac{UBII} server. For example they are used to subscribe to a topic or list all available topics.
 \end{description}
 
-The figure~\ref{fig:ubii-er} visualizes the relationships of the different components.
+The Figure~\ref{fig:ubii-er} visualizes the relationships of the different components.
 
 \begin{figure}[htpb]
   \centering
@@ -32,23 +35,23 @@ The figure~\ref{fig:ubii-er} visualizes the relationships of the different compo
     \includegraphics[width=7cm]{figures/ubii_er_server.pdf}
     \caption{The session components.}\label{fig:ubii-er-server}
   \end{subfigure}
-  \caption[UBII Components Diagram]{Relationships of the core components in an entity relationship diagram.}\label{fig:ubii-er}
+  \caption[UBII components diagram]{Relationships of the core components in an entity relationship diagram.}\label{fig:ubii-er}
 \end{figure}
 
 
 \subsection{Interactions}\label{subsection:interactions}
-An powerful but optional core feature of \ac{UBII} are so called interactions. As explained in the component overview~(see~\ref{subsection:architecture}), they are reactive components, which operate on topics and regularly execute given code snippets (processing functions) on the \ac{UBII} server. Interactions are isolated components, which just depend on topic data and nothing else. This abstraction introduces the possibility to reuse logic in other applications in similar context. The data flow from a device to the interaction is visualized in the figure~\ref{fig:ubii-cd}.
+An powerful but optional core feature of \ac{UBII} are interactions. As explained in the component overview~(see~\ref{subsection:architecture}), they are reactive components, which operate on topics and regularly execute given code snippets (processing functions) on the \ac{UBII} server. Interactions are isolated components, which just depend on topic data and nothing else. This abstraction introduces the possibility to reuse logic in other applications in similar context. The data flow from a device to the interaction is visualized in the Figure~\ref{fig:ubii-cd}.
 
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=12cm]{figures/ubii_cd.pdf}
-  \caption[UBII Communication Diagram]{Interaction processing overview. This graphic gives a rough overview of the dataflow when using an interaction. Conceptualized with the help of Sandro Weber.}\label{fig:ubii-cd}
+  \caption[UBII communication diagram]{Interaction processing overview. This graphic gives a rough overview of the dataflow when using an interaction. Figure created with the help of Sandro Weber.}\label{fig:ubii-cd}
 \end{figure}
 
-Interactions should be designed generalized, so that they are easy to reuse. They can be used to discretize data, converting data to other formats or just to outsource some logic from the application. Concrete examples include detecting button presses, transforming coordinates and evaluate data. An example implementation which detects movements can be seen in figure~\ref{fig:ubii-interaction-example}.
+Interactions should be designed generalized, so that they are easy to reuse. They can be used to discretize data, converting data to other formats or just to outsource some logic from the application. Concrete examples include detecting button presses, transforming coordinates and evaluating data. An example implementation which detects position changes can be seen in Figure~\ref{fig:ubii-interaction-example}.
 
 % this might be left out or merged into above
-They are also useful, if you want to connect two topics with different formats. Imagine an application, which consumes a rotation given in euler angles in radians. But some devices publish euler angles in degrees. We could implement an interaction, which takes euler angles in degrees from one topic and publishes euler angles in radians to another one, which then is used by the application.
+They are also useful, if two topics with different formats should be connected. An example for such a scenario could be an application, which consumes a rotation given in euler angles. But some input devices publish euler angles in degrees. An interaction, which takes euler angles in degrees from one topic and publishes euler angles in radians to another one could be implemented.
 
 \begin{figure}[H]
   \begin{lstlisting}[language=JavaScript]
@@ -72,7 +75,7 @@ They are also useful, if you want to connect two topics with different formats. 
       state.lastPosition = inputs.position;
     }
   \end{lstlisting}
-  \caption[A basic UBII interaction in JavaScript.]{An example for an interaction written in JavaScript. This interaction calculates the squared distance of two points. One of the points comes from the input, while the other one is stored in the state. To achieve this, the euclidean vector norm of the subtraction of both vectors without the square root is calculated and compared with a threshold constant. The result is then written into the output as a boolean data type.}\label{fig:ubii-interaction-example}
+  \caption[Basic UBII interaction in JavaScript]{An example for an interaction written in JavaScript. This interaction calculates the squared distance of two points. One of the points is provided through the input, while the other one is stored in the state variable. To achieve this, the euclidean vector norm of the subtraction of both vectors without the square root is calculated and compared with a threshold constant. The result is then written into the output as a boolean data type. This is used to detect intended changes of the input position.}\label{fig:ubii-interaction-example}
 \end{figure}
 
 The code snippet has to define a function, which accepts three parameters: 

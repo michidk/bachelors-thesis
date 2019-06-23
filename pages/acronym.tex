@@ -1,8 +1,15 @@
+% chktex-file 1
 \chapter{Abbreviations}
 
+% https://tex.stackexchange.com/questions/70875/how-to-render-individual-acronyms-in-lower-case-when-used-inline-but-mixed-case
+\makeatletter
+\newif\if@in@acrolist
+\AtBeginEnvironment{acronym}{\@in@acrolisttrue}
+\newrobustcmd{\LU}[2]{\if@in@acrolist#1\else#2\fi}
 \begin{acronym}
 
 % use to sort: https://codebeautify.org/sort-text-lines
+% TODO: check for correct alphabetical order
 \acro{API}{Application Programming Interface}
 \acro{AR}{Augmented Reality}
 \acro{Protobuf}{Google Protocol Buffers}
@@ -12,6 +19,6 @@
 \acro{UBII}{UBI-Interact}
 \acro{UID}{Unique Identifier}
 \acro{VR}{Virtual Reality}
-\acro{3D}{Three-dimensional}
+\acro{3D}{\LU{T}{t}hree-dimensional}
 
 \end{acronym}

@@ -35,7 +35,8 @@
 \usepackage{subcaption}
 \usepackage{perpage}
 \MakePerPage{footnote} % reset footnotes each page
-
+\interfootnotelinepenalty=10000 % prevent splitting of footnotes to the next page
+\usepackage{etoolbox} % needed for some advanced scripting.. se acronyms def.
 
 
 \bibliography{bibliography}
