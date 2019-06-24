@@ -34,6 +34,13 @@
 \usepackage{enumitem}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{chngcntr} % change how figures are counted (important for figure referencing)
+\counterwithin{figure}{section} % also count sections
+%\counterwithin{figure}{subsection} % also count subsections
+\counterwithin{table}{section} % also count sections
+\usepackage[titles]{tocloft} % load with titles argument, so that look and feel of the title of ToC and LoF stays unchanged
+\setlength{\cftfignumwidth}{3.5em} % increase distance between numbers and text in list of figures
+\setlength{\cfttabnumwidth}{3.5em} 
 \usepackage{perpage}
 \MakePerPage{footnote} % reset footnotes each page
 \interfootnotelinepenalty=10000 % prevent splitting of footnotes to the next page
