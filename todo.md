@@ -34,4 +34,7 @@
     - SwiftKey
     - DriftBoard: https://dl-acm-org.eaccess.ub.tum.de/citation.cfm?id=2984591
 
+- correction
+  - check for usage of times.. time should be consistent (is used vs. was used)
+
 # Notes

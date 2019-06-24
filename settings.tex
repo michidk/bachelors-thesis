@@ -18,6 +18,7 @@
 \setcounter{biburllcpenalty}{7000}
 \setcounter{biburlucpenalty}{8000} % break urls in bibliography
 \usepackage{graphicx}
+\usepackage{textcomp} % for good looking copyright and registered symbols
 \usepackage{scrhack} % necessary for listings package
 \usepackage{listings}
 \usepackage{lstautogobble}
@@ -65,6 +66,8 @@
 \definecolor{TUMAccentLightBlue}{HTML}{98C6EA}
 \definecolor{TUMAccentBlue}{HTML}{64A0C8}
 
+\definecolor{CustomGrey}{HTML}{fcfcfc}
+
 % Settings for pgfplots
 \pgfplotsset{compat=newest}
 \pgfplotsset{
@@ -74,46 +77,45 @@
 
 % Settings for lstlistings
 \lstset{%
-  basicstyle=\ttfamily,
+  basicstyle=\ttfamily\footnotesize,
   columns=fullflexible,
   autogobble,
-  keywordstyle=\bfseries\color{TUMBlue},
-  stringstyle=\color{TUMAccentGreen}
+  extendedchars=true,
+  sensitive=true,
+  showstringspaces=false,
+  showspaces=false,
+  numbers=left,
+  numberstyle=\scriptsize,
+  numbersep=9pt,
+  tabsize=2,
+  breaklines=true,
+  showtabs=false,
+  captionpos=b,
+  backgroundcolor=\color{CustomGrey},
+  keywordstyle=\color{TUMBlue}\bfseries,
+  keywordstyle=[2]\color{TUMGray}\bfseries,
+  identifierstyle=\color{TUMBlack},
+  commentstyle=\color{TUMAccentGreen}\ttfamily,
+  stringstyle=\color{TUMAccentOrange}\ttfamily,
 }
-
-% Defined JavaScript lst listing language
-\definecolor{lightgray}{rgb}{.97,.97,.97}
-\definecolor{darkgray}{rgb}{.4,.4,.4}
-\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
 
 % chktex-file 18
 \lstdefinelanguage{JavaScript}{
-  keywords={break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, let, const, void, while, with},
+  keywords=[1]{break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, let, const, void, while, with},
+  keywords=[2]{class, export, boolean, throw, implements, import, this},
   morecomment=[l]{//},
   morecomment=[s]{/*}{*/},
   morestring=[b]',
   morestring=[b]",
   morestring=[b]'',
-  ndkeywords={class, export, boolean, throw, implements, import, this},
-  keywordstyle=\color{blue}\bfseries,
-  ndkeywordstyle=\color{darkgray}\bfseries,
-  identifierstyle=\color{black},
-  commentstyle=\color{purple}\ttfamily,
-  stringstyle=\color{red}\ttfamily,
-  sensitive=true
 }
 
-\lstset{
-  backgroundcolor=\color{lightgray},
-  extendedchars=true,
-  basicstyle=\footnotesize\ttfamily,
-  showstringspaces=false,
-  showspaces=false,
-  numbers=left,
-  numberstyle=\footnotesize,
-  numbersep=9pt,
-  tabsize=2,
-  breaklines=true,
-  showtabs=false,
-  captionpos=b
+\lstdefinelanguage{Protobuf}{
+  keywords=[1]{enum, message},
+  keywords=[2]{syntax, import, package},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  morestring=[b]''
 }
