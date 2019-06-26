@@ -18,7 +18,7 @@
 \setcounter{biburllcpenalty}{7000}
 \setcounter{biburlucpenalty}{8000} % break urls in bibliography
 \usepackage{graphicx}
-\usepackage{textcomp} % for good looking copyright and registered symbols
+\usepackage{textcomp} % for good looking copyright and registered symbols and arrows and more symbols
 \usepackage{scrhack} % necessary for listings package
 \usepackage{listings}
 \usepackage{lstautogobble}
@@ -44,7 +44,7 @@
 \usepackage{perpage}
 \MakePerPage{footnote} % reset footnotes each page
 \interfootnotelinepenalty=10000 % prevent splitting of footnotes to the next page
-\usepackage{etoolbox} % needed for some advanced scripting.. se acronyms def.
+\usepackage{etoolbox} % advanced scripting.. se acronyms def.
 
 
 \bibliography{bibliography}
@@ -104,6 +104,7 @@
   identifierstyle=\color{TUMBlack},
   commentstyle=\color{TUMAccentGreen}\ttfamily,
   stringstyle=\color{TUMAccentOrange}\ttfamily,
+  escapechar=\%
 }
 
 % chktex-file 18

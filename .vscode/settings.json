@@ -30,6 +30,7 @@
         "Neurorobotics",
         "Plecher",
         "Protobuf",
+        "QWERTZ",
         "Sandro",
         "Sketchfab",
         "UBII",
@@ -40,6 +41,7 @@
         "chktex",
         "darkgray",
         "discretize",
+        "escapechar",
         "extendedchars",
         "hbox",
         "hidelinks",
@@ -58,7 +60,8 @@
         "proto",
         "showspaces",
         "showstringspaces",
-        "tabsize"
+        "tabsize",
+        "textleftarrow"
     ],
     "cSpell.enabledLanguageIds": [
         "asciidoc",
