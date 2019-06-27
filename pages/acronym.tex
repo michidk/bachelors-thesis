@@ -1,9 +1,8 @@
-% chktex-file 1
 \chapter{Abbreviations}
 
 % https://tex.stackexchange.com/questions/70875/how-to-render-individual-acronyms-in-lower-case-when-used-inline-but-mixed-case
 \makeatletter
-\newif\if@in@acrolist
+\newif\if@in@acrolist % chktex 1
 \AtBeginEnvironment{acronym}{\@in@acrolisttrue}
 \newrobustcmd{\LU}[2]{\if@in@acrolist#1\else#2\fi}
 \begin{acronym}

@@ -1,5 +1,4 @@
 % !TeX root = ../../main.tex
-% chktex-file 9
 \section{Smart Device}\label{section:smart-device}
 
 The \enquote{Smart Device} is a part of the \ac{UBII} front end. Because it is web-based, only data which is available through the \textbf{Web \acp{API}} can be obtained. Since it was not designed for a specific use case, it is thought as general purpose or testing device. Only touch positions, touch events, orientation and acceleration is sent to different \ac{UBII} topics using the \textbf{\ac{UBII} Client}. For more specific scenarios, the smart device can not be used and a custom interface has to be implemented. For the experiments in this thesis though, the smart device client was sufficient, after implementing some improvements.
@@ -10,7 +9,7 @@ The data which is published, is also displayed on the screen for debugging purpo
 \subsection{Topic Data}\label{subsection:topic-data}
 
 The orientation is provided by the \textbf{Web API} through the \lstinline{DeviceOrientation} event. It is defined by three euler angles named \lstinline{alpha}, \lstinline{beta} and \lstinline{gamma}, as seen in Figure~\ref{fig:webapi-device-orientation}.
-While \lstinline{alpha} returns values in the range \(\left[0, 360\right)\), \lstinline{beta} only returns the range \(\left[-180, 180\right)\) and \lstinline{gamma} \(\left[-90, 90\right)\)~\cite[Chapter~4.1]{DevicesandSensorsWorkingGroup.2019}.
+While \lstinline{alpha} returns values in the range \(\left[0, 360\right)\), \lstinline{beta} only returns the range \(\left[-180, 180\right)\) and \lstinline{gamma} \(\left[-90, 90\right)\)~\cite[Chapter~4.1]{DevicesandSensorsWorkingGroup.2019}. % chktex 9
 This limitation entails that no full orientation tracking is possible with this event. 
 
 \begin{figure}[htpb]
