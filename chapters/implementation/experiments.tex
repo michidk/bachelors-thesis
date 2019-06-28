@@ -14,7 +14,7 @@ Since this approach turned out to be very successful, it was used in this experi
 
 To feature how easy it is to view a more complex model using VR and the smartphone as a manipulator, a human skeleton model is used. This experiment is the only one supporting more than one smartphone client at the same time. For every client that connects, a new skeleton is created. The position is fixed and arranged around the position of the \ac{VR} headset. A scene with multiple connected clients is shown in Figure~\ref{fig:screenshot-exp-mv}.
 
-\begin{figure}[htpb]
+\begin{figure}[H]
   \centering
   \includegraphics[width=12cm]{figures/screenshot_exp_mv.png}
   \caption[Screenshot of the model viewer experiment]{A screenshot of three devices being connected and controlling the rotation of the models.}\label{fig:screenshot-exp-mv}
@@ -41,7 +41,7 @@ The implementation of this experiment listens for new clients. As soon as one co
       };
     }
   \end{lstlisting}
-  \caption[UBII interaction converting euler angles in radians to degrees]{This \ac{UBII} interaction is used to convert the orientation data sent by the smart device to the format ThreeJS needs for rendering. The values are converted by multiplying with an approximate of the number $\Pi$ (\enquote{PI}) and dividing by $180$.}\label{fig:ubii-interaction-angles} %chktex 46
+  \caption[UBII interaction of model viewer]{This \ac{UBII} interaction is used to convert the orientation data sent by the smart device to the format ThreeJS needs for rendering. The values are converted by multiplying with an approximate of the number $\Pi$ (\enquote{PI}) and dividing by $180$.}\label{fig:ubii-interaction-angles} %chktex 46
 \end{figure}
 
 
@@ -56,7 +56,7 @@ A better solution is the use of handheld controllers, where the position of the 
 \citeauthor{Argelaguet.2013} evaluated more than 30 different selection techniques for virtual environments, but there are no technique that uses the orientation but not the position of the pointing device~\cite[Table 1]{Argelaguet.2013}. To work around the missing position data of the device, the ray origin is set to a fixed location relative to the users head where the phone could be in the real world. The ray origin is represented by a \ac{3D} phone model, which orientation is synchronized with the one from the last connected smart device (see Section~\ref{section:smart-device}) client, similar to the first experiment (\ref{subsection:model-viewer}). To keep the virtual phone inside the view frustum of the user, it rotates relative to the user on the \(y\)-axis.
 A line is attached to the front of the phone (the \enquote{laser}) to indicate the direction of the ray.
 
-\begin{figure}[htpb]
+\begin{figure}[H]
   \centering
   \includegraphics[width=12cm]{figures/screenshot_exp_lp.png}
   \caption[Screenshot of the laser pointer experiment]{A screenshot of the virtual laser pointer and selectable cubes.}\label{fig:screenshot-exp-lp}
