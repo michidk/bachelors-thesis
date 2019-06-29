@@ -5,7 +5,7 @@
    1. Smartphones
    1. Motivation
    1. Problem Definition (& Task)?
-1. Related Work
+1. Related Work ✓
 1. Implementation ✓
    1. Ubi-Interact ✓
       1. Architecture

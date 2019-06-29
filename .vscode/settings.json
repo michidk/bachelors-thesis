@@ -29,6 +29,10 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
+  "files.exclude": {
+    "**/.*": true,
+    "out/": true
+  },
   "cSpell.words": [
     "Dyrda",
     "Neurorobotics",
