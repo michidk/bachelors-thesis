@@ -31,8 +31,11 @@
   "editor.detectIndentation": false,
   "files.exclude": {
     "**/.*": true,
-    "out/": true
+    "out/": true,
+    ".vscode/": false,
+    "Makefile": true
   },
+  "latex-workshop.view.pdf.trim": 2,
   "cSpell.words": [
     "Dyrda",
     "Neurorobotics",

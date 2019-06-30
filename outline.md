@@ -1,10 +1,9 @@
 # Thesis Planned Structure
 
-1. Introduction // similar to kickoff slides
-   1. Virtual Reality
-   1. Smartphones
-   1. Motivation
-   1. Problem Definition (& Task)?
+1. Introduction _// similar to kickoff slides
+   1. Motivation: Virtual Reality ✓
+   1. Motivation: Smartphones ✓
+   1. Problem Definition (& Task)
 1. Related Work ✓
 1. Implementation ✓
    1. Ubi-Interact ✓
