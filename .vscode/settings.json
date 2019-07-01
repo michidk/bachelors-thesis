@@ -72,7 +72,8 @@
     "showspaces",
     "showstringspaces",
     "tabsize",
-    "textleftarrow"
+    "textleftarrow",
+    "wirelessly"
   ],
   "cSpell.enabledLanguageIds": [
     "asciidoc",
