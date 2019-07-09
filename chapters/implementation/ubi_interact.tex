@@ -57,7 +57,7 @@ They are also useful if two \ac{UBII} topics with different formats should be co
     function (inputs, outputs, state) {
       const threshold = 0.05;
 
-      if (state.position) {
+      if (state.lastPosition) {
         const vector = {
           x: inputs.position.x - state.lastPosition.x,
           y: inputs.position.y - state.lastPosition.y,
