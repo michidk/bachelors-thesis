@@ -1,8 +1,7 @@
 \RequirePackage[l2tabu,orthodox]{nag}
 % chktex-file 17
 
-%\documentclass[headsepline,footsepline,footinclude=false,fontsize=11pt,paper=a4,listof=totoc,bibliography=totoc,BCOR=12mm,DIV=12]{scrbook} % two-sided
-\documentclass[headsepline,footsepline,footinclude=false,oneside,fontsize=11pt,paper=a4,listof=totoc,bibliography=totoc]{scrbook} % one-sided
+\documentclass[headsepline,footsepline,footinclude=false,fontsize=11pt,paper=a4,oneside,listof=totoc,bibliography=totoc]{scrbook}
 
 \input{settings}
 
@@ -10,7 +9,7 @@
 \newcommand*{\getFaculty}{Informatics}
 \newcommand*{\getStudies}{Informatics: Games Engineering}
 \newcommand*{\getTitle}{Smartphone-Assisted Virtual Reality\newline Using Ubi-Interact}
-\newcommand*{\getTitleGer}{Smartphone-Gestützte Virtuelle Realität\newline mit Ubi-Interact}
+\newcommand*{\getTitleGer}{Smartphone-gestützte Virtuelle Realität\newline mit Ubi-Interact}
 \newcommand*{\getAuthor}{Michael Lohr}
 \newcommand*{\getDoctype}{Bachelor's Thesis}
 \newcommand*{\getSupervisor}{Prof.\ Gudrun Johanna Klinker, Ph.D.}
@@ -29,7 +28,6 @@
 
 \input{pages/title}
 \input{pages/disclaimer}
-\input{pages/acknowledgments}
 \input{pages/abstract}
 \microtypesetup{protrusion=false}
 \tableofcontents{}
@@ -48,6 +46,8 @@
 \input{chapters/implementation/experiments}
 \input{chapters/evaluation/intro}
 %\input{chapters/99_example}
+
+\input{pages/acknowledgments}
 
 \microtypesetup{protrusion=false}
 \listoffigures{}

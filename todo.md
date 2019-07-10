@@ -47,6 +47,8 @@ NOW:
 
   - check for usage of times.. time should be consistent (is used vs. was used)
   - paste into grammarly and languagetool
+    - done for abstract
+    - done for introduction
   - check citations in .pdf for plausability and correctness and formatting
 
 # Notes

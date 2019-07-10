@@ -48,7 +48,6 @@
 \usepackage[toc,page]{appendix} % more control over appendix
 \usepackage[final]{pdfpages} % allow embedding of pdf documents
 
-
 \bibliography{bibliography}
 
 \setkomafont{disposition}{\normalfont\bfseries} % use serif font for headings
@@ -131,3 +130,13 @@
 }
 
 \newcommand{\source}[1]{\footnotesize\newline\textbf{Source:} {#1}\normalsize}
+
+% allow multiple footnotes seperated by commas (https://tex.stackexchange.com/questions/40072/incompatibility-between-footmisc-option-multiple-and-hyperref/62091#62091)
+\let\oldFootnote\footnote
+\newcommand\nextToken\relax
+
+\renewcommand\footnote[1]{%
+    \oldFootnote{#1}\futurelet\nextToken\isFootnote}
+
+\newcommand\isFootnote{%
+    \ifx\footnote\nextToken\textsuperscript{,}\fi}
