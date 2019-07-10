@@ -132,7 +132,7 @@
 \newcommand{\source}[1]{\footnotesize\newline\textbf{Source:} {#1}\normalsize}
 
 % allow multiple footnotes seperated by commas (https://tex.stackexchange.com/questions/40072/incompatibility-between-footmisc-option-multiple-and-hyperref/62091#62091)
-\let\oldFootnote\footnote
+\let\oldFootnote\footnote%
 \newcommand\nextToken\relax
 
 \renewcommand\footnote[1]{%
