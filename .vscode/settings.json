@@ -1,26 +1,23 @@
 {
   "latex-workshop.latex.recipes": [{
-    "name": "xelatex",
-    "tools": ["xelatex", "biber", "xelatex", "xelatex"],
-    //"tools": ["xelatex"]
+    "name": "latexmk",
+    "tools": [
+      "latexmk"
+    ]
   }],
   "latex-workshop.latex.tools": [{
-    "name": "xelatex",
-    "command": "xelatex",
+    "name": "latexmk",
+    "command": "latexmk",
     "args": [
       "-synctex=1",
       "-interaction=nonstopmode",
       "-file-line-error",
+      "-pdf",
+      "-outdir=%OUTDIR%",
       "-output-directory=out",
       "%DOC%"
-    ]
-  }, {
-    "name": "biber",
-    "command": "biber",
-    "args": [
-      "--output_directory=out",
-      "%DOCFILE%"
-    ]
+    ],
+    "env": {}
   }],
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.chktex.enabled": true,
