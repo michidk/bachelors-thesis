@@ -1,0 +1,13 @@
+\section{Results}\label{section:eval-results}
+
+The evaluation was conducted during different times of the day. % TODO: count midday, afternoon , evening
+
+
+TODO persons participated in the evaluation. TODO stated, they identify as male and TODO as female. 
+% TODO: evaluate other preliminary questions
+
+\subsection{Model Viewer}\label{section:eval-res-mv}
+
+The model viewer experiment, presented in Section~\ref{subsection:model-viewer}, allows users to view \ac{3D} model from different angles. To benchmark extensive usage, a second model instance in another color (the target) is spawned after starting the task. Since in the current implementation, the model cannot be rotated upside down (as mentioned in Section~\ref{subsection:topic-data}), the target is spawned with random reachable orientations.
+As soon as the task is started, the user has 30 seconds to match as many orientations as possible. After one orientation is matched, the target is rotated to a new random orientation.
+Because it is hard to match the rotation exactly on all three axes, it is enough to pose the model in a similar orientation to the target.

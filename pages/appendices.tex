@@ -1,6 +1,57 @@
 % !TeX root = ../main.tex
 
 \begin{appendices}
-  \includepdf[pages=1,pagecommand={\chapter{User Evaluation Form}\label{chapter:append-user-eval-form}},width=\textwidth,clip,trim=0mm 9cm 0mm 0mm]{appendices/evaluation.pdf}
+  % Evaluation Devices
+  \chapter{User Evaluation Devices}\label{chapter:append-user-eval-devices}
+  \section{Testing Environment A: Home}
+  \begin{itemize}
+    \item Smartphone
+    \begin{itemize}
+      \item Type: ONEPLUS A6013
+      \item Operating System: Android 9
+      \item RAM: 8 GB
+      \item CPU: Snapdragon(TM) 845 % chktex 36
+    \end{itemize}
+    \item \ac{PC}
+    \begin{itemize}
+      \item Operating System: Windows 10
+      \item RAM: 32 GB
+      \item CPU: Intel(R) Core(TM) i7-6700K % chktex 36 chktex 8
+      \item GPU: NVIDIA GeForce GTX 1080  
+    \end{itemize}
+    \item \ac{HMD}
+    \begin{itemize}
+      \item Type: Oculus Rift
+      \item Version: Consumer Version 1
+      \item Sensors: 2x Oculus Rift Constellation sensor
+    \end{itemize}
+  \end{itemize}
+
+  \section{Testing Environment B: University}
+  \begin{itemize}
+    \item Smartphone
+    \begin{itemize}
+      \item Type: ONEPLUS A6013
+      \item Operating System: Android 9
+      \item RAM: 8 GB
+      \item CPU: Snapdragon(TM) 845 % chktex 36
+    \end{itemize}
+    \item \ac{PC}
+    \begin{itemize} % TODO:
+      \item Operating System: Windows 10
+      \item RAM: 32 GB
+      \item CPU: Intel(R) Core(TM) i7-6700K % chktex 36 chktex 8
+      \item GPU: NVIDIA GeForce GTX 1080  
+    \end{itemize}
+    \item \ac{HMD}
+    \begin{itemize} % TODO:
+      \item Type: Oculus Rift
+      \item Version: Consumer Version 1
+      \item Sensors: 2x Oculus Rift Constellation sensor
+    \end{itemize}
+  \end{itemize}
+
+  % Evaluation Form
+  \includepdf[pages=1,pagecommand={\chapter{User Evaluation Form}\label{chapter:append-user-eval-form}},width=\textwidth,clip,trim=0mm 9cm 0mm 0mm]{appendices/evaluation.pdf} % the trimming is not supported with XeLaTeX
   \includepdf[pages=2-,pagecommand={},width=\textwidth]{appendices/evaluation.pdf}
 \end{appendices}
