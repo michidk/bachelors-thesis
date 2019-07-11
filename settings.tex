@@ -1,6 +1,7 @@
+% spell-checker:disable
 \PassOptionsToPackage{table,svgnames,dvipsnames}{xcolor}
 
-%\usepackage[utf8]{inputenc} % inputenc package ignored with utf8 based engines
+\usepackage[utf8]{inputenc} % inputenc package ignored with utf8 based engines
 \usepackage[T1]{fontenc}
 \usepackage[sc]{mathpazo}
 \usepackage[ngerman,american]{babel}
@@ -17,31 +18,31 @@
 \usepackage{url}
 \setcounter{biburllcpenalty}{7000}
 \setcounter{biburlucpenalty}{8000} % break urls in bibliography
-\usepackage{graphicx}
 \usepackage{textcomp} % for good looking copyright and registered symbols and arrows and more symbols
 \usepackage{scrhack} % necessary for listings package
-\usepackage{listings}
+\usepackage{listings} % code highlighting
 \usepackage{lstautogobble}
-\usepackage{tikz}
+% \usepackage{graphicx} % draw graphics
+\usepackage{tikz} % draw graphics, will load graphicx
 \usetikzlibrary{fit, positioning, shapes}
-\usepackage{pgfplots}
-\usepackage{pgfplotstable}
-\usepackage{booktabs}
+\usepackage{pgfplots} % plots with tikz
+% \usepackage{pgfplotstable} % tables with pgf, we are using booktabs for this
+\usepackage{booktabs} % nice tables: https://inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf
 \usepackage{float} % require by the H-argument of figure e.g. \begin{figure}[H]
-\usepackage[final]{microtype}
+\usepackage[final]{microtype} % better font cerning
 \usepackage[hidelinks]{hyperref} % hidelinks removes colored boxes around references and links
-\usepackage[printonlyused]{acronym}
-\usepackage{enumitem}
-\usepackage{caption}
-\usepackage{subcaption}
+\usepackage[printonlyused]{acronym} % acronyms toc and referencing
+\usepackage{enumitem} % bullet lists
+\usepackage{caption} % figure captions
+\usepackage{subcaption} % caption inside a figure with a caption
 \usepackage{chngcntr} % change how figures are counted (important for figure referencing)
 \counterwithin{figure}{section} % also count sections
 %\counterwithin{figure}{subsection} % also count subsections
 \counterwithin{table}{section} % also count sections
 \usepackage[titles]{tocloft} % load with titles argument, so that look and feel of the title of ToC and LoF stays unchanged
 \setlength{\cftfignumwidth}{3.5em} % increase distance between numbers and text in list of figures
-\setlength{\cfttabnumwidth}{3.5em} 
-\usepackage{perpage}
+\setlength{\cfttabnumwidth}{3.5em} % same for tabulars
+\usepackage{perpage} % reset counters per page
 \MakePerPage{footnote} % reset footnotes each page
 \interfootnotelinepenalty=10000 % prevent splitting of footnotes to the next page
 \usepackage{etoolbox} % advanced scripting.. se acronyms def.
