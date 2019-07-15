@@ -49,6 +49,7 @@ NOW:
   - paste into grammarly and languagetool
     - done for abstract
     - done for introduction
+    - done for implementation
   - check citations in .pdf for plausability and correctness and formatting
 
 # Notes
