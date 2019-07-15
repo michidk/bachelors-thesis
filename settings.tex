@@ -1,10 +1,12 @@
 % spell-checker:disable
 \PassOptionsToPackage{table,svgnames,dvipsnames}{xcolor}
 
+\pdfminorversion=7 % changed pdf version, because embeded documents need newer features
+
 \usepackage[utf8]{inputenc} % inputenc package ignored with utf8 based engines
 \usepackage[T1]{fontenc}
 \usepackage[sc]{mathpazo}
-\usepackage[american,ngerman]{babel}
+\usepackage[ngerman,american]{babel}
 \usepackage[autostyle]{csquotes}
 \usepackage[%
   backend=biber,
@@ -39,7 +41,7 @@
 \counterwithin{figure}{section} % also count sections
 %\counterwithin{figure}{subsection} % also count subsections
 \counterwithin{table}{section} % also count sections
-\usepackage[titles]{tocloft} % load with titles argument, so that look and feel of the title of ToC and LoF stays unchanged
+%\usepackage[titles]{tocloft} % load with titles argument, so that look and feel of the title of ToC and LoF stays unchanged
 \setlength{\cftfignumwidth}{3.5em} % increase distance between numbers and text in list of figures
 \setlength{\cfttabnumwidth}{3.5em} % same for tabulars
 \usepackage{perpage} % reset counters per page
