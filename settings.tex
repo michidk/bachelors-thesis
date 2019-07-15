@@ -41,9 +41,6 @@
 \counterwithin{figure}{section} % also count sections
 %\counterwithin{figure}{subsection} % also count subsections
 \counterwithin{table}{section} % also count sections
-%\usepackage[titles]{tocloft} % load with titles argument, so that look and feel of the title of ToC and LoF stays unchanged
-\setlength{\cftfignumwidth}{3.5em} % increase distance between numbers and text in list of figures
-\setlength{\cfttabnumwidth}{3.5em} % same for tabulars
 \usepackage{perpage} % reset counters per page
 \MakePerPage{footnote} % reset footnotes each page
 \interfootnotelinepenalty=10000 % prevent splitting of footnotes to the next page
@@ -60,6 +57,7 @@
 
 % Add table of contents to PDF bookmarks
 \BeforeTOCHead[toc]{{\cleardoublepage\pdfbookmark[0]{\contentsname}{toc}}}
+
 
 % Define TUM corporate design colors
 % Taken from http://portal.mytum.de/corporatedesign/index_print/vorlagen/index_farben
@@ -143,3 +141,10 @@
 
 \newcommand\isFootnote{%
     \ifx\footnote\nextToken\textsuperscript{,}\fi}
+
+    % increase distance between numbers and text in list of figures
+\makeatletter
+%\renewcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.3em}} % original values in scrreprt
+\renewcommand*\l@figure{\@dottedtocline{1}{1.5em}{3em}} % modified. 
+\let\l@table\l@figure
+\makeatother
