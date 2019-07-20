@@ -1,5 +1,33 @@
 \section{Results}\label{section:eval-results}
 
+% Commands to edit stats which might change later. 
+
+% model viewer statistical facts
+\newcommand{\evalExpMvAvgPoses}{3.255} %TODO: correct value
+\newcommand{\evalExpMvStdPoses}{2.284}
+\newcommand{\evalExpMvParticipants}{12}
+
+% model viewer sus scores
+\newcommand{\evalExpMvSusScore}{82}
+\newcommand{\evalExpMvSusGrade}{B}
+\newcommand{\evalExpMvSusAdj}{Good}
+
+% model viewer sus scores
+\newcommand{\evalExpLpSusScore}{82}
+\newcommand{\evalExpLpSusGrade}{B}
+\newcommand{\evalExpLpSusAdj}{Good}
+
+% model viewer sus scores
+\newcommand{\evalExpVkSusScore}{82}
+\newcommand{\evalExpVkSusGrade}{B}
+\newcommand{\evalExpVkSusAdj}{Good}
+
+
+% First try in performing a T-Test. TODO: Check with michael
+% \pgfmathparse{10/6.5}\pgfmathprintnumber[fixed, precision=4]{\pgfmathresult}
+
+% This evaluation of the preliminary questions is pretty WIP.
+
 The evaluation was conducted during different times of the day. % TODO: count midday, afternoon , evening
 
 
@@ -19,33 +47,87 @@ Because it is hard to match the rotation exactly on all three axes, it is enough
   \caption[Matched poses per second of the model viewer experiment]{A box plot of the time in seconds it took to match a correct pose in the model viewer experiment.}\label{fig:eval-exp-mv}
 \end{figure}
 
-% \pgfmathparse{10/6.5}\pgfmathprintnumber[fixed, precision=4]{\pgfmathresult}
-\newcommand{\evalExpMvAvgPoses}{3.255} %TODO: correct value
-\newcommand{\evalExpMvStdPoses}{2.284}
-\newcommand{\evalExpMvParticipants}{12}
-
 % TODO: T-Test:
 %\pgfmathparse{(\evalExpMvAvgPoses-6.5)/(\evalExpMvStdPoses/sqrt(\evalExpMvParticipants))}\pgfmathprintnumber[fixed, precision=4]{\pgfmathresult}
 %
 As seen in Figure~\ref{fig:eval-exp-mv}, the average time it took to match a correct poses is roughly \evalExpMvAvgPoses\ seconds. \citeauthor{Katzakis.2010} tracked the time it takes to match a pre-defined pose with a Smartphone, a mouse and a touch panel. The lowest time in average to match one pose, 6.5 seconds, was achieved using the Smartphone as input device~\cite[140]{Katzakis.2010}. The average of the laser pointer experiment is higher than the average of the evaluation of \citeauthor{Katzakis.2010}. This can be due to the fact that users never had to turn the smartphone completely upside down, since rotations were chosen to be always upside up, because of the previously mentioned limitation. Another advantage in the presented implementation is, that the target and the controlled model are not displayed in two separate locations like in {\citetitle{Katzakis.2010}}, but rather with the same origin in the same coordinate space, which makes it easier to see the difference between both rotations~\cite[140]{Katzakis.2010}. Besides the threshold value, also the fact that a skeleton model instead of a multi-colored cube was used, could play a role. 
 
-
-
-However, not only the measured interaction times but also the \ac{SUS} study results indicate a useable implementation.
-
-
-\begin{figure}[htpb]
+\begin{figure}[H]
   \centering
   \begin{subfigure}{.45\textwidth}%
     \centering
     \includegraphics[width=\textwidth]{figures/evaluation/res_exp_mv.pdf}
-    \caption{The results of question one to ten presented as box plots.}\label{fig:ubii-er-client}
+    \caption{The results of question one to ten presented as box plots.}\label{fig:res-exp-mv}
   \end{subfigure}%
   \hspace{0.1\textwidth}%
   \begin{subfigure}{.45\textwidth}%
     \centering
     \includegraphics[width=\textwidth]{figures/evaluation/score_exp_mv.pdf}
-    \caption{The overall \ac{SUS} score presented in a box plot.}\label{fig:ubii-er-server}
+    \caption{The overall \ac{SUS} score presented in a box plot.}\label{fig:score-exp-mv}
   \end{subfigure}%
-  \caption[UBII components diagram]{The results of the \ac{SUS} user study for the model viewer.}\label{fig:ubii-er}
+  \caption[User study results of the model viewer experiment]{The results of the \ac{SUS} user study for the model viewer.}\label{fig:exp-mv-stats}
 \end{figure}
+
+However, not only the measured interaction times but also the \ac{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-mv-stats}. A score of \evalExpMvSusScore\ is considered \evalExpMvSusAdj\ and mapped to the grade \evalExpMvSusGrade, according to \citeauthor{Bangor.2009}~\cite{Bangor.2009}.
+
+
+
+\subsection{Laser Pointer}\label{section:eval-res-lp}
+
+
+% TODO: multiple different plots available for the LP
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=10cm]{figures/evaluation/eval_exp_lp.pdf}
+  \caption[TODO]{TODO}\label{fig:eval-exp-lp}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{.45\textwidth}%
+    \centering
+    \includegraphics[width=\textwidth]{figures/evaluation/res_exp_lp.pdf}
+    \caption{The results of question one to ten presented as box plots.}\label{fig:res-exp-lp}
+  \end{subfigure}%
+  \hspace{0.1\textwidth}%
+  \begin{subfigure}{.45\textwidth}%
+    \centering
+    \includegraphics[width=\textwidth]{figures/evaluation/score_exp_lp.pdf}
+    \caption{The overall \ac{SUS} score presented in a box plot.}\label{fig:score-exp-lp}
+  \end{subfigure}%
+  \caption[User study results of the laser pointer experiment]{The results of the \ac{SUS} user study for the laser pointer.}\label{fig:exp-lp-stats}
+\end{figure}
+
+However, not only the measured interaction times but also the \ac{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-lp-stats}. A score of \evalExpLpSusScore\ is considered \evalExpLpSusAdj\ and mapped to the grade \evalExpLpSusGrade, according to \citeauthor{Bangor.2009}~\cite{Bangor.2009}.
+
+
+
+\subsection{Virtual Keyboard}\label{section:eval-res-vk}
+
+
+% TODO. VK still has to be evaluated
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=10cm]{figures/evaluation/eval_exp_lp.pdf}
+  \caption[TO DO]{TO DO}\label{fig:eval-exp-vk}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{.45\textwidth}%
+    \centering
+    \includegraphics[width=\textwidth]{figures/evaluation/res_exp_vk.pdf}
+    \caption{The results of question one to ten presented as box plots.}\label{fig:res-exp-vk}
+  \end{subfigure}%
+  \hspace{0.1\textwidth}%
+  \begin{subfigure}{.45\textwidth}%
+    \centering
+    \includegraphics[width=\textwidth]{figures/evaluation/score_exp_vk.pdf}
+    \caption{The overall \ac{SUS} score presented in a box plot.}\label{fig:score-exp-vk}
+  \end{subfigure}%
+  \caption[User study results of the virtual keyboard experiment]{The results of the \ac{SUS} user study for the virtual keyboard.}\label{fig:exp-vk-stats}
+\end{figure}
+
+However, not only the measured interaction times but also the \ac{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-mv-stats}. A score of \evalExpVkSusScore\ is considered \evalExpVkSusAdj\ and mapped to the grade \evalExpVkSusGrade, according to \citeauthor{Bangor.2009}~\cite{Bangor.2009}.
