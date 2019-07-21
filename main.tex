@@ -26,10 +26,11 @@
 
 \frontmatter{}
 
+% order: % https://gradschool.unc.edu/academics/thesis-diss/guide/ordercomponents.html
 \input{pages/title}
 \input{pages/disclaimer}
 \input{pages/abstract}
-\microtypesetup{protrusion=false}
+\microtypesetup{protrusion=false} % disable for lists: http://www.khirevich.com/latex/microtype/
 \tableofcontents{}
 \microtypesetup{protrusion=true}
 \input{pages/acronyms}
@@ -55,8 +56,10 @@
 \listoffigures{}
 \listoftables{}
 \microtypesetup{protrusion=true}
-\printbibliography{}
 
 \input{pages/appendices}
+\printbibliography{}
+
+
 
 \end{document}
