@@ -37,50 +37,73 @@ TODO persons participated in the evaluation. TODO stated, they identify as male 
 
 \subsection{Model Viewer}\label{section:eval-res-mv}
 
-The model viewer experiment, presented in Section~\ref{subsection:model-viewer}, allows users to view \ac{3D} model from different angles. To benchmark extensive usage, a second model instance in another color (the target) is spawned after starting the task. Since in the current implementation, the model cannot be rotated upside down (as mentioned in Section~\ref{subsection:topic-data}), the target is spawned with random reachable orientations.
+The model viewer experiment, described in Section~\ref{subsection:model-viewer}, allows users to view a \ac{3D} model from different angles. To benchmark extensive usage, a second model instance in another color (the target) is spawned after starting the task. Since in the current implementation, the model cannot be rotated upside down (as mentioned in Section~\ref{subsection:topic-data}), the target is spawned with random reachable orientations.
 As soon as the task is started, the user has 30 seconds to match as many orientations as possible. Similar to the implementation by \citeauthor{Katzakis.2010}, the target is rotated to a new random orientation, after one orientation was matched~\cite[140]{Katzakis.2010}.
 Because it is hard to match the rotation exactly on all three axes, it is enough to pose the model in a similar orientation to the target. A similar pose is reached, when the smallest angle between the two rotations is less than 20 radians.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=10cm]{figures/evaluation/eval_exp_mv.pdf}
-  \caption[Matched poses per second of the model viewer experiment]{A box plot of the time in seconds it took to match a correct pose in the model viewer experiment.}\label{fig:eval-exp-mv}
+  \caption[Model viewer experiment results]{The time in seconds it took to match a correct pose in the model viewer experiment.}\label{fig:eval-exp-mv}
 \end{figure}
 
 % TODO: T-Test:
 %\pgfmathparse{(\evalExpMvAvgPoses-6.5)/(\evalExpMvStdPoses/sqrt(\evalExpMvParticipants))}\pgfmathprintnumber[fixed, precision=4]{\pgfmathresult}
 %
-As seen in Figure~\ref{fig:eval-exp-mv}, the average time it took to match a correct poses is roughly \evalExpMvAvgPoses\ seconds. \citeauthor{Katzakis.2010} tracked the time it takes to match a pre-defined pose with a Smartphone, a mouse and a touch panel. The lowest time in average to match one pose, 6.5 seconds, was achieved using the Smartphone as input device~\cite[140]{Katzakis.2010}. The average of the laser pointer experiment is higher than the average of the evaluation of \citeauthor{Katzakis.2010}. This can be due to the fact that users never had to turn the smartphone completely upside down, since rotations were chosen to be always upside up, because of the previously mentioned limitation. Another advantage in the presented implementation is, that the target and the controlled model are not displayed in two separate locations like in {\citetitle{Katzakis.2010}}, but rather with the same origin in the same coordinate space, which makes it easier to see the difference between both rotations~\cite[140]{Katzakis.2010}. Besides the threshold value, also the fact that a skeleton model instead of a multi-colored cube was used, could play a role. 
+As seen in Figure~\ref{fig:eval-exp-mv}, the average time it took to match a correct poses is roughly \evalExpMvAvgPoses\ seconds. \citeauthor{Katzakis.2010} tracked the time it takes to match a pre-defined pose with a Smartphone, a mouse and a touch panel. The lowest time in average to match one pose, 6.5 seconds, was achieved using the Smartphone as input device~\cite[140]{Katzakis.2010}. The average of the laser pointer experiment is higher than the average of the evaluation of \citeauthor{Katzakis.2010}. This can be due to the fact that users never had to turn the smartphone completely upside down, since rotations were chosen to be always upside up, because of the previously mentioned limitation. Another advantage of the presented implementation is, that the target and the controlled model are not displayed in two separate locations like in {\citetitle{Katzakis.2010}}, but rather with the same origin in the same coordinate space, which makes it easier to see the difference between both rotations~\cite[140]{Katzakis.2010}. Also the fact that a skeleton model instead of a multi-colored cube was used, could play a role. 
 
 \begin{figure}[H]
   \centering
   \begin{subfigure}{.45\textwidth}%
     \centering
     \includegraphics[width=\textwidth]{figures/evaluation/res_exp_mv.pdf}
-    \caption{The results of question one to ten presented as box plots.}\label{fig:res-exp-mv}
+    \caption{The results of question one to ten.}\label{fig:res-exp-mv}
   \end{subfigure}%
   \hspace{0.1\textwidth}%
   \begin{subfigure}{.45\textwidth}%
     \centering
     \includegraphics[width=\textwidth]{figures/evaluation/score_exp_mv.pdf}
-    \caption{The overall \ac{SUS} score presented in a box plot.}\label{fig:score-exp-mv}
+    \caption{The overall \ac{SUS} score.}\label{fig:score-exp-mv}
   \end{subfigure}%
   \caption[User study results of the model viewer experiment]{The results of the \ac{SUS} user study for the model viewer.}\label{fig:exp-mv-stats}
 \end{figure}
 
-However, not only the measured interaction times but also the \ac{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-mv-stats}. A score of \evalExpMvSusScore\ is considered \evalExpMvSusAdj\ and mapped to the grade \evalExpMvSusGrade, according to \citeauthor{Bangor.2009}~\cite{Bangor.2009}.
+However, also the \ac{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-mv-stats}. A score of \evalExpMvSusScore\ is considered \evalExpMvSusAdj\ and mapped to the grade \evalExpMvSusGrade, according to \citeauthor{Bangor.2009}~\cite{Bangor.2009}.
 
 
 
 \subsection{Laser Pointer}\label{section:eval-res-lp}
 
+Section~\ref{subsection:laser-pointer} introduces the laser pointer experiment. To test the performance of participants using this interaction, three cubes (the targets) are spawned at random locations in front of the user. He has to select as much cubes as possible in 30 seconds. The user was told to be as fast and especially as accurate as possible, since miss-hits are counted. 
 
-% TODO: multiple different plots available for the LP
+To trigger a selection, the user has to touch the smartphone display. This counts as a click. If no cube was selected, a miss is counted. The total selection (click) count is the sum of hits and miss-clicks. If one cube was hit, another one is spawned, so that always three cubes are visible. This is important, because the user can plan to hit the next target while currently aiming for the current one. Otherwise the task would test the users reaction time, which is not desired. 
+
 \begin{figure}[H]
   \centering
-  \includegraphics[width=10cm]{figures/evaluation/eval_exp_lp.pdf}
-  \caption[TODO]{TODO}\label{fig:eval-exp-lp}
+  \begin{subfigure}{.45\textwidth}%
+    \centering
+    \includegraphics[width=\textwidth]{figures/evaluation/eval_exp_lp.pdf}
+    \caption{The count of clicks, hits and misses per 30 seconds. Clicks are the sum of hits and misses.}\label{fig:eval-exp-lp}
+  \end{subfigure}%
+  \hspace{0.1\textwidth}%
+  \begin{subfigure}{.45\textwidth}%
+    \centering
+    \includegraphics[width=\textwidth]{figures/evaluation/eval_exp_lp_ratio_scatter.pdf}
+    \caption{The Hit/Miss ratio per click speed. The line visualizes the linear regression with a 95\% confidence interval.}\label{fig:eval-exp-lp-ratio-scatter}
+  \end{subfigure}%
+  \caption[Laser pointer experiment results]{The results of the laser pointer experiment.}\label{fig:exp-lp-eval}
 \end{figure}
+
+% TODO as seen in fig
+
+% res clemens:
+% avg 36.23 var 6.87 sec 60
+% / 2
+% avg 18.115 var 3.435 sec 30
+% ours: ?
+\citeauthor{Kamm.2018} tested his study participants in a similar scenario. A major difference to the approach in this thesis is, that only one target is displayed at a time. Another difference is, that the user has to rotate his head more in order to see the targets, since they are placed in a 90 degrees radius. An arrow, which always points to the next target, is displayed to prevent wasting time while searching for the next one. Also the distance from the user to the targets is randomized. % moyo as input device?
+
+
 
 
 \begin{figure}[H]
@@ -119,13 +142,13 @@ However, not only the measured interaction times but also the \ac{SUS} study res
   \begin{subfigure}{.45\textwidth}%
     \centering
     \includegraphics[width=\textwidth]{figures/evaluation/res_exp_vk.pdf}
-    \caption{The results of question one to ten presented as box plots.}\label{fig:res-exp-vk}
+    \caption{The results of question one to ten.}\label{fig:res-exp-vk}
   \end{subfigure}%
   \hspace{0.1\textwidth}%
   \begin{subfigure}{.45\textwidth}%
     \centering
     \includegraphics[width=\textwidth]{figures/evaluation/score_exp_vk.pdf}
-    \caption{The overall \ac{SUS} score presented in a box plot.}\label{fig:score-exp-vk}
+    \caption{The overall \ac{SUS} score.}\label{fig:score-exp-vk}
   \end{subfigure}%
   \caption[User study results of the virtual keyboard experiment]{The results of the \ac{SUS} user study for the virtual keyboard.}\label{fig:exp-vk-stats}
 \end{figure}
