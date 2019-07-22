@@ -7,6 +7,15 @@
 \newcommand{\evalExpMvStdPoses}{2.284}
 \newcommand{\evalExpMvParticipants}{12}
 
+% avg lp experiments
+\newcommand{\kammAvgHits}{36.23/60}
+\newcommand{\kammAvgStd}{6.87/60}
+\newcommand{\pietAvgHits}{2.60}
+\newcommand{\pietAvgStd}{0.734}
+% TODO: adjust values
+\newcommand{\oursAvgHits}{32/30}
+\newcommand{\oursAvgStd}{2/30}
+
 % model viewer sus scores
 \newcommand{\evalExpMvSusScore}{82}
 \newcommand{\evalExpMvSusGrade}{B}
@@ -21,6 +30,7 @@
 \newcommand{\evalExpVkSusScore}{82}
 \newcommand{\evalExpVkSusGrade}{B}
 \newcommand{\evalExpVkSusAdj}{Good}
+
 
 
 % First try in performing a T-Test. TODO: Check with michael
@@ -68,7 +78,7 @@ As seen in Figure~\ref{fig:eval-exp-mv}, the average time it took to match a cor
   \caption[User study results of the model viewer experiment]{The results of the \ac{SUS} user study for the model viewer.}\label{fig:exp-mv-stats}
 \end{figure}
 
-However, also the \ac{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-mv-stats}. A score of \evalExpMvSusScore\ is considered \evalExpMvSusAdj\ and mapped to the grade \evalExpMvSusGrade, according to \citeauthor{Bangor.2009}~\cite{Bangor.2009}.
+However, also the \ac{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-mv-stats}. A score of \evalExpMvSusScore\ is considered \evalExpMvSusAdj\ and mapped to the grade \evalExpMvSusGrade, according to \citeauthor{Bangor.2009}~\cite[120\psq]{Bangor.2009}.
 
 
 
@@ -94,14 +104,32 @@ To trigger a selection, the user has to touch the smartphone display. This count
   \caption[Laser pointer experiment results]{The results of the laser pointer experiment.}\label{fig:exp-lp-eval}
 \end{figure}
 
-% TODO as seen in fig
+% TODO as seen in fig~\ref{fig:eval-exp-lp} is roughly...
 
-% res clemens:
-% avg 36.23 var 6.87 sec 60
-% / 2
-% avg 18.115 var 3.435 sec 30
-% ours: ?
-\citeauthor{Kamm.2018} tested his study participants in a similar scenario. A major difference to the approach in this thesis is, that only one target is displayed at a time. Another difference is, that the user has to rotate his head more in order to see the targets, since they are placed in a 90 degrees radius. An arrow, which always points to the next target, is displayed to prevent wasting time while searching for the next one. Also the distance from the user to the targets is randomized. % moyo as input device?
+Figure~\ref{fig:eval-exp-lp-ratio-scatter} % TODO: shows the hit mis ratio per click speed
+
+
+The performance of this experiment is hard to compare with other implementations, without a standardized experiment setup. For example the size, shape, position and distance of the targets but also the spawn area and wether distracting elements are present or not, varies between different task evaluations of other research. However a comparison should still give a rough estimate wether the performance is similar, much better or really bad. Often the hit count is measured in different time intervals. To compare the results, the average hit count per second is calculated.
+
+\citeauthor{Kamm.2018} tested his implementation in a similar \ac{VR} scenario with a wrist band as input device. To compare his implementation, he also tested a laser pointer approach using a \ac{VR} motion controller~\cite[39]{Kamm.2018}. A major difference to his experiment setup is, that only one target is displayed at a time. Another difference is, that the user has to rotate his head more in order to see the targets, since they are placed in a 90 degrees radius. An arrow, which always points to the next target, is displayed to prevent wasting time while searching for the next one. Also the distance from the user to the targets is randomized~\cite[45]{Kamm.2018}.
+
+\citeauthor{Pietroszek.2014} compared a smartphone and a Wii Remote as interaction device for a large display. The task was to move the pointer from one point to another~\cite[124]{Pietroszek.2014}. To compare it with the presented experiments, the results of the one without distraction elements using the smartphone is used. 
+
+\begin{table}
+  \centering
+    \begin{tabular}{l c c}
+    \toprule
+    Research & Average Hits per Second & Standard Derivation\\
+    \midrule
+    \cite{Kamm.2018} & \pgfmathparse{\kammAvgHits}\pgfmathprintnumber[fixed, precision=3]{\pgfmathresult} & \pgfmathparse{\kammAvgStd}\pgfmathprintnumber[fixed, precision=3]{\pgfmathresult}\\%chktex 2 
+    \cite{Pietroszek.2014} & \pietAvgHits{} & \pietAvgStd{} \\%2.60s,  = .734) %chktex 2 21
+    Chapter~\ref{section:eval-res-lp} & \pgfmathparse{\oursAvgHits}\pgfmathprintnumber[fixed, precision=3]{\pgfmathresult} & \pgfmathparse{\oursAvgStd}\pgfmathprintnumber[fixed, precision=3]{\pgfmathresult}\\
+    \bottomrule
+    \end{tabular}
+  \caption[Comparison of laser pointer task results from other research.]{Comparison of the average hits per second from similar laser pointer experiments of other research.}\label{tab:lp-comp}
+\end{table}
+
+% TODO: explain tab~\ref{tab:lp-comp} and conclude
 
 
 
