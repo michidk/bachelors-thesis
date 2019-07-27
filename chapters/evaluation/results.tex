@@ -2,6 +2,11 @@
 
 % Commands to edit stats which might change later. 
 
+% demographic questions
+\newcommand{\participantsCount}{20}
+\newcommand{\participantsMale}{17}
+\newcommand{\participantsAge}{26}
+
 % model viewer statistical facts
 \newcommand{\evalExpMvAvgPoses}{3.255} %TODO: correct value
 \newcommand{\evalExpMvStdPoses}{2.284}
@@ -19,31 +24,34 @@
 % model viewer sus scores
 \newcommand{\evalExpMvSusScore}{82}
 \newcommand{\evalExpMvSusGrade}{B}
-\newcommand{\evalExpMvSusAdj}{Good}
+\newcommand{\evalExpMvSusAdj}{\enquote{Good}}
 
 % model viewer sus scores
 \newcommand{\evalExpLpSusScore}{82}
 \newcommand{\evalExpLpSusGrade}{B}
-\newcommand{\evalExpLpSusAdj}{Good}
+\newcommand{\evalExpLpSusAdj}{\enquote{Good}}
 
 % model viewer sus scores
 \newcommand{\evalExpVkSusScore}{82}
 \newcommand{\evalExpVkSusGrade}{B}
-\newcommand{\evalExpVkSusAdj}{Good}
+\newcommand{\evalExpVkSusAdj}{\enquote{Good}}
 
 
+% Calculations
+\newcommand{\participantsFemale}{\pgfmathparse{\participantsCount - \participantsMale}\pgfmathprintnumber[fixed, precision=4]{\pgfmathresult}}%chktex 8 chktex 1
 
 % First try in performing a T-Test. TODO: Check with michael
 % \pgfmathparse{10/6.5}\pgfmathprintnumber[fixed, precision=4]{\pgfmathresult}
 
 % This evaluation of the preliminary questions is pretty WIP.
 
-The evaluation was conducted during different times of the day. % TODO: count midday, afternoon , evening
+\participantsCount{} persons participated in the evaluation. \participantsFemale{} stated, they identify as female and \participantsMale{} identify as male. The average was \participantsAge{} years. 
+% TODO: table of main disciplines and degrees
+The main disciplines and degrees are shown in Table TODO.
+% TODO: show graph of A5 questions
+All users (100\%) use their smartphone multiple times a day, as seen in Figure TODO. Most participants  (TODO: PERCENTAGE) use their computer for work or studies TODO. They (TODO: PERCENTAGE) play computer games TODO.  A huge portion (TODO: PERCENTAGE) use \ac{VR} less than one time a month.
+%The evaluation was conducted during different times of the day. does say nothing
 
-
-TODO persons participated in the evaluation. TODO stated, they identify as male and TODO as female. 
-% TODO: evaluate other preliminary questions
-% TODO: explain studies/work of different users
 
 \subsection{Model Viewer}\label{section:eval-res-mv}
 
@@ -58,9 +66,9 @@ Because it is hard to match the rotation exactly on all three axes, it is enough
 \end{figure}
 
 % TODO: T-Test:
-%\pgfmathparse{(\evalExpMvAvgPoses-6.5)/(\evalExpMvStdPoses/sqrt(\evalExpMvParticipants))}\pgfmathprintnumber[fixed, precision=4]{\pgfmathresult}
-%
-As seen in Figure~\ref{fig:eval-exp-mv}, the average time it took to match a correct poses is roughly \evalExpMvAvgPoses\ seconds. \citeauthor{Katzakis.2010} tracked the time it takes to match a pre-defined pose with a Smartphone, a mouse and a touch panel. The lowest time in average to match one pose, 6.5 seconds, was achieved using the Smartphone as input device~\cite[140]{Katzakis.2010}. The average of the laser pointer experiment is higher than the average of the evaluation of \citeauthor{Katzakis.2010}. This can be due to the fact that users never had to turn the smartphone completely upside down, since rotations were chosen to be always upside up, because of the previously mentioned limitation. Another advantage of the presented implementation is, that the target and the controlled model are not displayed in two separate locations like in {\citetitle{Katzakis.2010}}, but rather with the same origin in the same coordinate space, which makes it easier to see the difference between both rotations~\cite[140]{Katzakis.2010}. Also the fact that a skeleton model instead of a multi-colored cube was used, could play a role. 
+%\pgfmathparse{(\evalExpMvAvgPoses-6.5)/(\evalExpMvStdPoses/sqrt(\evalExpMvParticipants))}\pgfmathprintnumber[fixed, precision=4]{\pgfmathresult} 
+% chktex 1
+As seen in Figure~\ref{fig:eval-exp-mv}, the average time it took to match a correct poses is roughly \evalExpMvAvgPoses{} seconds. \citeauthor{Katzakis.2010} tracked the time it takes to match a pre-defined pose with a Smartphone, a mouse and a touch panel. The lowest time in average to match one pose, 6.5 seconds, was achieved using the Smartphone as input device~\cite[140]{Katzakis.2010}. The average time to match a pose of the model viewer (\evalExpMvAvgPoses{} seconds) experiment presented in Chapter~\ref{section:eval-res-mv} is lower than the average of the evaluation of \citeauthor{Katzakis.2010} (6.5 seconds). This can be due to the fact that users never had to turn the smartphone completely upside down, since rotations were chosen to be always upside up, because of the previously mentioned limitation. Another advantage of the presented implementation is, that the target and the controlled model are not displayed in two separate locations like in {\citetitle{Katzakis.2010}}, but rather with the same origin in the same coordinate space, which makes it easier to see the difference between both rotations~\cite[140]{Katzakis.2010}. Also the fact that a skeleton model instead of a multi-colored cube was used, could play a role. 
 
 \begin{figure}[H]
   \centering
@@ -130,8 +138,6 @@ The performance of this experiment is hard to compare with other implementations
 \end{table}
 
 % TODO: explain tab~\ref{tab:lp-comp} and conclude
-
-
 
 
 \begin{figure}[H]
