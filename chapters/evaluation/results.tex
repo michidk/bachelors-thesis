@@ -3,9 +3,9 @@
 % Commands to edit stats which might change later. 
 
 % demographic questions
-\newcommand{\participantsCount}{20}
-\newcommand{\participantsMale}{17}
-\newcommand{\participantsAge}{26}
+\newcommand{\participantsCount}{23}
+\newcommand{\participantsMale}{21}
+\newcommand{\participantsAge}{23}
 
 % model viewer statistical facts
 \newcommand{\evalExpMvAvgPoses}{3.255} %TODO: correct value
@@ -45,11 +45,75 @@
 
 % This evaluation of the preliminary questions is pretty WIP.
 
-\participantsCount{} persons participated in the evaluation. \participantsFemale{} stated, they identify as female and \participantsMale{} identify as male. The average was \participantsAge{} years. 
-% TODO: table of main disciplines and degrees
-The main disciplines and degrees are shown in Table TODO.
-% TODO: show graph of A5 questions
-All users (100\%) use their smartphone multiple times a day, as seen in Figure TODO. Most participants  (TODO: PERCENTAGE) use their computer for work or studies TODO. They (TODO: PERCENTAGE) play computer games TODO.  A huge portion (TODO: PERCENTAGE) use \ac{VR} less than one time a month.
+\participantsCount{} persons participated in the evaluation. \participantsFemale{} stated, they identify as female and \participantsMale{} identify as male. The average age is \participantsAge{} years. 
+
+\begin{table}[H]
+  \centering
+  \begin{subtable}{.5\textwidth}
+    \footnotesize
+    \centering
+    \begin{tabular}{l c c}
+      \toprule
+      Degree & Count & Percentage\\
+      \midrule
+      High school degree & 13 &	56.52\% \\
+      Bachelor's degree (BA) & 6 & 26.09\% \\
+      Diploma's degree (Dipl.) & 1 & 4.35\% \\
+      Master's degree (MA) & 2 & 8.70\% \\
+      Approbation	& 1 &	4.35\% \\
+      \bottomrule
+    \end{tabular}
+    \caption{The answers to question A3: \enquote{What is the highest degree or level of school you have completed?}}\label{tab:sus-degree}
+  \end{subtable}%
+  \begin{subtable}{.5\textwidth}
+    \footnotesize
+    \centering
+    \begin{tabular}{l c c}
+      \toprule
+      Discipline & Count & Percentage\\
+      \midrule
+      Informatics & 7 & 30.43\% \\
+      Physics & 2 & 8.70\% \\
+      Automation and Robotics & 1 & 4.35\% \\
+      Chemistry & 1 & 4.35\% \\
+      Computational Biology & 1 & 4.35\% \\
+      Economics & 1 & 4.35\% \\
+      Electrical Engineering & 1 & 4.35\% \\
+      Law & 1 & 4.35\% \\
+      Medicine & 1 & 4.35\% \\
+      Musicology & 1 & 4.35\% \\
+      Pharmacy & 1 & 4.35\% \\
+      Public Service & 1 & 4.35\% \\
+      Publishing & 1 & 4.35\% \\
+      Statistics & 1 & 4.35\% \\
+      Technical Engineering & 1 & 4.35\% \\
+      Technology Management & 1 & 4.35\% \\
+      \bottomrule
+      \end{tabular}
+      \caption{The answers to question A4: \enquote{What is your main discipline?}}\label{tab:sus-discipline}
+  \end{subtable}
+  \caption[Degree and discipline of participants]{Highest degree (question A3) and main discipline (question A4) of the participants.}\label{tab:sus-d}
+\end{table}
+
+The main disciplines and degrees are shown in Table~\ref{tab:sus-d}. As seen in Table~\ref{tab:sus-degree}, the highest degree of half of the participants was a high school degree or equivalent. Table~\ref{tab:sus-discipline} shows that the main discipline is quite spread amongst different disciplines.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{.48\textwidth}%
+    \centering
+    \includegraphics[width=\textwidth]{figures/evaluation/res_demo_q8_s3.pdf}
+    \caption{The answers to the question A5: \enquote{Please rate how much you used computer games in the last six months.}}\label{fig:res-demo-q8-s3}
+  \end{subfigure}%
+  \hspace{0.03\textwidth}
+  \begin{subfigure}{.48\textwidth}%
+    \centering
+    \includegraphics[width=\textwidth]{figures/evaluation/res_demo_q8_s4.pdf}
+    \caption{The answers to the question A5: \enquote{Please rate how much you used virtual reality headsets in the last six months.}}\label{fig:res-demo-q8-s4}
+  \end{subfigure}%
+  \caption[Computer games and virtual reality headset usage]{The results of the question A5 about the computer games and virtual reality headset usage.}\label{fig:res-demo-q8}
+\end{figure}
+
+All participants (100.00\%) used their smartphone multiple times a day during the last six months. Most participants (78.26\%) used their computer for work or studies more than once per day during the last six months. 17.39\% state that they used it daily and only one participant used his computer one to three times a week for work or studies during the last six months. As seen in Figure~\ref{fig:res-demo-q8-s3}, most participants (60.87\%) played computer games more than three times a month during the last six months. Figure~\ref{fig:res-demo-q8-s4} shows that most participants (91.30\%) used \ac{VR} less than once per month during the last six months. A huge portion (39.13\%) did not use \ac{VR} at all in the last six moths.
 %The evaluation was conducted during different times of the day. does say nothing
 
 
@@ -72,13 +136,13 @@ As seen in Figure~\ref{fig:eval-exp-mv}, the average time it took to match a cor
 
 \begin{figure}[H]
   \centering
-  \begin{subfigure}{.45\textwidth}%
+  \begin{subfigure}{.48\textwidth}%
     \centering
     \includegraphics[width=\textwidth]{figures/evaluation/res_exp_mv.pdf}
     \caption{The results of question one to ten.}\label{fig:res-exp-mv}
   \end{subfigure}%
-  \hspace{0.1\textwidth}%
-  \begin{subfigure}{.45\textwidth}%
+  \hspace{0.03\textwidth}%
+  \begin{subfigure}{.48\textwidth}%
     \centering
     \includegraphics[width=\textwidth]{figures/evaluation/score_exp_mv.pdf}
     \caption{The overall \ac{SUS} score.}\label{fig:score-exp-mv}
@@ -98,13 +162,13 @@ To trigger a selection, the user has to touch the smartphone display. This count
 
 \begin{figure}[H]
   \centering
-  \begin{subfigure}{.45\textwidth}%
+  \begin{subfigure}{.48\textwidth}%
     \centering
     \includegraphics[width=\textwidth]{figures/evaluation/eval_exp_lp.pdf}
     \caption{The count of clicks, hits and misses per 30 seconds. Clicks are the sum of hits and misses.}\label{fig:eval-exp-lp}
   \end{subfigure}%
-  \hspace{0.1\textwidth}%
-  \begin{subfigure}{.45\textwidth}%
+  \hspace{0.3\textwidth}%
+  \begin{subfigure}{.48\textwidth}%
     \centering
     \includegraphics[width=\textwidth]{figures/evaluation/eval_exp_lp_ratio_scatter.pdf}
     \caption{The Hit/Miss ratio per click speed. The line visualizes the linear regression with a 95\% confidence interval.}\label{fig:eval-exp-lp-ratio-scatter}
@@ -127,7 +191,7 @@ The performance of this experiment is hard to compare with other implementations
   \centering
     \begin{tabular}{l c c}
     \toprule
-    Research & Average Hits per Second & Standard Derivation\\
+    Research & Average Hits per Second & Standard Deviation\\
     \midrule
     \cite{Kamm.2018} & \pgfmathparse{\kammAvgHits}\pgfmathprintnumber[fixed, precision=3]{\pgfmathresult} & \pgfmathparse{\kammAvgStd}\pgfmathprintnumber[fixed, precision=3]{\pgfmathresult}\\%chktex 2 
     \cite{Pietroszek.2014} & \pietAvgHits{} & \pietAvgStd{} \\%2.60s,  = .734) %chktex 2 21
@@ -142,13 +206,13 @@ The performance of this experiment is hard to compare with other implementations
 
 \begin{figure}[H]
   \centering
-  \begin{subfigure}{.45\textwidth}%
+  \begin{subfigure}{.48\textwidth}%
     \centering
     \includegraphics[width=\textwidth]{figures/evaluation/res_exp_lp.pdf}
     \caption{The results of question one to ten presented as box plots.}\label{fig:res-exp-lp}
   \end{subfigure}%
-  \hspace{0.1\textwidth}%
-  \begin{subfigure}{.45\textwidth}%
+  \hspace{0.03\textwidth}%
+  \begin{subfigure}{.48\textwidth}%
     \centering
     \includegraphics[width=\textwidth]{figures/evaluation/score_exp_lp.pdf}
     \caption{The overall \ac{SUS} score presented in a box plot.}\label{fig:score-exp-lp}
@@ -173,13 +237,13 @@ However, not only the measured interaction times but also the \ac{SUS} study res
 
 \begin{figure}[H]
   \centering
-  \begin{subfigure}{.45\textwidth}%
+  \begin{subfigure}{.48\textwidth}%
     \centering
     \includegraphics[width=\textwidth]{figures/evaluation/res_exp_vk.pdf}
     \caption{The results of question one to ten.}\label{fig:res-exp-vk}
   \end{subfigure}%
-  \hspace{0.1\textwidth}%
-  \begin{subfigure}{.45\textwidth}%
+  \hspace{0.03\textwidth}%
+  \begin{subfigure}{.48\textwidth}%
     \centering
     \includegraphics[width=\textwidth]{figures/evaluation/score_exp_vk.pdf}
     \caption{The overall \ac{SUS} score.}\label{fig:score-exp-vk}
