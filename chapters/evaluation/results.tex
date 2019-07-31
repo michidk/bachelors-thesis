@@ -8,40 +8,39 @@
 \newcommand{\participantsAge}{23}
 
 % model viewer statistical facts
-\newcommand{\evalExpMvAvgPoses}{3.255} %TODO: correct value
-\newcommand{\evalExpMvStdPoses}{2.284}
-\newcommand{\evalExpMvParticipants}{12}
+\newcommand{\evalExpMvAvgPoses}{2.83}
+\newcommand{\evalExpMvStdPoses}{1.94}
+\newcommand{\evalExpMvParticipants}{\participantsCount}
 
 % avg lp experiments
 \newcommand{\kammAvgHits}{36.23/60}
 \newcommand{\kammAvgStd}{6.87/60}
-\newcommand{\pietAvgHits}{2.60}
-\newcommand{\pietAvgStd}{0.734}
-% TODO: adjust values
-\newcommand{\oursAvgHits}{32/30}
-\newcommand{\oursAvgStd}{2/30}
+\newcommand{\youngAvgHits}{0.85}
+\newcommand{\youngAvgStd}{-}
+\newcommand{\oursAvgHits}{26.13/30}
+\newcommand{\oursAvgStd}{5.52/30}
 
 % model viewer sus scores
-\newcommand{\evalExpMvSusScore}{82}
+\newcommand{\evalExpMvSusScore}{83.04}
 \newcommand{\evalExpMvSusGrade}{B}
 \newcommand{\evalExpMvSusAdj}{\enquote{Good}}
 
 % model viewer sus scores
-\newcommand{\evalExpLpSusScore}{82}
-\newcommand{\evalExpLpSusGrade}{B}
-\newcommand{\evalExpLpSusAdj}{\enquote{Good}}
+\newcommand{\evalExpLpSusScore}{91.41}
+\newcommand{\evalExpLpSusGrade}{A}
+\newcommand{\evalExpLpSusAdj}{\enquote{Excellent}}
 
 % model viewer sus scores
-\newcommand{\evalExpVkSusScore}{82}
-\newcommand{\evalExpVkSusGrade}{B}
-\newcommand{\evalExpVkSusAdj}{\enquote{Good}}
+\newcommand{\evalExpVkSusScore}{71.63}
+\newcommand{\evalExpVkSusGrade}{C}
+\newcommand{\evalExpVkSusAdj}{\enquote{Ok}}
 
 
 % Calculations
-\newcommand{\participantsFemale}{\pgfmathparse{\participantsCount - \participantsMale}\pgfmathprintnumber[fixed, precision=4]{\pgfmathresult}}%chktex 8 chktex 1
+\newcommand{\participantsFemale}{\pgfmathparse{\participantsCount - \participantsMale}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult}}%chktex 8 chktex 1
 
 % First try in performing a T-Test. TODO: Check with michael
-% \pgfmathparse{10/6.5}\pgfmathprintnumber[fixed, precision=4]{\pgfmathresult}
+% \pgfmathparse{10/6.5}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult}
 
 % This evaluation of the preliminary questions is pretty WIP.
 
@@ -121,7 +120,7 @@ All participants (100.00\%) used their smartphone multiple times a day during th
   \caption[VR experience of the participants]{The results of the question A6 about the experience of the participants with \ac{VR}. The questions are rated with values ranging from one (\enquote{none}) to five (\enquote{a lot}).}\label{fig:res-demo-q9}
 \end{figure}
 
-The participants were asked three questions regarding their experience with \ac{VR} which could be answered with values ranging from one (\enquote{none}) to five (\enquote{a lot}). The first questions asked about the knowledge the user had about \ac{VR}. As can be seen in Figure~\ref{fig:res-demo-q9}, the general knowledge about \ac{VR} seems to be rather low (Mean: 2.83; Standard Deviation: 1.03). The second question asked about the interest in \ac{VR}, to which not one participant answered with the value one (Mean: 3.48; Standard Deviation: 0.99). The last question asked about the experience with motion controllers. It was explicitly mentioned that the Wii remote counts as motion controller, which might be the reason for the average, which is higher than the one from the first question (Mean: 3.30; Standard Deviation: 1.22).
+The participants were asked three questions regarding their experience with \ac{VR} which could be answered with values ranging from one (\enquote{none}) to five (\enquote{a lot}). The first questions asked about the knowledge the user had about \ac{VR}. As can be seen in the box plots\footnote{The boxes indicate the range from the \nth{25} to the \nth{75} percentile. The bars outside the box indicate the \nth{90} and \nth{10} percentile. The median is marked by the line in the center. Outliers are marked with diamond shapes.} in Figure~\ref{fig:res-demo-q9}, the general knowledge about \ac{VR} seems to be rather low (Mean: 2.83; \ac{STD}: 1.03). The second question asked about the interest in \ac{VR}, to which not one participant answered with the value one (Mean: 3.48; \ac{STD}: 0.99). The last question asked about the experience with motion controllers. It was explicitly mentioned that the Wii remote counts as motion controller, which might be the reason for the average, which is higher than the one from the first question (Mean: 3.30; \ac{STD}: 1.22).
 %The evaluation was conducted during different times of the day. does say nothing
 
 
@@ -138,7 +137,7 @@ Because it is hard to match the rotation exactly on all three axes, it is enough
 \end{figure}
 
 % TODO: T-Test:
-%\pgfmathparse{(\evalExpMvAvgPoses-6.5)/(\evalExpMvStdPoses/sqrt(\evalExpMvParticipants))}\pgfmathprintnumber[fixed, precision=4]{\pgfmathresult} 
+%\pgfmathparse{(\evalExpMvAvgPoses-6.5)/(\evalExpMvStdPoses/sqrt(\evalExpMvParticipants))}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult} 
 % chktex 1
 As seen in Figure~\ref{fig:eval-exp-mv}, the average time it took to match a correct poses is roughly \evalExpMvAvgPoses{} seconds. \citeauthor{Katzakis.2010} tracked the time it takes to match a pre-defined pose with a Smartphone, a mouse and a touch panel. The lowest time in average to match one pose, 6.5 seconds, was achieved using the Smartphone as input device~\cite[140]{Katzakis.2010}. The average time to match a pose of the model viewer (\evalExpMvAvgPoses{} seconds) experiment presented in Chapter~\ref{section:eval-res-mv} is lower than the average of the evaluation of \citeauthor{Katzakis.2010} (6.5 seconds). This can be due to the fact that users never had to turn the smartphone completely upside down, since rotations were chosen to be always upside up, because of the previously mentioned limitation. Another advantage of the presented implementation is, that the target and the controlled model are not displayed in two separate locations like in {\citetitle{Katzakis.2010}}, but rather with the same origin in the same coordinate space, which makes it easier to see the difference between both rotations~\cite[140]{Katzakis.2010}. Also the fact that a skeleton model instead of a multi-colored cube was used, could play a role. 
 
@@ -158,42 +157,39 @@ As seen in Figure~\ref{fig:eval-exp-mv}, the average time it took to match a cor
   \caption[User study results of the model viewer experiment]{The results of the \ac{SUS} user study for the model viewer.}\label{fig:exp-mv-stats}
 \end{figure}
 
-However, also the \ac{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-mv-stats}. A score of \evalExpMvSusScore\ is considered \evalExpMvSusAdj\ and mapped to the grade \evalExpMvSusGrade, according to \citeauthor{Bangor.2009}~\cite[120\psq]{Bangor.2009}.
+Also the \ac{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-mv-stats}. A score of \evalExpMvSusScore\ is considered \evalExpMvSusAdj\ and mapped to the grade \evalExpMvSusGrade, according to \citeauthor{Bangor.2009}~\cite[120\psq]{Bangor.2009}.
 
 
 
 \subsection{Laser Pointer}\label{section:eval-res-lp}
 
-Section~\ref{subsection:laser-pointer} introduces the laser pointer experiment. To test the performance of participants using this interaction, three cubes (the targets) are spawned at random locations in front of the user. He has to select as much cubes as possible in 30 seconds. The user was told to be as fast and especially as accurate as possible, since miss-hits are counted. 
+Section~\ref{subsection:laser-pointer} introduces the laser pointer experiment. To test the performance of participants using this interaction, three cubes (the targets) are spawned at random locations in front of the user. The cubes are always spawned in sight of the user so that he does not has to actively look for the targets. The participant has to select as much cubes as possible in 30 seconds. He was told to be as fast and especially as accurate as possible, since miss-hits are counted. 
 
 To trigger a selection, the user has to touch the smartphone display. This counts as a click. If no cube was selected, a miss is counted. The total selection (click) count is the sum of hits and miss-clicks. If one cube was hit, another one is spawned, so that always three cubes are visible. This is important, because the user can plan to hit the next target while currently aiming for the current one. Otherwise the task would test the users reaction time, which is not desired. 
 
 \begin{figure}[H]
   \centering
-  \begin{subfigure}{.48\textwidth}%
+  \begin{subfigure}{.48\linewidth}%
     \centering
-    \includegraphics[width=\textwidth]{figures/evaluation/eval_exp_lp.pdf}
+    \includegraphics[width=\linewidth]{figures/evaluation/eval_exp_lp.pdf}
     \caption{The count of clicks, hits and misses per 30 seconds. Clicks are the sum of hits and misses.}\label{fig:eval-exp-lp}
   \end{subfigure}%
-  \hspace{0.3\textwidth}%
-  \begin{subfigure}{.48\textwidth}%
+  \hspace{0.02\linewidth}%
+  \begin{subfigure}{.48\linewidth}%
     \centering
-    \includegraphics[width=\textwidth]{figures/evaluation/eval_exp_lp_ratio_scatter.pdf}
+    \includegraphics[width=\linewidth]{figures/evaluation/eval_exp_lp_ratio_scatter.pdf}
     \caption{The Hit/Miss ratio per click speed. The line visualizes the linear regression with a 95\% confidence interval.}\label{fig:eval-exp-lp-ratio-scatter}
   \end{subfigure}%
   \caption[Laser pointer experiment results]{The results of the laser pointer experiment.}\label{fig:exp-lp-eval}
 \end{figure}
 
-% TODO as seen in fig~\ref{fig:eval-exp-lp} is roughly...
-
-Figure~\ref{fig:eval-exp-lp-ratio-scatter} % TODO: shows the hit mis ratio per click speed
-
+Figure~\ref{fig:eval-exp-lp} visualizes the total click count (Mean: 31.83; \ac{STD}: 6.89), the actual hit count (Mean: 26.13; \ac{STD}: 5.52) and the count of miss hits (Mean: 5.70; \ac{STD}: 4.37) per 30 seconds. Participants were able to successfully point to and select objects with a speed of nearly one click per second. As seen in Figure~\ref{fig:eval-exp-lp-ratio-scatter} the hit/miss ratio is very high for slightly lower speeds but decreases fast with higher click speeds.
 
 The performance of this experiment is hard to compare with other implementations, without a standardized experiment setup. For example the size, shape, position and distance of the targets but also the spawn area and wether distracting elements are present or not, varies between different task evaluations of other research. However a comparison should still give a rough estimate wether the performance is similar, much better or really bad. Often the hit count is measured in different time intervals. To compare the results, the average hit count per second is calculated.
 
 \citeauthor{Kamm.2018} tested his implementation in a similar \ac{VR} scenario with a wrist band as input device. To compare his implementation, he also tested a laser pointer approach using a \ac{VR} motion controller~\cite[39]{Kamm.2018}. A major difference to his experiment setup is, that only one target is displayed at a time. Another difference is, that the user has to rotate his head more in order to see the targets, since they are placed in a 90 degrees radius. An arrow, which always points to the next target, is displayed to prevent wasting time while searching for the next one. Also the distance from the user to the targets is randomized~\cite[45]{Kamm.2018}.
 
-\citeauthor{Pietroszek.2014} compared a smartphone and a Wii Remote as interaction device for a large display. The task was to move the pointer from one point to another~\cite[124]{Pietroszek.2014}. To compare it with the presented experiments, the results of the one without distraction elements using the smartphone is used. 
+\citeauthor{JiYoungOh.2002} compared a real-world laser pointer for large screen interactions to a computer mouse. The application is displayed through a projector and the laser is detected by a camera. The pointer-device also has a button, which is pressed down to select an object, similar to the laser pointer implementation presented in Chapter~\ref{section:eval-res-lp}. All targets are always visible and their is a pre-determined order. Also the fact that all objects are on the same plane, makes the task similar to the one presented in this thesis~\cite[3\psq]{JiYoungOh.2002}.
 
 \begin{table}
   \centering
@@ -201,16 +197,15 @@ The performance of this experiment is hard to compare with other implementations
     \toprule
     Research & Average Hits per Second & Standard Deviation\\
     \midrule
-    \cite{Kamm.2018} & \pgfmathparse{\kammAvgHits}\pgfmathprintnumber[fixed, precision=3]{\pgfmathresult} & \pgfmathparse{\kammAvgStd}\pgfmathprintnumber[fixed, precision=3]{\pgfmathresult}\\%chktex 2 
-    \cite{Pietroszek.2014} & \pietAvgHits{} & \pietAvgStd{} \\%2.60s,  = .734) %chktex 2 21
-    Chapter~\ref{section:eval-res-lp} & \pgfmathparse{\oursAvgHits}\pgfmathprintnumber[fixed, precision=3]{\pgfmathresult} & \pgfmathparse{\oursAvgStd}\pgfmathprintnumber[fixed, precision=3]{\pgfmathresult}\\
+    \cite{Kamm.2018} & \pgfmathparse{\kammAvgHits}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult} & \pgfmathparse{\kammAvgStd}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult}\\%chktex 2 
+    \cite{JiYoungOh.2002} & \youngAvgHits{} & \youngAvgStd{} \\%chktex 2 21
+    Chapter~\ref{section:eval-res-lp} & \pgfmathparse{\oursAvgHits}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult} & \pgfmathparse{\oursAvgStd}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult}\\
     \bottomrule
     \end{tabular}
   \caption[Comparison of laser pointer task results from other research.]{Comparison of the average hits per second from similar laser pointer experiments of other research.}\label{tab:lp-comp}
 \end{table}
 
-% TODO: explain tab~\ref{tab:lp-comp} and conclude
-
+As seen in Table~\ref{tab:lp-comp}, the technique presented in Chapter~\ref{section:eval-res-lp} is the one with the best results. But due to the different conditions and task setups, it is not possible to draw a strong conclusion. Still, the result is similar to a real-world pointing technique, which is a good sign.
 
 \begin{figure}[H]
   \centering

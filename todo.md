@@ -51,5 +51,7 @@ NOW:
     - done for introduction
     - done for implementation
   - check citations in .pdf for plausability and correctness and formatting
+  - use \linewidth to scale figures
+  - think about increasing the font width of labels in python plots
 
 # Notes
