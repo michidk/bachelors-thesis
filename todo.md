@@ -53,5 +53,6 @@ NOW:
   - check citations in .pdf for plausability and correctness and formatting
   - use \linewidth to scale figures
   - think about increasing the font width of labels in python plots
+  - think about renaming references to section from Chapter~\ref to Section~\ref
 
 # Notes
