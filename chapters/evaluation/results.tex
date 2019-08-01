@@ -57,8 +57,8 @@
       \midrule
       High school degree & 13 &	56.52\% \\
       Bachelor's degree (BA) & 6 & 26.09\% \\
-      Diploma's degree (Dipl.) & 1 & 4.35\% \\
       Master's degree (MA) & 2 & 8.70\% \\
+      Diploma's degree (Dipl.) & 1 & 4.35\% \\
       Approbation	& 1 &	4.35\% \\
       \bottomrule
     \end{tabular}
@@ -124,6 +124,7 @@ The participants were asked three questions regarding their experience with \ac{
 %The evaluation was conducted during different times of the day. does say nothing
 
 
+
 \subsection{Model Viewer}\label{section:eval-res-mv}
 
 The model viewer experiment, described in Section~\ref{subsection:model-viewer}, allows users to view a \ac{3D} model from different angles. To benchmark extensive usage, a second model instance in another color (the target) is spawned after starting the task. Since in the current implementation, the model cannot be rotated upside down (as mentioned in Section~\ref{subsection:topic-data}), the target is spawned with random reachable orientations.
@@ -140,6 +141,8 @@ Because it is hard to match the rotation exactly on all three axes, it is enough
 %\pgfmathparse{(\evalExpMvAvgPoses-6.5)/(\evalExpMvStdPoses/sqrt(\evalExpMvParticipants))}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult} 
 % chktex 1
 As seen in Figure~\ref{fig:eval-exp-mv}, the average time it took to match a correct poses is roughly \evalExpMvAvgPoses{} seconds. \citeauthor{Katzakis.2010} tracked the time it takes to match a pre-defined pose with a Smartphone, a mouse and a touch panel. The lowest time in average to match one pose, 6.5 seconds, was achieved using the Smartphone as input device~\cite[140]{Katzakis.2010}. The average time to match a pose of the model viewer (\evalExpMvAvgPoses{} seconds) experiment presented in Chapter~\ref{section:eval-res-mv} is lower than the average of the evaluation of \citeauthor{Katzakis.2010} (6.5 seconds). This can be due to the fact that users never had to turn the smartphone completely upside down, since rotations were chosen to be always upside up, because of the previously mentioned limitation. Another advantage of the presented implementation is, that the target and the controlled model are not displayed in two separate locations like in {\citetitle{Katzakis.2010}}, but rather with the same origin in the same coordinate space, which makes it easier to see the difference between both rotations~\cite[140]{Katzakis.2010}. Also the fact that a skeleton model instead of a multi-colored cube was used, could play a role. 
+
+Users mentioned that the phone is too large and has a wrong shape to control a \ac{3D} model on screen. 
 
 \begin{figure}[H]
   \centering
@@ -158,15 +161,6 @@ As seen in Figure~\ref{fig:eval-exp-mv}, the average time it took to match a cor
 \end{figure}
 
 Also the \ac{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-mv-stats}. A score of \evalExpMvSusScore{} is considered \evalExpMvSusAdj{} and mapped to the grade \evalExpMvSusGrade, according to \citeauthor{Bangor.2009}~\cite[120\psq]{Bangor.2009}.
-
-
-% TODO:
-Further, many users made comments about the experiment:
-
-\begin{itemize}
-  \item lul
-\end{itemize}
-
 
 
 
@@ -216,6 +210,8 @@ The performance of this experiment is hard to compare with other implementations
 
 As seen in Table~\ref{tab:lp-comp}, the technique presented in Chapter~\ref{section:eval-res-lp} is the one with the best results. But due to the different conditions and task setups, it is not possible to draw a strong conclusion. Still, the result is similar to a real-world pointing technique, which is a good sign.
 
+Some participants mentioned that it is hard to notice wether the laser pointer is going to hit an object or not. They suggested better indicators, like a bigger laser beam or an indicator at the position, where the laser hits an object.
+
 \begin{figure}[H]
   \centering
   \begin{subfigure}{.48\linewidth}%
@@ -235,15 +231,6 @@ As seen in Table~\ref{tab:lp-comp}, the technique presented in Chapter~\ref{sect
 However, not only the measured interaction times but also the \ac{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-lp-stats}. A score of \evalExpLpSusScore{} is considered \evalExpLpSusAdj{} and mapped to the grade \evalExpLpSusGrade{}, according to \citeauthor{Bangor.2009}~\cite[120\psq]{Bangor.2009}.
 
 
-% TODO:
-Further, many users made comments about the experiment:
-
-\begin{itemize}
-  \item lul
-\end{itemize}
-
-
-
 
 \subsection{Virtual Keyboard}\label{section:eval-res-vk}
 
@@ -257,6 +244,20 @@ The task for the virtual keyboard experiment, presented in Chapter~\ref{subsecti
 
 The count of corrections the participants made while entering the given text has an average of 2.7 (mean: 2.74; \ac{STD}: 2.38). A correction is counted, when the user uses the \enquote{backspace}-key to remove one character. If he did not recognize his error soon enough, it is possible that in order to correct one letter, the user has to remove multiple characters which are counted as multiple \enquote{corrections}. Since the participant has to type a total of 42 characters, the average correction count to character count ratio is at 6.52\%.
 Participants took 31.7 seconds in average (\ac{STD}: 5.1) to complete the task. Figure~\ref{fig:eval-exp-vk-ratio-scatter} shows that the more mistakes were made, the more time users needed to complete the task.
+
+Further, many users made comments about the experiment:
+\begin{itemize}
+  \item The sensitivity of the movement detection should be decreased.
+  \item A faster selection speed would improve comfort and typing speed.
+  \item Visual, audible or vibrational feedback after typing a character would be great.
+  \item The one to one mapping of the display to the virtual keyboard is not very intuitive.
+  \item A cursor in the input text should be displayed, to visualize spaces. Also arrow keys to navigate through the text, would be handy.
+  \item A better approach would be to select buttons when the finger releases the touch screen, instead of waiting.
+  \item It would be great if it was possible to use multiple fingers at the same time.
+  \item An implementation like the Swift-keyboard for android might be a better one, since holding the finger down was cumbersome.
+  \item Another approach would be to paint characters on the screen or with a laser pointer.
+\end{itemize}
+
 
 \begin{figure}[H]
   \centering
@@ -275,11 +276,3 @@ Participants took 31.7 seconds in average (\ac{STD}: 5.1) to complete the task. 
 
 The \ac{SUS} score for this experiment, shown in Figure~\ref{fig:exp-mv-stats}, is \evalExpVkSusScore{}.
 According to \citeauthor{Bangor.2009}, this score is considered \evalExpVkSusAdj{} and mapped to the grade \evalExpVkSusGrade~\cite[120\psq]{Bangor.2009}. Since this score is still in the \enquote{acceptable} range~\cite[120\psq]{Bangor.2009}, it can be considered \enquote{usable}.
-
-% TODO:
-Further, many users made comments about the experiment:
-
-\begin{itemize}
-  \item lul
-\end{itemize}
-
