@@ -1,14 +1,14 @@
 % !TeX root = ../../main.tex
 \section{Smart Device}\label{section:smart-device}
 
-The \enquote{Smart Device} is a part of the \ac{UBII} front end. Because it is web-based, only data which is available through the \textbf{Web \acp{API}} can be obtained. Since it was not designed for a specific use case, it is thought as a general-purpose or testing device. Only touch positions, touch events, orientation, and acceleration are sent to different \ac{UBII} topics using the \textbf{\ac{UBII} Client}. For more specific scenarios, the smart device can not be used, and a custom interface has to be implemented. For the experiments in this thesis, though, the smart device client was sufficient, after implementing some improvements.
+The \enquote{Smart Device} is a part of the \ac{UBII} front end. Because it is web-based, only data which is available through the Web \acp{API} can be obtained. Since it was not designed for a specific use case, it is thought as a general-purpose or testing device. Only touch positions, touch events, orientation, and acceleration are sent to different \ac{UBII} topics using the \ac{UBII} client. For more specific scenarios, the smart device can not be used, and a custom interface has to be implemented. For the experiments in this thesis, though, the smart device client was sufficient, after implementing some improvements.
 
 The data which is published is also displayed on the screen for debugging purposes. It is possible to set the view to full-screen mode, to prevent unintentional interactions with control elements of the web browser or the operating system. Since the reference system for the orientation is fixed to the earth~\cite[Chapter~4.1]{DevicesandSensorsWorkingGroup.2019}, a calibration system was implemented. With the press of the \enquote{Calibrate} button, the device is calibrated to the new orientation.
 
 
 \subsection{Topic Data}\label{subsection:topic-data}
 
-The orientation is provided by the \textbf{Web API} through the \lstinline{DeviceOrientation} event. It is defined by three Euler angles named \lstinline{alpha}, \lstinline{beta} and \lstinline{gamma}, as seen in Figure~\ref{fig:webapi-device-orientation}.
+The orientation is provided by the Web \acp{API} through the \lstinline{DeviceOrientation} event. It is defined by three Euler angles named \lstinline{alpha}, \lstinline{beta} and \lstinline{gamma}, as seen in Figure~\ref{fig:webapi-device-orientation}.
 While \lstinline{alpha} returns values in the range \(\left[0, 360\right)\), \lstinline{beta} only returns the range \(\left[-180, 180\right)\) and \lstinline{gamma} \(\left[-90, 90\right)\)~\cite[Chapter~4.1]{DevicesandSensorsWorkingGroup.2019}. % chktex 9
 This limitation entails that no full orientation tracking is possible with this event. 
 
@@ -18,7 +18,7 @@ This limitation entails that no full orientation tracking is possible with this 
   \caption[Device coordinate system and orientation values]{The specification of the orientation values visualized. The \(x\) and \(y\) axes are inverted for the sake of clarity in this graphic.}\label{fig:webapi-device-orientation}
 \end{figure}
 
-The \textbf{Web API} also provides the \lstinline{MotionEvent} which returns multiple vectors, one being the acceleration with the gravity (\lstinline{accelerationIncludingGravity}). Since the gravity vector always points down, this vector can be used as a reference vector. Together with the values from the \lstinline{DeviceOrientation} event, the full orientation can be derived. The resulting orientation, then has to be smoothed, because the acceleration vector uses the raw \ac{IMU} acceleration output. % TODO: improve the technicalities here ("smoothed")
+The Web \acp{API} also provides the \lstinline{MotionEvent} which returns multiple vectors, one being the acceleration with the gravity (\lstinline{accelerationIncludingGravity}). Since the gravity vector always points down, this vector can be used as a reference vector. Together with the values from the \lstinline{DeviceOrientation} event, the full orientation can be derived. The resulting orientation, then has to be smoothed, because the acceleration vector uses the raw \ac{IMU} acceleration output. % TODO: improve the technicalities here ("smoothed")
 
 The data from the \lstinline{DeviceOrientation} event already provides all three euler angles and is smoothed. Implementing the same for the data from the \lstinline{MotionEvent}, would be outside the scope of this thesis. Because of this consideration, the \lstinline{DeviceOrientation} event data is used in the experiments. % TODO: improve the technicalities here ("smoothed", IMU)
 

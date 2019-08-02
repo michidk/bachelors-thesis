@@ -12,8 +12,8 @@
   backend=biber,
   url=false,
   style=alphabetic,
-  maxnames=4,
-  minnames=3,
+  maxnames=3,
+  minnames=1,
   maxbibnames=99,
   giveninits,
   uniquename=init]{biblatex}
@@ -49,6 +49,7 @@
 \usepackage[toc,page]{appendix} % more control over appendix
 \usepackage[final]{pdfpages} % allow embedding of pdf documents
 \usepackage[super]{nth} % allows to use \nth{3} to print superscriped sec_ond
+\usepackage{breakcites} % push long citations into the next line
 
 \bibliography{bibliography}
 
