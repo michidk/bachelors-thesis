@@ -4,6 +4,10 @@
 
 NOW:
 
+- intro:
+
+  - explain VR https://wiki.tum.de/display/infar/MA+-+Exploration+and+Classification+of+State-of-the-art+3D+User+Interfaces+in+Virtual+and+Augmented+Reality+Scenarios?preview=%2F69049584%2F127468269%2Fmasterarbeit.pdf
+
 - metion paper Steed.2013 on fixed hand pos of laser pointer experiment
 
 - add info to thesis:

@@ -8,6 +8,7 @@
 \usepackage[sc]{mathpazo}
 \usepackage[ngerman,american]{babel}
 \usepackage[autostyle]{csquotes}
+
 \usepackage[%
   backend=biber,
   url=false,
@@ -17,9 +18,9 @@
   maxbibnames=99,
   giveninits,
   uniquename=init]{biblatex}
+\setcounter{biburlnumpenalty}{7000} % break urls in bibliography https://texwelt.de/wissen/fragen/7008/zeilenumbruche-in-bibliografielinks
 \usepackage{url}
-\setcounter{biburllcpenalty}{7000}
-\setcounter{biburlucpenalty}{8000} % break urls in bibliography
+\usepackage[hidelinks,breaklinks]{hyperref} % hidelinks removes colored boxes around references and links
 \usepackage{textcomp} % for good looking copyright and registered symbols and arrows and more symbols
 \usepackage{scrhack} % necessary for listings package
 \usepackage{listings} % code highlighting
@@ -33,10 +34,9 @@
 \usepackage{booktabs} % nice tables: https://inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf
 \usepackage{float} % require by the H-argument of figure e.g. \begin{figure}[H]
 \usepackage[final]{microtype} % better font cerning: http://www.khirevich.com/latex/microtype/
-\usepackage[hidelinks]{hyperref} % hidelinks removes colored boxes around references and links
 \usepackage[printonlyused]{acronym} % acronyms toc and referencing
 \usepackage{enumitem} % bullet lists
-\usepackage{caption} % figure captions
+\usepackage[bf]{caption} % figure captions, make figure label bold
 \usepackage{subcaption} % caption inside a figure with a caption
 \usepackage{chngcntr} % change how figures are counted (important for figure referencing)
 \counterwithin{figure}{section} % also count sections
@@ -133,8 +133,6 @@
   morestring=[b]''
 }
 
-\newcommand{\source}[1]{\footnotesize\newline\textbf{Source:} {#1}\normalsize}
-
 % allow multiple footnotes seperated by commas (https://tex.stackexchange.com/questions/40072/incompatibility-between-footmisc-option-multiple-and-hyperref/62091#62091)
 \let\oldFootnote\footnote%
 \newcommand\nextToken\relax
@@ -151,3 +149,7 @@
 \renewcommand*\l@figure{\@dottedtocline{1}{1.5em}{3em}}% modified. 
 \let\l@table\l@figure%
 \makeatother
+
+% hang caption label in caption text https://tex.stackexchange.com/questions/40163/caption-package-bold-numbering-indents-caption-text-how-to-avoid-that
+\captionsetup{format=plain}
+\captionsetup{width=0.9\textwidth}
