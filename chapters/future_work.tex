@@ -26,7 +26,7 @@ Further pointing techniques like those from \citeauthor{Argelaguet.2013} can be 
 The evaluation of the virtual keyboard experiment brought many issues to light. 
 Values like the sensitivity of the movement detection and selection speed have to be adjusted. Also, as the participants suggested, additional feedback when a key was pressed should be implemented. A cursor should be added to the text input field. Adding support for using multiple fingers at once, would require the changes mentioned in Chapter~\ref{section:fw-ubii}.
 
-Further, it makes sense to compare other text input methods. Users suggested an implementation like the SwiftKey\footnote{SwiftKey by Microsoft is an application for smartphones which allows to customize the keyboard and introduce swiping based typing. Website: \href{https://www.microsoft.com/swiftkey}{www.microsoft.com/swiftkey}}-keyboard. This keyboard implementation enables to type without lifting the finger. 
+Further, it makes sense to compare other text input methods. Users suggested an implementation like the \enquote{SwiftKey}\footnote{SwiftKey by Microsoft is an application for smartphones which allows to customize the keyboard and introduce swiping based typing. Website: \href{https://www.microsoft.com/swiftkey}{www.microsoft.com/swiftkey}}-keyboard. Also the implementation from \citeauthor{Shibata.2016} called \enquote{DriftBoard} would work~\cite{Shibata.2016}. These keyboard implementations enables to type without lifting the finger. 
 
 Force Touch\footnote{Force Touch (also known as \enquote{3D Touch}) is a touch display technology by Apple. Website: \href{https://developer.apple.com/ios/3d-touch/}{developer.apple.com/ios/3d-touch/}}, which can measure touch pressure intensities, introduces another possibility to implement a keyboard for \ac{VR}. The cursor is shown by slightly touching the screen. Instead of holding the current position, the user would touch the screen with more intensity to select a key. 
 
@@ -39,7 +39,7 @@ The three experiments used the smartphone to send information from the phone to 
 
 \section{Positional Tracking}\label{section:fw-positional-tracking}
 
-All experiments, presented in this thesis, either do not have a virtual representation of the smartphone or a representation where just the rotation is synchronized. The smartphone's position cannot be accurately tracked out of the box. 
+All experiments, presented in this thesis, either do not have a virtual representation of the smartphone or a representation where just the rotation is synchronized. The smartphone's position cannot be accurately tracked out of the box, as discussed in Chapter~\ref{chapter:introduction}.
 
 When using the Valve Index Base Stations or similar\footnote{The HTC Vive Base Stations or the HTC Vive Pro Base Stations would work as well.}, the Vive Tracker\footnote{The Vive Tracker is a generic tracker, which uses the same technology as the motion controllers. Website: \href{https://www.vive.com/eu/vive-tracker/}{www.vive.com/eu/vive-tracker/}} could be used to track the smartphone. However, the system should be generic and not bound to one particular tracking system. Also, the tracker would have to be attached to the smartphone, which makes it clumsy.
 
