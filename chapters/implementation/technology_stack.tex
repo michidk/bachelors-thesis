@@ -4,13 +4,13 @@
 
 Since most of the existing software for \ac{UBII} was written in \acf{JS}\footnote{\ac{JS} is a just-in-time compiled scripting language, widely used in web technology. It is a dynamic prototype-based language, which supports object-orientated programming~\cite[43, 47]{ECMAInternational.2018}.} using a web-based architecture, the proposed application was also implemented this way. This has the notable advantage of platform independence. Most modern devices can run web-based software, which means they can also run this application. Also, the application is served by a web server, which means the user does not have to install the software onto his device.
 
-\begin{figure}[htpb]
+\begin{figure}[H]
   \centering
   \includegraphics[width=10cm]{figures/implementation/ubii_front_end.pdf}
   \caption[Screenshot of the UBII front end]{A screenshot of the UBII front end rendering a \ac{3D} cube.}\label{fig:ubii-front-end}
 \end{figure}
 
-A web interface with some \ac{UBII} content (the \ac{UBII} front end), demos and debugging tools were already written\footnote{The front end was developed by Sandro Weber, Daniel Dyrda and me.}, so I included my experiments in this application as well. The technology stack of the front end was built with the following technologies:
+A web interface with some \ac{UBII} content (the \ac{UBII} front end), demos and debugging tools were already written\footnote{The front end was developed by Sandro Weber, Daniel Dyrda and me.}, so the proposed experiments were included in this application as well. The technology stack of the front end was built with the following technologies:
 \begin{description}
   \item[Web APIs] are \acfp{API} available in modern web browsers to provide access to functionality or data outside the browser. The WebAPI is an additional layer of abstraction of the \acp{API} of an \ac{OS}. While this has the advantage that the API is the same on every device, this also prevents the access to the raw sensor data\footnote{The specification is available on \href{https://w3c.github.io/deviceorientation/}{www.w3c.github.io/deviceorientation}}. In this thesis, the WebVR \ac{API} and the device orientation \ac{API} were used. The former enables to render to external \ac{VR} headsets. The latter gives access to the data of the \acf{IMU}.
   \item[Vue.js] is a modern open-source \acl{JS} web framework\footnote{A web framework is a software framework which provides a standard way to build web applications. It comes with tools and libraries to automate and make the development of web applications easier.}\footnote{Vue.js: Website: \href{https://vuejs.org/}{www.vuejs.org}; Source~code: \href{https://github.com/vuejs/vue}{www.github.com/vuejs/vue}}~\cite{You.2019}. Being released in 2014 and developed by Evan You, it is a relatively young framework~\cite[17]{Koetsier.2016}. However, it quickly gained traction and is quite popular now~\cite[12\psq]{Koetsier.2016}.

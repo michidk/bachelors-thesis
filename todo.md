@@ -4,13 +4,13 @@
 
 NOW:
 
-- intro:
+- maybe:
 
   - explain VR https://wiki.tum.de/display/infar/MA+-+Exploration+and+Classification+of+State-of-the-art+3D+User+Interfaces+in+Virtual+and+Augmented+Reality+Scenarios?preview=%2F69049584%2F127468269%2Fmasterarbeit.pdf
 
-- metion paper Steed.2013 on fixed hand pos of laser pointer experiment
+  - describe experiment setup... which browser, which headsets and so on
 
-- add info to thesis:
+* add info to thesis:
 
   - explaion that a wireless network can be used (experiment setup?)
   - evaluation form:
@@ -18,7 +18,7 @@ NOW:
     - SUS were used
     - inspired by Clemens Kamm
 
-- write about experiments
+* write about experiments
 
   - laser pointer
     - unsere implementation rechtfertigen (imp):
@@ -38,7 +38,7 @@ NOW:
     - comp: wpm, but dont forget selection time
     - further improvements: one cursor per finger
 
-- future work
+* future work
 
   - sensor fusion like in Steed.2013
   - compare differenmt text input methods:
@@ -47,7 +47,7 @@ NOW:
     - SwiftKey
     - DriftBoard: https://dl-acm-org.eaccess.ub.tum.de/citation.cfm?id=2984591
 
-- correction
+* correction
 
   - check for usage of times.. time should be consistent (is used vs. was used)
   - paste into grammarly and languagetool
