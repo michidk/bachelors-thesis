@@ -8,7 +8,6 @@
 \usepackage[sc]{mathpazo}
 \usepackage[ngerman,american]{babel}
 \usepackage[autostyle]{csquotes}
-
 \usepackage[%
   backend=biber,
   url=false,
@@ -20,7 +19,7 @@
   uniquename=init]{biblatex}
 \setcounter{biburlnumpenalty}{7000} % break urls in bibliography https://texwelt.de/wissen/fragen/7008/zeilenumbruche-in-bibliografielinks
 \usepackage{url}
-\usepackage[hidelinks,breaklinks]{hyperref} % hidelinks removes colored boxes around references and links
+\usepackage[hidelinks, breaklinks]{hyperref} % hidelinks removes colored boxes around references and links
 \usepackage{textcomp} % for good looking copyright and registered symbols and arrows and more symbols
 \usepackage{scrhack} % necessary for listings package
 \usepackage{listings} % code highlighting
@@ -37,21 +36,23 @@
 \usepackage[printonlyused]{acronym} % acronyms toc and referencing
 \usepackage{enumitem} % bullet lists
 \usepackage[bf]{caption} % figure captions, make figure label bold
+\captionsetup{format=plain} % hang caption label in caption text https://tex.stackexchange.com/questions/40163/caption-package-bold-numbering-indents-caption-text-how-to-avoid-that
+\captionsetup{width=0.9\textwidth}
 \usepackage{subcaption} % caption inside a figure with a caption
 \usepackage{chngcntr} % change how figures are counted (important for figure referencing)
 \counterwithin{figure}{section} % also count sections
 %\counterwithin{figure}{subsection} % also count subsections
 \counterwithin{table}{section} % also count sections
-\usepackage{perpage} % reset counters per page
-\MakePerPage{footnote} % reset footnotes each page
-\interfootnotelinepenalty=10000 % prevent splitting of footnotes to the next page
+\usepackage[perpage, flushmargin, multiple]{footmisc} % reset counters per page and keeps the footnotes aligned and allow comma seperated footnotes
 \usepackage{etoolbox} % advanced scripting.. se acronyms def.
-\usepackage[toc,page]{appendix} % more control over appendix
+\usepackage[toc, page]{appendix} % more control over appendix
 \usepackage[final]{pdfpages} % allow embedding of pdf documents
 \usepackage[super]{nth} % allows to use \nth{3} to print superscriped sec_ond
 \usepackage{breakcites} % push long citations into the next line
 
 \bibliography{bibliography}
+
+\interfootnotelinepenalty=10000 % prevent splitting of footnotes to the next page
 
 \setkomafont{disposition}{\normalfont\bfseries} % use serif font for headings
 \linespread{1.05} % adjust line spread for mathpazo font
@@ -83,7 +84,6 @@
 % Settings for pgfplots
 \pgfplotsset{compat=newest}
 \pgfplotsset{
-  % For available color names, see http://www.latextemplates.com/svgnames-colors
   cycle list={TUMBlue\\TUMAccentOrange\\TUMAccentGreen\\TUMSecondaryBlue2\\TUMDarkGray\\},
 }
 
@@ -133,23 +133,5 @@
   morestring=[b]''
 }
 
-% allow multiple footnotes seperated by commas (https://tex.stackexchange.com/questions/40072/incompatibility-between-footmisc-option-multiple-and-hyperref/62091#62091)
-\let\oldFootnote\footnote%
-\newcommand\nextToken\relax
 
-\renewcommand\footnote[1]{%
-    \oldFootnote{#1}\futurelet\nextToken\isFootnote}
 
-\newcommand\isFootnote{%
-    \ifx\footnote\nextToken\textsuperscript{,}\fi}
-
-    % increase distance between numbers and text in list of figures
-\makeatletter
-%\renewcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.3em}} % original values in scrreprt
-\renewcommand*\l@figure{\@dottedtocline{1}{1.5em}{3em}}% modified. 
-\let\l@table\l@figure%
-\makeatother
-
-% hang caption label in caption text https://tex.stackexchange.com/questions/40163/caption-package-bold-numbering-indents-caption-text-how-to-avoid-that
-\captionsetup{format=plain}
-\captionsetup{width=0.9\textwidth}
