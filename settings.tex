@@ -39,16 +39,20 @@
 \captionsetup{format=plain} % hang caption label in caption text https://tex.stackexchange.com/questions/40163/caption-package-bold-numbering-indents-caption-text-how-to-avoid-that
 \captionsetup{width=0.9\textwidth}
 \usepackage{subcaption} % caption inside a figure with a caption
-\usepackage{chngcntr} % change how figures are counted (important for figure referencing)
-\counterwithin{figure}{section} % also count sections
-%\counterwithin{figure}{subsection} % also count subsections
-\counterwithin{table}{section} % also count sections
 \usepackage[perpage, flushmargin, multiple]{footmisc} % reset counters per page and keeps the footnotes aligned and allow comma seperated footnotes
 \usepackage{etoolbox} % advanced scripting.. se acronyms def.
 \usepackage[toc, page]{appendix} % more control over appendix
 \usepackage[final]{pdfpages} % allow embedding of pdf documents
 \usepackage[super]{nth} % allows to use \nth{3} to print superscriped sec_ond
 \usepackage{breakcites} % push long citations into the next line
+\usepackage{chngcntr} % change how figures are counted (important for figure referencing)
+\counterwithin{figure}{section} % also count sections
+%\counterwithin{figure}{subsection} % also count subsections
+\counterwithin{table}{section} % also count sections
+\usepackage[titles]{tocloft} % https://tex.stackexchange.com/questions/187180/spacing-problem-at-list-of-figures
+\cftsetindents{figure}{0em}{3em}
+\cftsetindents{table}{0em}{3em}
+
 
 \bibliography{bibliography}
 
