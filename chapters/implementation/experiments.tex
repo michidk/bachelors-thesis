@@ -1,29 +1,28 @@
 % !TeX root = ../../main.tex
 \section{Experiments}\label{section:experiments}
 
-Three main experiments were implemented to demonstrate how the smartphone can help with common interactions when using \ac{VR} software.
-To achieve consistency amongst all experiments in terms of look and basic functionality, a parent class was implemented. The parent class implements utilities, which are required by each experiment. It also sets up a basic scene, which contains a sky, a floor, and lights. Also, the connection to the \ac{UBII} server is handled. 
+Three experiments were implemented to demonstrate how the smartphone can help with common interactions when using \ac{VR} software.
+To achieve consistency amongst all experiments in terms of look and basic functionality, a parent class was implemented. The parent class implements utilities, which are required and inherited by each experiment. It also sets up a basic scene, which contains a skybox, a floor, and lights. Additionally, it handels the connection to the \ac{UBII} Server. 
 
 
 \subsection{Model Viewer}\label{subsection:model-viewer}
 
-\acl{VR} offers a new way of experiencing \ac{3D} content. It is more convenient to view a model from different angles and gives a feel of a real presence of the object. Model viewers like Sketchfab\footnote{Sketchfab is an online platform to publish and view \ac{3D} content. Website: \href{https://sketchfab.com}{www.sketchfab.com}} have implemented \ac{VR} support a while ago~\cite{Denoyel.2016}. However, this experience can be enhanced with a smartphone. Models can be rotated without changing the position of the headset or using s expensive hand motion tracking system.
+\acl{VR} offers a new way of experiencing \ac{3D} content. It is more convenient to view a model from different angles and gives a feel of a real presence of the object. Model viewers like Sketchfab\footnote{Sketchfab is an online platform where one can publish and view \ac{3D} content. Website: \href{https://sketchfab.com}{www.sketchfab.com}} have implemented \ac{VR} support a while ago~\cite{Denoyel.2016}. However, this experience can be enhanced with a smartphone. Models can be rotated without changing the position of the headset or using an expensive hand motion tracking system.
 
-\citeauthor{Katzakis.2010} implemented this without \ac{VR}. His approach uses a smartphone to rotate a model which is displayed on a conventional display. He uses a similar setup, in which the phone is wirelessly connected to a computer where the model is rendered. The orientation data comes from the magnetometer and, once calibrated to the screen position, is directly mapped to the model~\cite[139]{Katzakis.2010}. In the evaluation of a mouse, a touch pen and the smartphone, the latter wins in terms of the time it takes to rotate the model to a certain pose~\cite[140]{Katzakis.2010}. 
+\citeauthor{Katzakis.2010} implemented such a system without using \ac{VR}. His approach uses a smartphone to rotate a model which is displayed on a conventional display. He uses a similar setup as the one presented in this thesis, in which the phone is wirelessly connected to a computer where the model is rendered. The orientation data is provided by the magnetometer and, once calibrated to the screen position, is directly mapped to the model~\cite[139]{Katzakis.2010}. In the evaluation of their system, a mouse, a touch pen, and the smartphone were compared. The latter wins in terms of the time it takes to rotate the model to a certain pose~\cite[140]{Katzakis.2010}. 
 Since this approach turned out to be very successful, it was used in this experiment as well. 
 
 To feature how easy it is to view a more complex model using VR and the smartphone as a manipulator, a human skeleton model is used. This experiment is the only one supporting more than one smartphone client at the same time. For every client that connects, a new skeleton is created. The position is fixed and arranged around the position of the \ac{VR} headset. A scene with multiple connected clients is shown in Figure~\ref{fig:screenshot-exp-mv}.
 
-\begin{figure}[H]
+\begin{figure}[htpb]
   \centering
   \includegraphics[width=12cm]{figures/implementation/screenshot_exp_mv.png}
-  \caption[Screenshot of the model viewer experiment]{A screenshot of three devices being connected and controlling the rotation of the models.}\label{fig:screenshot-exp-mv}
+  \caption[Screenshot of the model viewer experiment]{A screenshot showing three models, whose rotation is being controlled by three smartphones.}\label{fig:screenshot-exp-mv}
 \end{figure}
 
-% Note: latex thinks the hbox is overfull. This is not the case because something is fixing it. Try removing all words after the lstinline, then you will see that it overflows. But when using in a sentence it appears to be rescaled.
-The implementation of this experiment listens for new clients. As soon as one connects, a new \ac{UBII} interaction is published and the resulting \ac{UBII} topic subscribed. Since the smart device (see Section~\ref{section:smart-device}) publishes the orientation data in a different format than ThreeJS needs for rendering, a reusable \ac{UBII} interaction was created. The \ac{UBII} interaction converts the angles from radian to degrees, changes the coordinate system and publishes them to the \lstinline[breaklines=false]{[client id]/SAVRLaserPointer/orientation} topic. The code for the \ac{UBII} interaction is shown in Figure~\ref{fig:ubii-interaction-angles}.
+The experiment always listens for new clients. As soon as one connects, a new Interaction is published and the resulting Topic subscribed. Since the smart device (see Section~\ref{section:smart-device}) publishes the orientation data in a different format than ThreeJS needs for rendering, a reusable Interaction was created. This Interaction converts the angles from radian to degrees, changes the coordinate system and publishes them to the \lstinline[breaklines=false]{[client id]/SAVRLaserPointer/orientation} topic. The code for the Interaction is shown in Figure~\ref{fig:ubii-interaction-angles}.
 
-\begin{figure}[H]
+\begin{figure}[htpb]
   \begin{lstlisting}[language=JavaScript]
     function (input, output, state) {
       if (!input) {
@@ -41,32 +40,37 @@ The implementation of this experiment listens for new clients. As soon as one co
       };
     }
   \end{lstlisting}
-  \caption[UBII interaction of model viewer]{This \ac{UBII} interaction is used to convert the orientation data sent by the smart device to the format ThreeJS needs for rendering. The values are converted by multiplying with an approximate of the number $\Pi$ (\enquote{PI}) and dividing by $180$.}\label{fig:ubii-interaction-angles} %chktex 46
+  \caption[Interaction of model viewer]{This \ac{UBII} interaction is used to convert the orientation data sent by the smart device to the format ThreeJS needs for rendering. The values are converted by multiplying with an approximate of the number $\Pi$ (\enquote{PI}) and dividing by $180$.}\label{fig:ubii-interaction-angles} %chktex 46
 \end{figure}
 
-As in Section~\ref{subsection:topic-data} described, the current implementation does not provide full 360-degree angles. This means that the model cannot be rotated upside down, which is very impractical for a model viewing application, but can be fixed and is not critical for a proof-of-concept.
+As in Section~\ref{subsection:topic-data} described, the current implementation does not provide the full angular data needed. This means that the model cannot be rotated upside down, which is very impractical for a model viewing application. However this can be fixed and is not critical for a proof-of-concept.
 
 
 \subsection{Laser Pointer}\label{subsection:laser-pointer}
 
-Selecting elements in a virtual world is an essential interaction most \ac{VR} applications use. The selection of elements in a \ac{2D} environment with standard input devices like a mouse or touch screen is trivial. However, the selection of elements in a \ac{3D} environment is problematic because the element might be too far away from the user or the cursor. Ray casting\footnote{Ray casting describes a technique to determine the objects which intersect with a ray, cast from a given point into a given direction.} is used to solve this problem: A ray, with the tracked device as origin, is created. Then, the element first hit by the ray is selected. Implementations without a tracked device, often use the position and orientation of the headset. The ray is fixed to the head of the user and cast along his viewing direction~\cite[23]{Kamm.2018}. This forces the user to keep the head still and look at a particular object to select it until a button is pressed or a specific time has passed.
+Selecting elements in a virtual world is an essential interaction most \ac{VR} applications use. The selection of elements in a \ac{2D} environment with standard input devices like a mouse or touch screen is rather trivial. However, the selection of elements in a \ac{3D} environment is problematic because the element might be too far away from the user or the cursor. 
+
+Ray casting\footnote{Ray casting describes a technique to determine the objects which intersect with a ray, cast from a given point into a given direction.} is used to solve this problem: A ray, with the virtual devices' position as origin, is created. Then, the element first hit by the ray is selected. Implementations without a tracked device, often use the position and orientation of the \ac{HMD}. The ray is fixed to the head of the user and cast along his viewing direction~\cite[23]{Kamm.2018}. This forces the user to keep the head still and look at a particular object to select it until a button is pressed or a specific time has passed.
 
 % TODO: maybe explain some more strategies, like in the keyboard chapter
 
-A better solution is the use of handheld controllers, where the position of the controller is used as origin for the ray. Since the smartphone provides orientation data, it can be used for this task, too. However, most handheld controllers also have positional tracking, which allows them to represent the hand of a user by displaying a virtual phone. This emulates the use of a handheld laser pointer in the real world. Since a smartphone does not have positional tracking, the origin has to be somewhere else. Again, the head could be used, but then the user would have no visual representation of the rotation of the phone. To give the user a better feel for the direction he is pointing, a visual representation is needed. The user has to see where the ray is going, even when rotating it in the opposite direction of the view direction.
+A better solution is the use of handheld controllers, where the position of the controller is used as origin for the ray. Since the smartphone provides orientation data, it can be used for this task, too. However, most handheld controllers also have positional tracking, which allows them to represent the hand of a user by displaying a virtual phone. This emulates the use of a handheld laser pointer in the real world. Since a smartphone does not have positional tracking, the origin has to be somewhere else.
 
 %\citeauthor{Argelaguet.2013} evaluated more than 30 different selection techniques for virtual environments, but no technique uses the orientation but not the position of the pointing device~\cite[Table 1]{Argelaguet.2013}.
-To work around the missing position data of the device, the approach by \citeauthor{Pietroszek.2014} is used: The ray origin is set to a fixed location relative to the users head where the phone could be in the real world~\cite[Figure 3]{Pietroszek.2014}. The ray origin is represented by a \ac{3D} phone model, which orientation is synchronized with the one from the last connected smart device (see Section~\ref{section:smart-device}) client, similar to the first experiment (\ref{subsection:model-viewer}). To keep the virtual phone inside the view frustum of the user, it rotates relative to the user on the up-axis and moves only on the right/forward-axis.
-A line is attached to the front of the phone (the \enquote{laser}) to indicate the direction of the ray.
+Again, the head could be used, but then the user would have no visual representation of the rotation of the phone. The user has to see where the ray is going, even when rotating it in the opposite direction of the view direction. To give the user a better feel for the direction he is pointing, a visual representation is needed. 
+To work around the missing position data of the device, the approach by \citeauthor{Pietroszek.2014} is used: The ray origin is set to a fixed location relative to the users head where the phone could be in the real world~\cite[Figure 3]{Pietroszek.2014}. 
 
-\begin{figure}[H]
+The ray origin is represented by a \ac{3D} phone model, whose orientation is synchronized with the one from the last connected smart device (see Section~\ref{section:smart-device}) client, similar to the first experiment (\ref{subsection:model-viewer}). To keep the virtual phone inside the view frustum of the user, it rotates relative to the user on the up-axis and moves only on the right/forward-axis.
+A line is attached to the front of the phone (the \enquote{laser}) to indicate the direction of the ray. A screenshot of this setup can be seen in Figure~\ref{fig:screenshot-exp-lp}.
+
+\begin{figure}[htpb]
   \centering
   \includegraphics[width=12cm]{figures/implementation/screenshot_exp_lp.png}
   \caption[Screenshot of the laser pointer experiment]{A screenshot of the virtual laser pointer and selectable cubes.}\label{fig:screenshot-exp-lp}
 \end{figure}
 
-In addition to the orientation \ac{UBII} topic, this implementation subscribes to the touch events topic. The \lstinline{touch down} event is needed to trigger the actual selection.
-To illustrate a selection task with this system, cubes float in front of the user. If he points the laser at one and touches the display, the cube will change its color. This works not only with cubes but with any mesh. Also, the system can trigger any kind of event or action. A screenshot of this setup can be seen in Figure~\ref{fig:screenshot-exp-lp}.
+In addition to the orientation Topic, this implementation subscribes to the touch events Topic. The \lstinline{touch down} event is needed to trigger the actual selection.
+To illustrate a selection task with this system, cubes float in front of the user. If he points the laser at one and touches the display, the randomly colored cubes will change their color. This works not only with cubes but with any mesh. Also, the system could trigger any kind of event or action. 
 
 
 \subsection{Virtual Keyboard}\label{subsection:virtual-keyboard}

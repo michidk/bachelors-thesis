@@ -62,7 +62,11 @@ The smart device is registered as a device in the \ac{UBII} network. The Device 
 
 A Device and all Topics must be registered with a \ac{UID} for each client because it should be possible to read the data from different devices. This allows for using multiple devices at the same time so that they can be differentiated in Interactions. If the Topic names did not include the \lstinline{clientId}, each connected device would publish to the same Topic, which would make the data unusable.
 
-\begin{figure}[H]
+The touch position is published multiple times per second, but only sends the current position of the first touch on the smartphone display. Using this data, it is not possible to detect whether the display was just touched or released. A new Topic containing a \lstinline{Boolean}-type could have been used, but the position still has to be obtained from the touch position Topic. 
+
+To not have to check both Topics, the new type \lstinline{TouchEvent} was implemented. The \ac{Protobuf} definition can be seen in Figure~\ref{fig:ubii-event-type}. It contains the two-dimensional position and the binary type \mbox{\lstinline{ButtonEventType},} which can be reused in other events, too. \lstinline{ButtonEventType} is an enumeration type which defines whether the touch interface was just touched or released.
+
+\begin{figure}[htpb]
   \begin{lstlisting}[language=Protobuf]
     syntax = "proto3";
     package ubii.dataStructure;
@@ -81,5 +85,3 @@ A Device and all Topics must be registered with a \ac{UID} for each client becau
   \end{lstlisting}
   \caption[Protobuf definition of the touch event]{The definition of the touch event, sent by the smart device client when a user touches or releases the touch screen. It is defined by a position and wether the touch pad was touched or released.}\label{fig:ubii-event-type}
 \end{figure}
-
-The touch position is published multiple times per second, but only sends the current position of the first touch on the smartphone display. Using this data, it is not possible to detect whether the display was just touched or released. A new Topic containing a \lstinline{Boolean}-type could have been used, but the position still has to be obtained from the touch position Topic. To not have to check both Topics, the new type \lstinline{TouchEvent} was implemented. The \ac{Protobuf} definition can be seen in Figure~\ref{fig:ubii-event-type}. It contains the two-dimensional position and the binary type \mbox{\lstinline{ButtonEventType},} which can be reused in other events, too. \lstinline{ButtonEventType} is an enumeration type which defines whether the touch interface was just touched or released.
