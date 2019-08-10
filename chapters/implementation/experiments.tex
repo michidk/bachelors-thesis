@@ -60,7 +60,7 @@ A better solution is the use of handheld controllers, where the position of the 
 Again, the head could be used, but then the user would have no visual representation of the rotation of the phone. The user has to see where the ray is going, even when rotating it in the opposite direction of the view direction. To give the user a better feel for the direction he is pointing, a visual representation is needed. 
 To work around the missing position data of the device, the approach by \citeauthor{Pietroszek.2014} is used: The ray origin is set to a fixed location relative to the users head where the phone could be in the real world~\cite[Figure 3]{Pietroszek.2014}. 
 
-The ray origin is represented by a \ac{3D} phone model, whose orientation is synchronized with the one from the last connected smart device (see Section~\ref{section:smart-device}) client, similar to the first experiment (\ref{subsection:model-viewer}). To keep the virtual phone inside the view frustum of the user, it rotates relative to the user on the up-axis and moves only on the right/forward-axis.
+The ray origin is represented by a \ac{3D} phone model, whose orientation is synchronized with the one from the last connected smart device client (see Section~\ref{section:smart-device}), similar to the first experiment (\ref{subsection:model-viewer}). To keep the virtual phone inside the view frustum of the user, it rotates relative to the user on the up-axis and moves only on the right/forward-axis.
 A line is attached to the front of the phone (the \enquote{laser}) to indicate the direction of the ray. A screenshot of this setup can be seen in Figure~\ref{fig:screenshot-exp-lp}.
 
 \begin{figure}[htpb]
@@ -77,25 +77,34 @@ To illustrate a selection task with this system, cubes float in front of the use
 
 Text input is not an easy task to perform in \ac{VR}. However, it is often required for labeling, annotation, entering filenames for saving operations, and setting parameters in visualizations and other productive \ac{VR} software~\cite[2154]{Rhoton.2002}. This is why many applications try to avoid it. 
 
-Tilt Brush\footnote{Tilt Brush by Google is a tool for three-dimensional painting in VR. Website: \href{https://www.tiltbrush.com/}{www.tiltbrush.com}} solves this by identifying their scenes with a screenshot of the scene rather than a filename. To save a scene, the users get a virtual camera attached to his hand motion controller, which he then uses to make a thumbnail of the current scene~\cite{GoogleLLC.2019}. % chktex 13
-Others use a laser pointer either attached to a hand controller or to the headset to select keys on a \ac{2D} image of a keyboard~\cite{WeelcoInc.2017}. A more recent approach is the frequently called \enquote{drum keyboard}, which attaches drum sticks to the hand controllers which are then used to hit the keys~\cite{Weisel.2017}. 
-There are also approaches which do not use hand controllers, like hand gloves~\cite{Evans.1999,Rhoton.2002}, a real keyboard~\cite{McGill.2015,Walker.2017} or other peripherals~\cite[111\psq]{Gonzalez.2009}. Other experimental methods are speech recognition~\cite[2154\psqq]{Rhoton.2002} and handwritten character recognition~\cite[113]{Gonzalez.2009}.
+Tilt Brush\footnote{Tilt Brush by Google is a tool for three-dimensional painting in VR. Website: \href{https://www.tiltbrush.com/}{www.tiltbrush.com}} avoids this during the select and load process of scenes, by identifying the scenes with a screenshot of the scene rather than a filename. To save a scene, the user gets a virtual camera attached to his hand motion controller, which he then uses to create a thumbnail of the current scene~\cite{GoogleLLC.2019}. % chktex 13
 
-Similar to the approach by~\citeauthor{Dias.2018} to implement user interfaces using a real smartphone and a virtual representation visible in the \ac{VR} headset~\cite[5]{Dias.2018}, this experiment displays a virtual keyboard in \ac{VR} as seen in Figure~\ref{fig:screenshot-exp-vk}. 
-The surface of the virtual keyboard is mapped to the touchscreen of the smart device (see Section~\ref{section:smart-device}). The cursor, represented by a blue circle, visualizes the position of the finger on the touchscreen. The cursor is only visible when the smartphone sends touch position data, which is only the case when the user is touching the screen. To select a key, the user has to move the cursor on top of a key and then keep the finger there for roughly a second. As long as the user is holding his finger on a key to select it, the blue circle fills up with another circle to indicate the running selection progress. When executing the key press on the first touch and without a cursor, the user would not know which key he is going to hit with his finger, because his sight is obscured by the \ac{VR} headset. \citeauthor{Dias.2018} work around this problem by using a Leap Motion sensor to visualize the finger positions~\cite[4]{Dias.2018}.
+Some applications use a laser pointer either attached to the motion controller or to the \ac{HMD} to select virtual keys on a \ac{2D} image of a keyboard~\cite{WeelcoInc.2017}. A more recent approach is the frequently called \enquote{drum keyboard}, which attaches drum sticks to the hand controllers which are then used to hit \ac{3D} keys~\cite{Weisel.2017}. 
 
-\begin{figure}[H]
+Other approaches use hand gloves~\cite{Evans.1999,Rhoton.2002}, a real keyboard~\cite{McGill.2015,Walker.2017} or other peripherals~\cite[111\psq]{Gonzalez.2009}. Also, methods like speech recognition~\cite[2154\psqq]{Rhoton.2002} and handwritten character recognition~\cite[113]{Gonzalez.2009} are possible.
+
+Similar to the approach by~\citeauthor{Dias.2018} to implement user interfaces using a real smartphone and a virtual representation in the \ac{VE}~\cite[5]{Dias.2018}, this experiment uses a virtual keyboard as seen in Figure~\ref{fig:screenshot-exp-vk}. 
+The surface of the virtual keyboard is mapped to the touchscreen of the smart device (see Section~\ref{section:smart-device}). The cursor, represented by a blue circle, visualizes the position of the finger on the touchscreen.
+
+\begin{figure}[htpb]
   \centering
   \includegraphics[width=12cm]{figures/implementation/screenshot_exp_vk.png}
   \caption[Screenshot of the virtual keyboard experiment]{A screenshot of the virtual keyboard with the blue cursor and the previously typed text.}\label{fig:screenshot-exp-vk}
 \end{figure}
 
-Three components were implemented as \acl{JS} classes for this experiment. The \lstinline{SmartphoneCursor} component uses the touch events and position data to display a blue circle (the cursor) on a given area in the scene. The cursor is only shown when the touch screen is pressed. If it is pressed, the position of the circle is synchronized with the position of the finger on the touch screen. To detect intentional movements, the current position (vector) is subtracted by the position (vector) of the previous frame. If the length of the resulting vector is smaller than a specific threshold value, it is assumed that this was not an intended movement. This calculation depends on the current framerate, which is not a good practice because the threshold value will behave differently depending on the current framerate. However, as the target framerate is 60 frames per second, and the testing system does not have issues in reaching this target, it is not a critical problem.
-As long as intentional movements are not detected, a timer counts up to a specific value (with the default settings, roughly one second). After this, the counter and a select event containing the cursor position is sent to the main program. To visualize this, a second blue circle gets larger until it fills up the whole cursor and finally disappears again. 
+When executing the keypress on the first touch and without a cursor (like a regular smartphone keyboard), the user would not know which key he is going to hit with his finger, because his sight is obscured by the \ac{HMD}. \citeauthor{Dias.2018} work around this problem by using a Leap Motion sensor to visualize the finger positions~\cite[4]{Dias.2018}.
 
-The second component renders a virtual QWERTY\footnote{The name QWERTY describes the US layout for computer keyboards.} keyboard to the scene. The keyboard layout can be changed pretty easily, as shown in Figure~\ref{fig:virtual-keyboard-layout}. Every key has a character or an action assigned as well as properties which influence the look. Special keys like the caps, caps lock, enter and delete key are fully functional as known from a real keyboard. If caps lock is activated, the key is drawn in blue and all characters are display in upper case. The \lstinline{VirtualKeyboard} class draws the keyboard with just the keyboard layout, height, and width as input. If the \lstinline{onPress(coordinates)} function is called, for example by the cursor component, the pressed key is calculated and returned using the provided position. The main program then applies the key to a string and sends the result to the third component. % chktex 36
+In this implementation, the cursor is only visible when the user is touching the screen. To select a key, the user has to move the cursor on top of a key and then keep the finger there for roughly a second. As long as the user is holding his finger on a key to select it, the blue circle increases in size to display the selection progress. 
 
-\begin{figure}[H]
+Three components were implemented as \acl{JS} classes for this experiment. The \lstinline{SmartphoneCursor} component uses the touch events and position data to display a blue circle (the cursor) on a given area in the scene. If the touch screen is touched, the position of the circle is synchronized with the position of the finger on the touch screen. 
+
+To detect intentional movements, the current position is subtracted by the position of the previous frame. If the length of the resulting vector is smaller than a specific threshold value, it is assumed that the movement was not intentional. This calculation depends on the current framerate, which is not a good practice because the selection time will be different depending on the current framerate. However, as the target framerate is 60 frames per second, and the testing system does not have issues in reaching this target, it is not a critical problem.
+
+As long as intentional movements are not detected, a timer counts up to a specific value (with the default settings, roughly one second). After reaching the value, a select event containing the cursor position is sent to the main program. To visualize the selection progress, a second blue circle gets larger until it fills up the whole cursor and finally disappears again. 
+
+The second component renders a virtual QWERTY\footnote{The name QWERTY describes the US layout for computer keyboards.} keyboard to the scene. The keyboard layout, whose definition is shown in Figure~\ref{fig:virtual-keyboard-layout}, can be adjusted pretty easily. Every key has a character or an action assigned as well as properties which influence the look. Special keys like the caps, caps lock, enter and delete key are fully functional as known from a real keyboard. When caps lock is activated, the key is drawn in blue, and all characters are display in upper case. 
+
+\begin{figure}[htpb]
   \begin{lstlisting}[language=JavaScript]
   // rows
   [
@@ -119,7 +128,9 @@ The second component renders a virtual QWERTY\footnote{The name QWERTY describes
     %\dots%
   ],
   \end{lstlisting}
-  \caption[Virtual keyboard layout definition]{The definition of the virtual keyboard layout in \ac{JS}. It is defined as a \ac{2D} array, where the first dimension corresponds to the key rows and the second one to the keys column wise.}\label{fig:virtual-keyboard-layout}
+  \caption[Virtual keyboard layout definition]{The definition of the virtual keyboard layout, written in \ac{JS}. It is defined as a \ac{2D} array, where the first dimension corresponds to the key rows and the second one to the keys column-wise.}\label{fig:virtual-keyboard-layout}
 \end{figure}
+
+The \lstinline{VirtualKeyboard} class draws the keyboard by providing it with the keyboard layout, height, and width as input. If the \lstinline{onPress(coordinates)} function is called, for example by the cursor component, the pressed key is calculated and returned using the provided position. The main program then applies the key to a string and sends the result to the third component. % chktex 36
 
 The \lstinline{TextDisplay} component renders a given text inside a given area to a texture. If the text is changed, it automatically updates and redraws the texture.
