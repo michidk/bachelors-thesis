@@ -14,7 +14,7 @@ Since this approach turned out to be very successful, it was used in this experi
 
 To feature how easy it is to view a more complex model using VR and the smartphone as a manipulator, a human skeleton model is used. This experiment is the only one supporting more than one smartphone client at the same time. For every client that connects, a new skeleton is created. The position is fixed and arranged around the position of the \ac{VR} headset. A scene with multiple connected clients is shown in Figure~\ref{fig:screenshot-exp-mv}.
 
-\begin{figure}[htpb]
+\begin{figure}[H]
   \centering
   \includegraphics[width=12cm]{figures/implementation/screenshot_exp_mv.png}
   \caption[Screenshot of the model viewer experiment]{A screenshot showing three models, whose rotation is being controlled by three smartphones.}\label{fig:screenshot-exp-mv}
@@ -22,7 +22,7 @@ To feature how easy it is to view a more complex model using VR and the smartpho
 
 The experiment always listens for new clients. As soon as one connects, a new Interaction is published and the resulting Topic subscribed. Since the smart device (see Section~\ref{section:smart-device}) publishes the orientation data in a different format than ThreeJS needs for rendering, a reusable Interaction was created. This Interaction converts the angles from radian to degrees, changes the coordinate system and publishes them to the \lstinline[breaklines=false]{[client id]/SAVRLaserPointer/orientation} topic. The code for the Interaction is shown in Figure~\ref{fig:ubii-interaction-angles}.
 
-\begin{figure}[htpb]
+\begin{figure}[H]
   \begin{lstlisting}[language=JavaScript]
     function (input, output, state) {
       if (!input) {
@@ -63,7 +63,7 @@ To work around the missing position data of the device, the approach by \citeaut
 The ray origin is represented by a \ac{3D} phone model, whose orientation is synchronized with the one from the last connected smart device client (see Section~\ref{section:smart-device}), similar to the first experiment (\ref{subsection:model-viewer}). To keep the virtual phone inside the view frustum of the user, it rotates relative to the user on the up-axis and moves only on the right/forward-axis.
 A line is attached to the front of the phone (the \enquote{laser}) to indicate the direction of the ray. A screenshot of this setup can be seen in Figure~\ref{fig:screenshot-exp-lp}.
 
-\begin{figure}[htpb]
+\begin{figure}[H]
   \centering
   \includegraphics[width=12cm]{figures/implementation/screenshot_exp_lp.png}
   \caption[Screenshot of the laser pointer experiment]{A screenshot of the virtual laser pointer and selectable cubes.}\label{fig:screenshot-exp-lp}
@@ -86,7 +86,7 @@ Other approaches use hand gloves~\cite{Evans.1999,Rhoton.2002}, a real keyboard~
 Similar to the approach by~\citeauthor{Dias.2018} to implement user interfaces using a real smartphone and a virtual representation in the \ac{VE}~\cite[5]{Dias.2018}, this experiment uses a virtual keyboard as seen in Figure~\ref{fig:screenshot-exp-vk}. 
 The surface of the virtual keyboard is mapped to the touchscreen of the smart device (see Section~\ref{section:smart-device}). The cursor, represented by a blue circle, visualizes the position of the finger on the touchscreen.
 
-\begin{figure}[htpb]
+\begin{figure}[H]
   \centering
   \includegraphics[width=12cm]{figures/implementation/screenshot_exp_vk.png}
   \caption[Screenshot of the virtual keyboard experiment]{A screenshot of the virtual keyboard with the blue cursor and the previously typed text.}\label{fig:screenshot-exp-vk}
@@ -104,7 +104,7 @@ As long as intentional movements are not detected, a timer counts up to a specif
 
 The second component renders a virtual QWERTY\footnote{The name QWERTY describes the US layout for computer keyboards.} keyboard to the scene. The keyboard layout, whose definition is shown in Figure~\ref{fig:virtual-keyboard-layout}, can be adjusted pretty easily. Every key has a character or an action assigned as well as properties which influence the look. Special keys like the caps, caps lock, enter and delete key are fully functional as known from a real keyboard. When caps lock is activated, the key is drawn in blue, and all characters are display in upper case. 
 
-\begin{figure}[htpb]
+\begin{figure}[H]
   \begin{lstlisting}[language=JavaScript]
   // rows
   [

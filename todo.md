@@ -20,3 +20,4 @@ NOW:
   - think about renaming references to section from Chapter~\ref to Section~\ref
   - check for me and I (personal pronoms) and replace with 'the author of this thesis'
   - maybe mention source of model files
+  - read thorough fopmalities/requirements and check

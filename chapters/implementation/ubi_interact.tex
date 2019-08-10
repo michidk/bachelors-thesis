@@ -9,7 +9,7 @@
 
 The components of the \ac{UBII} framework, as visualized in Figure~\ref{fig:ubii-er}, are explained below.
 
-\begin{figure}[htpb]
+\begin{figure}[H]
   \centering
   \begin{subfigure}{.5\textwidth}
     \centering
@@ -40,7 +40,7 @@ The components of the \ac{UBII} framework, as visualized in Figure~\ref{fig:ubii
 \subsection{Interactions}\label{subsection:interactions}
 A powerful feature of \ac{UBII} are Interactions. As explained in the component overview in Chapter~\ref{subsection:architecture}, they are reactive components, which operate on Topics and regularly execute given code snippets on the Server. Interactions are isolated components, which depend on Topic Data. This abstraction introduces the possibility to reuse logic in other applications in a similar context. The data flow from a Device to the Interaction is visualized in the Figure~\ref{fig:ubii-cd}.
 
-\begin{figure}[htpb]
+\begin{figure}[H]
   \centering
   \includegraphics[width=12cm]{figures/implementation/ubii_cd.pdf}
   \caption[UBII communication diagram]{Interaction processing overview. This graphic gives a rough overview of the dataflow when using an interaction. Diagram created with the help of Sandro Weber.}\label{fig:ubii-cd}
@@ -48,7 +48,7 @@ A powerful feature of \ac{UBII} are Interactions. As explained in the component 
 
 Interactions should be designed in a atomic and generic way, so that they are easy to reuse. They can be used to discretize data, convert data to other formats or to outsource logic from the application. Concrete examples include the detection of button presses, the transformation of coordinates, and the evaluation of data. An example of an interaction which detects position changes can be seen in Figure~\ref{fig:ubii-interaction-example}.
 
-\begin{figure}[htpb]
+\begin{figure}[H]
   \begin{lstlisting}[language=JavaScript]
     // detect intentional movement by comparing the current position with a previous one
     function (inputs, outputs, state) {
