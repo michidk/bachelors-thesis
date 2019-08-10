@@ -40,7 +40,7 @@ The experiment always listens for new clients. As soon as one connects, a new In
       };
     }
   \end{lstlisting}
-  \caption[Interaction of model viewer]{This \ac{UBII} interaction is used to convert the orientation data sent by the smart device to the format ThreeJS needs for rendering. The values are converted by multiplying with an approximate of the number $\Pi$ (\enquote{PI}) and dividing by $180$.}\label{fig:ubii-interaction-angles} %chktex 46
+  \caption[Interaction of model viewer]{This \ac{UBII} Interaction is used to convert the orientation data sent by the smart device to the format ThreeJS needs for rendering. The values are converted by multiplying with an approximate of the number $\Pi$ (\enquote{PI}) and dividing by $180$.}\label{fig:ubii-interaction-angles} %chktex 46
 \end{figure}
 
 As in Section~\ref{subsection:topic-data} described, the current implementation does not provide the full angular data needed. This means that the model cannot be rotated upside down, which is very impractical for a model viewing application. However this can be fixed and is not critical for a proof-of-concept.

@@ -29,8 +29,8 @@ The components of the \ac{UBII} framework, as visualized in Figure~\ref{fig:ubii
 	\item[Clients] are basic network participants. They have to be registered on the server before communication with other clients or the server is possible. Clients are an abstraction of a physical network device and are defined by a \ac{UID}. 
 	\item[Devices] can be registered by Clients. A Device groups different input and output devices together. It is defined by a \ac{UID} and a list of Components.
   \item[Components] specify the Topic name, Message Formats for input/output devices and whether it publishes input or receives output data. A data source for such an input device could be any sensor, for example, a button or a camera. Data output examples for input devices are lamps and displays.
-  \item[Message Formats] define the format of data published to a topic. Even though it is possible to implement custom ones with \ac{Protobuf}, most common data types are already available. For example, \lstinline[mathescape=true]{Vector4$\times$4} (a four by four matrix), \lstinline{Vector2} (a two-dimensional vector) or \lstinline{boolean} (a binary value) are built-in. % chktex 46
-	\item[Topics] are data channels which are addressed by a name. Clients can publish messages to topics, which are registered by a Device. They can receive messages, after subscribing to a Topic. Such messages (also called \enquote{Topic Data}) are formatted as JSON\footnote{JSON is a standardized data exchange format, that uses human-readable text. It is often used for web-based data communication~\cite[iii]{ECMAInternational.2017}.}-string, whose structure is defined by the Message Formats.
+  \item[Message Formats] define the format of data published to a Topic. Even though it is possible to implement custom ones with \ac{Protobuf}, most common data types are already available. For example, \lstinline[mathescape=true]{Vector4$\times$4} (a four by four matrix), \lstinline{Vector2} (a two-dimensional vector) or \lstinline{boolean} (a binary value) are built-in. % chktex 46
+	\item[Topics] are data channels which are addressed by a name. Clients can publish messages to Topics, which are registered by a Device. They can receive messages, after subscribing to a Topic. Such messages (also called \enquote{Topic Data}) are formatted as JSON\footnote{JSON is a standardized data exchange format, that uses human-readable text. It is often used for web-based data communication~\cite[iii]{ECMAInternational.2017}.}-string, whose structure is defined by the Message Formats.
 	\item[Sessions] operate on the server but are specified by the Client. They are defined by a \ac{UID} as well as a list of Interactions and mappings. The mappings (\enquote{Input/Output Mappings}) are defined by a Message Format and Topic name.
 	\item[Interactions] are reactive components. They operate on Topics and are defined by a source code snippet\footnote{Currently, only JavaScript is supported as a programming language for Interactions, but Python is planned. Python is a programming language frequently used in scientific contexts. Website: \href{https://www.python.org/}{www.python.org}}. Interactions are executed in a fixed interval on the server. They can subscribe to Topics and use the received Topic Data as input, given an Input/Output Mapping description. The output of the Interaction is published into another Topic. It is also possible to store data, which can be used in future executions (persistent state).
 	\item[Services] are channels similar, used to send commands or requests to the server. For example, they are used to subscribe to a Topic or list all available Topics.
@@ -43,10 +43,10 @@ A powerful feature of \ac{UBII} are Interactions. As explained in the component 
 \begin{figure}[H]
   \centering
   \includegraphics[width=12cm]{figures/implementation/ubii_cd.pdf}
-  \caption[UBII communication diagram]{Interaction processing overview. This graphic gives a rough overview of the dataflow when using an interaction. Diagram created with the help of Sandro Weber.}\label{fig:ubii-cd}
+  \caption[UBII communication diagram]{Interaction processing overview. This graphic gives a rough overview of the dataflow when using an Interaction. Diagram created with the help of Sandro Weber.}\label{fig:ubii-cd}
 \end{figure}
 
-Interactions should be designed in a atomic and generic way, so that they are easy to reuse. They can be used to discretize data, convert data to other formats or to outsource logic from the application. Concrete examples include the detection of button presses, the transformation of coordinates, and the evaluation of data. An example of an interaction which detects position changes can be seen in Figure~\ref{fig:ubii-interaction-example}.
+Interactions should be designed in a atomic and generic way, so that they are easy to reuse. They can be used to discretize data, convert data to other formats or to outsource logic from the application. Concrete examples include the detection of button presses, the transformation of coordinates, and the evaluation of data. An example of an Interaction which detects position changes can be seen in Figure~\ref{fig:ubii-interaction-example}.
 
 \begin{figure}[H]
   \begin{lstlisting}[language=JavaScript]
@@ -70,7 +70,7 @@ Interactions should be designed in a atomic and generic way, so that they are ea
       state.lastPosition = inputs.position;
     }
   \end{lstlisting}
-  \caption[Basic UBII interaction in JavaScript]{This is an example of an Interaction written in JavaScript. This Interaction calculates the squared distance of two points. One of the points is provided through the input, while the other one is stored in the state variable. The result of the comparison is then written into the output as a boolean data type. This is used to detect intended changes in the input position.}\label{fig:ubii-interaction-example}
+  \caption[Basic UBII Interaction in JavaScript]{This is an example of an Interaction written in JavaScript. This Interaction calculates the squared distance of two points. One of the points is provided through the input, while the other one is stored in the state variable. The result of the comparison is then written into the output as a boolean data type. This is used to detect intended changes in the input position.}\label{fig:ubii-interaction-example}
 \end{figure}
 
 % this might be left out or merged into above
