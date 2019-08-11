@@ -9,14 +9,14 @@
 \usepackage[ngerman,american]{babel}
 \usepackage[autostyle]{csquotes}
 \usepackage[%
-  backend=biber,
-  url=false,
-  style=alphabetic,
-  maxnames=3,
-  minnames=3,
-  maxbibnames=99,
-  giveninits,
-  uniquename=init]{biblatex}
+	backend=biber,
+	url=false,
+	style=alphabetic,
+	maxnames=3,
+	minnames=3,
+	maxbibnames=99,
+	giveninits,
+	uniquename=init]{biblatex}
 \setcounter{biburlnumpenalty}{7000} % break urls in bibliography https://texwelt.de/wissen/fragen/7008/zeilenumbruche-in-bibliografielinks
 \usepackage{url}
 \usepackage[hidelinks, breaklinks]{hyperref} % hidelinks removes colored boxes around references and links
@@ -88,53 +88,53 @@
 % Settings for pgfplots
 \pgfplotsset{compat=newest}
 \pgfplotsset{
-  cycle list={TUMBlue\\TUMAccentOrange\\TUMAccentGreen\\TUMSecondaryBlue2\\TUMDarkGray\\},
+	cycle list={TUMBlue\\TUMAccentOrange\\TUMAccentGreen\\TUMSecondaryBlue2\\TUMDarkGray\\},
 }
 
 % Settings for lstlistings
 \lstset{%
-  basicstyle=\ttfamily\footnotesize,
-  columns=fullflexible,
-  autogobble,
-  extendedchars=true,
-  sensitive=true,
-  showstringspaces=false,
-  showspaces=false,
-  numbers=left,
-  numberstyle=\scriptsize,
-  numbersep=9pt,
-  tabsize=2,
-  breaklines=true,
-  showtabs=false,
-  captionpos=b,
-  backgroundcolor=\color{CustomGrey},
-  keywordstyle=\color{TUMBlue}\bfseries,
-  keywordstyle=[2]\color{TUMGray}\bfseries,
-  identifierstyle=\color{TUMBlack},
-  commentstyle=\color{TUMAccentGreen}\ttfamily,
-  stringstyle=\color{TUMAccentOrange}\ttfamily,
-  escapechar=\%
+	basicstyle=\ttfamily\footnotesize,
+	columns=fullflexible,
+	autogobble,
+	extendedchars=true,
+	sensitive=true,
+	showstringspaces=false,
+	showspaces=false,
+	numbers=left,
+	numberstyle=\scriptsize,
+	numbersep=9pt,
+	tabsize=2,
+	breaklines=true,
+	showtabs=false,
+	captionpos=b,
+	backgroundcolor=\color{CustomGrey},
+	keywordstyle=\color{TUMBlue}\bfseries,
+	keywordstyle=[2]\color{TUMGray}\bfseries,
+	identifierstyle=\color{TUMBlack},
+	commentstyle=\color{TUMAccentGreen}\ttfamily,
+	stringstyle=\color{TUMAccentOrange}\ttfamily,
+	escapechar=\%
 }
 
 % chktex-file 18
 \lstdefinelanguage{JavaScript}{
-  keywords=[1]{break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, let, const, void, while, with},
-  keywords=[2]{class, export, boolean, throw, implements, import, this},
-  morecomment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  morestring=[b]',
-  morestring=[b]",
-  morestring=[b]'',
+	keywords=[1]{break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, let, const, void, while, with},
+	keywords=[2]{class, export, boolean, throw, implements, import, this},
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]',
+	morestring=[b]",
+	morestring=[b]'',
 }
 
 \lstdefinelanguage{Protobuf}{
-  keywords=[1]{enum, message},
-  keywords=[2]{syntax, import, package},
-  morecomment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  morestring=[b]',
-  morestring=[b]",
-  morestring=[b]''
+	keywords=[1]{enum, message},
+	keywords=[2]{syntax, import, package},
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]',
+	morestring=[b]",
+	morestring=[b]''
 }
 
 

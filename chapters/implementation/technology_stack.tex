@@ -7,17 +7,20 @@ Since most of the existing software for \ac{UBII} was written in \acf{JS}\footno
 A web interface (the \ac{UBII} front end) with some examples, demos, and debugging tools was already implemented\footnote{The front end was initially developed by Sandro Weber and Daniel Dyrda. It also contains some improvements as well as the \ac{VR} examples by the author of this thesis.}. Figure~\ref{fig:ubii-front-end} shows an example, which renders a \ac{3D} cube. The proposed experiments are included in this application, as well.
 
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=10cm]{figures/implementation/ubii_front_end.pdf}
-  \caption[Screenshot of the UBII front end]{A screenshot of the UBII front end rendering a \ac{3D} cube.}\label{fig:ubii-front-end}
+	\centering
+	\includegraphics[width=10cm]{figures/implementation/ubii_front_end.pdf}
+	\caption[Screenshot of the UBII front end]{A screenshot of the UBII front end rendering a \ac{3D} cube.}\label{fig:ubii-front-end}
 \end{figure}
 
 The technology stack of the front end was built with the following technologies:
 \begin{description}
-  \item[Web APIs] are \acfp{API} available in modern web browsers to provide access to functionality or data outside the web page. The WebAPI provides an additional layer of abstraction of certain functions of an \ac{OS}. This has the advantage that the API is the same on every device. But in terms of sensors, this prevents the access to the raw sensor data\footnote{The specification is available on \href{https://w3c.github.io/deviceorientation/}{www.w3c.github.io/deviceorientation}}. In this thesis, the WebVR \ac{API} and the device orientation \ac{API} were used. The former enables to render to external \ac{VR} headsets. The latter gives access to the data of the \acf{IMU}.
-  \item[Vue.js] is a modern open-source \acl{JS} web framework\footnote{A web framework is a software framework which provides a standard way to build web applications. It comes with tools and libraries to automate and make the development of web applications easier.}\footnote{Vue.js: Website: \href{https://vuejs.org/}{www.vuejs.org}; Source~code: \href{https://github.com/vuejs/vue}{www.github.com/vuejs/vue}}~\cite{You.2019}. Being released in 2014 and developed by Evan You, it is a relatively young framework~\cite[17]{Koetsier.2016}. However, it quickly gained traction and is quite popular now~\cite[12\psq]{Koetsier.2016}.
+	\item[Web APIs] are \acfp{API} available in modern web browsers to provide access to functionality or data outside the web page. The WebAPI provides an additional layer of abstraction of certain functions of an \ac{OS}. This has the advantage that the API is the same on every device. But in terms of sensors, this prevents the access to the raw sensor data\footnote{The specification is available on \href{https://w3c.github.io/deviceorientation/}{www.w3c.github.io/deviceorientation}}. In this thesis, the WebVR \ac{API} and the device orientation \ac{API} were used. The former enables to render to external \ac{VR} headsets. The latter gives access to the data of the \acf{IMU}.
+	 
+	\item[Vue.js] is a modern open-source \acl{JS} web framework\footnote{A web framework is a software framework which provides a standard way to build web applications. It comes with tools and libraries to automate and make the development of web applications easier.}\footnote{Vue.js: Website: \href{https://vuejs.org/}{www.vuejs.org}; Source~code: \href{https://github.com/vuejs/vue}{www.github.com/vuejs/vue}}~\cite{You.2019}. Being released in 2014 and developed by Evan You, it is a relatively young framework~\cite[17]{Koetsier.2016}. However, it quickly gained traction and is quite popular now~\cite[12\psq]{Koetsier.2016}.
   Packages like Vue.js itself, Vue.js plugins and other \acl{JS} libraries are managed using the package manager npm\footnote{\enquote{NPM} stands for \enquote{Node Package Manager} and is also used in the~\ac{UBII} server itself. Website: \href{https://www.npmjs.com/}{www.npmjs.com}}.
-  \item[Three.js] is a lightweight open-source library which utilizes WebGL to render \ac{3D} computer graphics\footnote{Three.js: Website: \href{https://threejs.org/}{www.threejs.org}, Source~code: \href{https://github.com/mrdoob/three.js/}{www.github.com/mrdoob/three.js}}~\cite{Cabello.2019}. It can be used to render scenes to the display as well as to a \ac{HMD} using WebVR. This high-level library comes with a lot of features, similar to a game engine, like scenes, effects, lights, animation, geometry, and more.
-  \item[UBII Client] is an \acl{JS} client for the \ac{UBII} system. It abstracts the protocol and provides high-level functions, for example, to register Devices or to send and receive Topic data.
+  
+	\item[Three.js] is a lightweight open-source library which utilizes WebGL to render \ac{3D} computer graphics\footnote{Three.js: Website: \href{https://threejs.org/}{www.threejs.org}, Source~code: \href{https://github.com/mrdoob/three.js/}{www.github.com/mrdoob/three.js}}~\cite{Cabello.2019}. It can be used to render scenes to the display as well as to a \ac{HMD} using WebVR. This high-level library comes with a lot of features, similar to a game engine, like scenes, effects, lights, animation, geometry, and more.
+	 
+	\item[UBII Client] is an \acl{JS} client for the \ac{UBII} system. It abstracts the protocol and provides high-level functions, for example, to register Devices or to send and receive Topic data.
 \end{description}
 
