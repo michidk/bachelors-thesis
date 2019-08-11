@@ -15,7 +15,7 @@ This limitation entails that no full orientation tracking is possible with this 
 \begin{figure}[H]
 	\centering
 	\includegraphics[height=5cm]{figures/implementation/webapi_device_orientation.pdf}
-	\caption[Device coordinate system and orientation values]{The specification of the orientation values visualized. The \(x\) and \(y\) axes are inverted for the sake of clarity in this graphic.}\label{fig:webapi-device-orientation}
+	\caption[Smart device coordinate system and orientation values]{The specification of the orientation values visualized. The \(x\) and \(y\) axes are inverted for the sake of clarity in this graphic.}\label{fig:webapi-device-orientation}
 \end{figure}
 
 The Web \ac{API} also provides the \lstinline{MotionEvent} which returns multiple vectors, one being the acceleration including the gravity (\lstinline{accelerationIncludingGravity}). Since the gravity vector always points to the center of the earth, this vector can be used as a reference vector. Together with the values from the \lstinline{DeviceOrientation} event, the full orientation can be derived. The resulting orientation then has to be further processed because the acceleration vector uses the raw \ac{IMU} acceleration output, which might be very noisy.
@@ -33,8 +33,7 @@ The smart device is registered as a device in the \ac{UBII} network. The Device 
 	\begin{lstlisting}[language=JavaScript]
     const ubiiDevice = {
       name: 'web-interface-smart-device',
-      components: [
-        {
+      components: [{
           topic: clientId + '/web-interface-smart-device/touch_position',
           messageFormat: 'ubii.dataStructure.Vector2',
           ioType: ProtobufLibrary.ubii.devices.Component.IOType.INPUT

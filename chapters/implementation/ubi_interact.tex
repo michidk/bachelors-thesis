@@ -51,7 +51,7 @@ Interactions should be designed in an atomic and generic way so that they are ea
 \begin{figure}[H]
 	\begin{lstlisting}[language=JavaScript]
     // detect intentional movement by comparing the current position with a previous one
-    function (inputs, outputs, state) {
+    function(inputs, outputs, state) {
       const threshold = 0.05;
 
       if (state.lastPosition) {
@@ -70,7 +70,7 @@ Interactions should be designed in an atomic and generic way so that they are ea
       state.lastPosition = inputs.position;
     }
   \end{lstlisting}
-	\caption[Basic UBII Interaction in JavaScript]{This is an example of an Interaction written in JavaScript. This Interaction calculates the squared distance of two points. One of the points is provided through the input, while the other one is stored in the state variable. The result of the comparison is then written into the output as a boolean data type. This is used to detect intended changes in the input position.}\label{fig:ubii-interaction-example}
+	\caption[A UBII Interaction in JavaScript]{This is an example of an Interaction written in JavaScript. This Interaction calculates the squared distance of two points. One of the points is provided through the input, while the other one is stored in the state variable. The result of the comparison is then written into the output as a boolean data type. This is used to detect intended changes in the input position.}\label{fig:ubii-interaction-example}
 \end{figure}
 
 % this might be left out or merged into above

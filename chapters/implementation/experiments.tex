@@ -17,30 +17,30 @@ To feature how easy it is to view a more complex model using VR and the smartpho
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=12cm]{figures/implementation/screenshot_exp_mv.png}
-	\caption[Screenshot of the model viewer experiment]{A screenshot showing three models, whose rotation is being controlled by three smartphones.}\label{fig:screenshot-exp-mv}
+	\caption[Screenshot of the model viewer]{A screenshot showing three models, whose rotation is being controlled by three smartphones.}\label{fig:screenshot-exp-mv}
 \end{figure}
 
 The experiment always listens for new clients. As soon as one connects, a new Interaction is published, and the resulting Topic subscribed. Since the smart device (see Section~\ref{section:smart-device}) publishes the orientation data in a different format than ThreeJS needs for rendering, a reusable Interaction was created. This Interaction converts the angles from radian to degrees, changes the coordinate system, and publishes them to the \lstinline[breaklines=false]{[client id]/SAVRLaserPointer/orientation} topic. The code for the Interaction is shown in Figure~\ref{fig:ubii-interaction-angles}.
 
 \begin{figure}[H]
 	\begin{lstlisting}[language=JavaScript]
- function (input, output, state) {
- if (!input) {
- return;
- }
+  function (input, output, state) {
+    if (!input) {
+      return;
+    }
 
- const deg2Rad = function(v) {
- return v * Math.PI / 180;
- };
+    const deg2Rad = function(v) {
+      return v * Math.PI / 180;
+    };
 
- output.orientation = {
- x: deg2Rad(input.orientation.y),
- y: deg2Rad(input.orientation.x),
- z: deg2Rad(-input.orientation.z)
- };
- }
+    output.orientation = {
+      x: deg2Rad(input.orientation.y),
+      y: deg2Rad(input.orientation.x),
+      z: deg2Rad(-input.orientation.z)
+    };
+  }
  \end{lstlisting}
-	\caption[Interaction of model viewer]{This \ac{UBII} Interaction is used to convert the orientation data sent by the smart device to the format ThreeJS needs for rendering. The values are converted by multiplying with an approximate of the number $\Pi$ (\enquote{PI}) and dividing by $180$.}\label{fig:ubii-interaction-angles} %chktex 46
+	\caption[A UBII Interaction of model viewer]{This \ac{UBII} Interaction is used to convert the orientation data sent by the smart device to the format ThreeJS needs for rendering. The values are converted by multiplying with an approximate of the number $\Pi$ (\enquote{PI}) and dividing by $180$.}\label{fig:ubii-interaction-angles} %chktex 46
 \end{figure}
 
 As in Section~\ref{subsection:topic-data} described, the current implementation does not provide the full angular data needed. This means that the model cannot be rotated upside down, which is very impractical for a model viewing application. However, this can be fixed and is not critical for a proof-of-concept.
@@ -66,7 +66,7 @@ A line is attached to the front of the phone (the \enquote{laser}) to indicate t
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=12cm]{figures/implementation/screenshot_exp_lp.png}
-	\caption[Screenshot of the laser pointer experiment]{A screenshot of the virtual laser pointer and selectable cubes.}\label{fig:screenshot-exp-lp}
+	\caption[Screenshot of the laser pointer]{A screenshot of the virtual laser pointer and selectable cubes.}\label{fig:screenshot-exp-lp}
 \end{figure}
 
 In addition to the orientation Topic, this implementation subscribes to the touch events Topic. The \lstinline{touch down} event is needed to trigger the actual selection.
@@ -89,7 +89,7 @@ The surface of the virtual keyboard is mapped to the touchscreen of the smart de
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=12cm]{figures/implementation/screenshot_exp_vk.png}
-	\caption[Screenshot of the virtual keyboard experiment]{A screenshot of the virtual keyboard with the blue cursor and the previously typed text.}\label{fig:screenshot-exp-vk}
+	\caption[Screenshot of the virtual keyboard]{A screenshot of the virtual keyboard with the blue cursor and the previously typed text.}\label{fig:screenshot-exp-vk}
 \end{figure}
 
 When executing the keypress on the first touch and without a cursor (like a regular smartphone keyboard), the user would not know which key he is going to hit with his finger, because his sight is obscured by the \ac{HMD}. \citeauthor{Dias.2018} work around this problem by using a Leap Motion sensor to visualize the finger positions~\cite[4]{Dias.2018}.
