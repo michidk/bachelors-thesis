@@ -9,7 +9,7 @@ NOW:
 
 * correction
 
-  - check for usage of times.. time should be consistent (is used vs. was used)
+  - check for usage of times.. time should be consistent (is used vs. was used) ?
   - paste into grammarly and languagetool
     - done for abstract
     - done for introduction

@@ -2,7 +2,7 @@
 \section{Experiments}\label{section:experiments}
 
 Three experiments were implemented to demonstrate how the smartphone can help with common interactions when using \ac{VR} software.
-To achieve consistency amongst all experiments in terms of look and basic functionality, a parent class was implemented. The parent class implements utilities, which are required and inherited by each experiment. It also sets up a basic scene, which contains a skybox, a floor, and lights. Additionally, it handels the connection to the \ac{UBII} Server. 
+To achieve consistency amongst all experiments in terms of look and basic functionality, a parent class was implemented. The parent class implements utilities, which are required and inherited by each experiment. It also sets up a basic scene, which contains a skybox, a floor, and lights. Additionally, it handles the connection to the \ac{UBII} Server. 
 
 
 \subsection{Model Viewer}\label{subsection:model-viewer}
@@ -15,35 +15,35 @@ Since this approach turned out to be very successful, it was used in this experi
 To feature how easy it is to view a more complex model using VR and the smartphone as a manipulator, a human skeleton model is used. This experiment is the only one supporting more than one smartphone client at the same time. For every client that connects, a new skeleton is created. The position is fixed and arranged around the position of the \ac{VR} headset. A scene with multiple connected clients is shown in Figure~\ref{fig:screenshot-exp-mv}.
 
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=12cm]{figures/implementation/screenshot_exp_mv.png}
-  \caption[Screenshot of the model viewer experiment]{A screenshot showing three models, whose rotation is being controlled by three smartphones.}\label{fig:screenshot-exp-mv}
+ \centering
+ \includegraphics[width=12cm]{figures/implementation/screenshot_exp_mv.png}
+ \caption[Screenshot of the model viewer experiment]{A screenshot showing three models, whose rotation is being controlled by three smartphones.}\label{fig:screenshot-exp-mv}
 \end{figure}
 
-The experiment always listens for new clients. As soon as one connects, a new Interaction is published and the resulting Topic subscribed. Since the smart device (see Section~\ref{section:smart-device}) publishes the orientation data in a different format than ThreeJS needs for rendering, a reusable Interaction was created. This Interaction converts the angles from radian to degrees, changes the coordinate system and publishes them to the \lstinline[breaklines=false]{[client id]/SAVRLaserPointer/orientation} topic. The code for the Interaction is shown in Figure~\ref{fig:ubii-interaction-angles}.
+The experiment always listens for new clients. As soon as one connects, a new Interaction is published, and the resulting Topic subscribed. Since the smart device (see Section~\ref{section:smart-device}) publishes the orientation data in a different format than ThreeJS needs for rendering, a reusable Interaction was created. This Interaction converts the angles from radian to degrees, changes the coordinate system, and publishes them to the \lstinline[breaklines=false]{[client id]/SAVRLaserPointer/orientation} topic. The code for the Interaction is shown in Figure~\ref{fig:ubii-interaction-angles}.
 
 \begin{figure}[H]
-  \begin{lstlisting}[language=JavaScript]
-    function (input, output, state) {
-      if (!input) {
-        return;
-      }
+ \begin{lstlisting}[language=JavaScript]
+ function (input, output, state) {
+ if (!input) {
+ return;
+ }
 
-      const deg2Rad = function(v) {
-        return v * Math.PI / 180;
-      };
+ const deg2Rad = function(v) {
+ return v * Math.PI / 180;
+ };
 
-      output.orientation = {
-        x: deg2Rad(input.orientation.y),
-        y: deg2Rad(input.orientation.x),
-        z: deg2Rad(-input.orientation.z)
-      };
-    }
-  \end{lstlisting}
-  \caption[Interaction of model viewer]{This \ac{UBII} Interaction is used to convert the orientation data sent by the smart device to the format ThreeJS needs for rendering. The values are converted by multiplying with an approximate of the number $\Pi$ (\enquote{PI}) and dividing by $180$.}\label{fig:ubii-interaction-angles} %chktex 46
+ output.orientation = {
+ x: deg2Rad(input.orientation.y),
+ y: deg2Rad(input.orientation.x),
+ z: deg2Rad(-input.orientation.z)
+ };
+ }
+ \end{lstlisting}
+ \caption[Interaction of model viewer]{This \ac{UBII} Interaction is used to convert the orientation data sent by the smart device to the format ThreeJS needs for rendering. The values are converted by multiplying with an approximate of the number $\Pi$ (\enquote{PI}) and dividing by $180$.}\label{fig:ubii-interaction-angles} %chktex 46
 \end{figure}
 
-As in Section~\ref{subsection:topic-data} described, the current implementation does not provide the full angular data needed. This means that the model cannot be rotated upside down, which is very impractical for a model viewing application. However this can be fixed and is not critical for a proof-of-concept.
+As in Section~\ref{subsection:topic-data} described, the current implementation does not provide the full angular data needed. This means that the model cannot be rotated upside down, which is very impractical for a model viewing application. However, this can be fixed and is not critical for a proof-of-concept.
 
 
 \subsection{Laser Pointer}\label{subsection:laser-pointer}
@@ -64,9 +64,9 @@ The ray origin is represented by a \ac{3D} phone model, whose orientation is syn
 A line is attached to the front of the phone (the \enquote{laser}) to indicate the direction of the ray. A screenshot of this setup can be seen in Figure~\ref{fig:screenshot-exp-lp}.
 
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=12cm]{figures/implementation/screenshot_exp_lp.png}
-  \caption[Screenshot of the laser pointer experiment]{A screenshot of the virtual laser pointer and selectable cubes.}\label{fig:screenshot-exp-lp}
+ \centering
+ \includegraphics[width=12cm]{figures/implementation/screenshot_exp_lp.png}
+ \caption[Screenshot of the laser pointer experiment]{A screenshot of the virtual laser pointer and selectable cubes.}\label{fig:screenshot-exp-lp}
 \end{figure}
 
 In addition to the orientation Topic, this implementation subscribes to the touch events Topic. The \lstinline{touch down} event is needed to trigger the actual selection.
@@ -87,9 +87,9 @@ Similar to the approach by~\citeauthor{Dias.2018} to implement user interfaces u
 The surface of the virtual keyboard is mapped to the touchscreen of the smart device (see Section~\ref{section:smart-device}). The cursor, represented by a blue circle, visualizes the position of the finger on the touchscreen.
 
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=12cm]{figures/implementation/screenshot_exp_vk.png}
-  \caption[Screenshot of the virtual keyboard experiment]{A screenshot of the virtual keyboard with the blue cursor and the previously typed text.}\label{fig:screenshot-exp-vk}
+ \centering
+ \includegraphics[width=12cm]{figures/implementation/screenshot_exp_vk.png}
+ \caption[Screenshot of the virtual keyboard experiment]{A screenshot of the virtual keyboard with the blue cursor and the previously typed text.}\label{fig:screenshot-exp-vk}
 \end{figure}
 
 When executing the keypress on the first touch and without a cursor (like a regular smartphone keyboard), the user would not know which key he is going to hit with his finger, because his sight is obscured by the \ac{HMD}. \citeauthor{Dias.2018} work around this problem by using a Leap Motion sensor to visualize the finger positions~\cite[4]{Dias.2018}.
@@ -105,27 +105,27 @@ As long as intentional movements are not detected, a timer counts up to a specif
 The second component renders a virtual QWERTY\footnote{The name QWERTY describes the US layout for computer keyboards.} keyboard to the scene. The keyboard layout, whose definition is shown in Figure~\ref{fig:virtual-keyboard-layout}, can be adjusted pretty easily. Every key has a character or an action assigned as well as properties which influence the look. Special keys like the caps, caps lock, enter and delete key are fully functional as known from a real keyboard. When caps lock is activated, the key is drawn in blue, and all characters are display in upper case. 
 
 \begin{figure}[H]
-  \begin{lstlisting}[language=JavaScript]
+\begin{lstlisting}[language=JavaScript]
   // rows
   [
-    // columns
-    %\dots%
-    [ 
-      // keys
-      %\dots%
-      {
-        key: '=',                             // the returned character if no action is present otherwise just a label
-        keyCaps: '+'                          // the returned character if in caps mode 
-      },
-      {
-        key: '%\color{TUMAccentOrange}\textleftarrow%',
-        action: KEY_ACTIONS.DELETE_ONE,       // a special key action; in this case, it deletes the last character
-        width: 2,                             // with of the key
-        align: KEY_ALIGNMENT.RIGHT            // the alignment of the label on the key
-      }
-      %\dots%
-    ],
-    %\dots%
+  // columns
+  %\dots%
+  [ 
+  // keys
+  %\dots%
+  {
+  key: '=', // the returned character if no action is present otherwise just a label
+  keyCaps: '+' // the returned character if in caps mode 
+  },
+  {
+  key: '%\color{TUMAccentOrange}\textleftarrow%',
+  action: KEY_ACTIONS.DELETE_ONE, // a special key action; in this case, it deletes the last character
+  width: 2, // with of the key
+  align: KEY_ALIGNMENT.RIGHT // the alignment of the label on the key
+  }
+  %\dots%
+  ],
+  %\dots%
   ],
   \end{lstlisting}
   \caption[Virtual keyboard layout definition]{The definition of the virtual keyboard layout, written in \ac{JS}. It is defined as a \ac{2D} array, where the first dimension corresponds to the key rows and the second one to the keys column-wise.}\label{fig:virtual-keyboard-layout}

@@ -7,7 +7,7 @@
 \section{Deller et al.}\label{section:deller-2011}
 \citeauthor{Deller.2011} propose a modular framework to enable multi-user interactions between smartphones and large-screen applications. A typical client-server architecture with an XML\footnote{XML is a standardized data exchange format, that uses human-readable text.}-based protocol is used. They differentiate between application clients (the large screen) and interaction clients (the smartphones). 
 
-The client app is provided with different modules. Some modules offer similar functionality like the experiments implemented in this thesis: The text module enables the user to enter a text; The accelerometer/magnetometer module sends \ac{IMU} data like acceleration and magnetic field data in the background to the server. They also used their framework into in an application where users can navigate a map and toggle display settings~\cite{Deller.2011}.
+The client app is provided with different modules. Some modules offer similar functionality like the experiments implemented in this thesis: The text module enables the user to enter a text; The accelerometer/magnetometer module sends \ac{IMU} data like acceleration and magnetic field data in the background to the server. They also used their framework in an application where users can navigate a map and toggle display settings~\cite{Deller.2011}.
 
 
 % Phone-based motion control in VR (Klinker)
@@ -17,7 +17,7 @@ The client app is provided with different modules. Some modules offer similar fu
 % Since the sight is occluded by the \ac{HMD}, the phone display cannot be used to display information.
 They try to find a convenient mappings between the users' actions with the mobile phone and the subsequent reactions in the \ac{VE}. To solve this, they investigate the \acp{DOF} required to implement a quickly learnable and comfortable travel task.
 
-Different methods using the accelerometer, magnetic field sensor and touch screen of controlling the flight movement are presented and evaluated. They concluded that the most accurate method for controlling the flight uses an approach, where an airplane metaphor (four \acp{DOF}) is simulated~\cite{Benzina.2011}.
+Different methods using the accelerometer, magnetic field sensor, and touch screen of controlling the flight movement are presented and evaluated. They concluded that the most accurate method for controlling the flight uses an approach, where an airplane metaphor (four \acp{DOF}) is simulated~\cite{Benzina.2011}.
 
 
 % Mobile Devices for Interaction in Immersive Virtual Environments
@@ -26,17 +26,17 @@ Different methods using the accelerometer, magnetic field sensor and touch scree
 \citeauthor{Dias.2018} propose a solution, where the smartphone has a visual representation in \ac{VR}. The visual representation displays information and a \ac{UI} on its virtual screen. The camera in the smartphone tracks a marker on the \ac{HMD} to track itself. The setup is shown in Figure~\ref{fig:dias-2018}. 
 
 \begin{figure}[H]
-  \centering
-  \begin{subfigure}[t]{0.4\textwidth}%
-    \includegraphics[width=\textwidth]{figures/related_work/dias_2018_tracking.png}
-    \caption{The front camera of the smartphone tracks the marker on the \ac{HMD}.}\label{fig:dias-2018-tracking}% chktex 9 % chktex 10
-  \end{subfigure}%
-  \hspace{0.1\textwidth}%
-  \begin{subfigure}[t]{0.4\textwidth}%
-    \includegraphics[width=\textwidth]{figures/related_work/dias_2018_virtual_smartphone.png}
-    \caption{The virtual smartphone representation and hand avatar in the \ac{VE} while interacting with the \ac{UI}.}\label{fig:dias-2018-virtual-smartphone}
-  \end{subfigure}%
-  \caption[Tracking setup by Dias et al.]{The tracking system by \citeauthor{Dias.2018}~\protect\cite[4,5]{Dias.2018}.}\label{fig:dias-2018}
+ \centering
+ \begin{subfigure}[t]{0.4\textwidth}%
+ \includegraphics[width=\textwidth]{figures/related_work/dias_2018_tracking.png}
+ \caption{The front camera of the smartphone tracks the marker on the \ac{HMD}.}\label{fig:dias-2018-tracking}% chktex 9 % chktex 10
+ \end{subfigure}%
+ \hspace{0.1\textwidth}%
+ \begin{subfigure}[t]{0.4\textwidth}%
+ \includegraphics[width=\textwidth]{figures/related_work/dias_2018_virtual_smartphone.png}
+ \caption{The virtual smartphone representation and hand avatar in the \ac{VE} while interacting with the \ac{UI}.}\label{fig:dias-2018-virtual-smartphone}
+ \end{subfigure}%
+ \caption[Tracking setup by Dias et al.]{The tracking system by \citeauthor{Dias.2018}~\protect\cite[4,5]{Dias.2018}.}\label{fig:dias-2018}
 \end{figure}
 
 Because the user interacts with the \ac{UI} using the touch screen of the phone as he would in real life, the fingers have to be tracked and visualized. Otherwise, the user would not know where his fingers are going to hit the touch screen because the sight is occluded by the \ac{HMD}. To solves this problem, they attached a Leap Motion sensor to the \ac{HMD}, which displays a hand avatar~\cite{Dias.2018}. 
@@ -48,19 +48,19 @@ Because the user interacts with the \ac{UI} using the touch screen of the phone 
 The approach by \citeauthor{Steed.2013} also uses a smartphone and a \ac{VR} headset. They implemented a visual representation of the phone, as well. However, since they do not have positional tracking for the smartphone, the position is fixed relative to the position of the \ac{HMD}. There are two different possible positions, one in front of the \ac{HMD} (shown in Figure~\ref{fig:steed-2013-laser-pointer}) and the other one in front of the stomach (shown in Figure~\ref{fig:steed-2013-ui}). The position is switched if a hand raise gesture with the phone in the hand is detected. Gestures and orientation of the smartphone are detected using the data of the \ac{IMU}. 
 
 \begin{figure}[H]
-  \centering
-  \begin{subfigure}{0.45\textwidth}%
-    \centering%
-    \includegraphics[height=4cm]{figures/related_work/steed_2013_laser_pointer.png}
-    \caption{The virtual device in selection mode.}\label{fig:steed-2013-laser-pointer}% chktex 9 % chktex 10
-  \end{subfigure}%
-  \hspace{0.1\textwidth}%
-  \begin{subfigure}{0.45\textwidth}%
-    \centering%
-    \includegraphics[height=4cm]{figures/related_work/steed_2013_ui.png}
-    \caption{The virtual \ac{UI} and the cursor.}\label{fig:steed-2013-ui}
-  \end{subfigure}%
-  \caption[Virtual smartphone representation by Steep et al.]{The virtual smartphone representation by \citeauthor{Steed.2013}~\protect\cite[43]{Steed.2013}.}\label{fig:steed-2013}
+ \centering
+ \begin{subfigure}{0.45\textwidth}%
+ \centering%
+ \includegraphics[height=4cm]{figures/related_work/steed_2013_laser_pointer.png}
+ \caption{The virtual device in selection mode.}\label{fig:steed-2013-laser-pointer}% chktex 9 % chktex 10
+ \end{subfigure}%
+ \hspace{0.1\textwidth}%
+ \begin{subfigure}{0.45\textwidth}%
+ \centering%
+ \includegraphics[height=4cm]{figures/related_work/steed_2013_ui.png}
+ \caption{The virtual \ac{UI} and the cursor.}\label{fig:steed-2013-ui}
+ \end{subfigure}%
+ \caption[Virtual smartphone representation by Steep et al.]{The virtual smartphone representation by \citeauthor{Steed.2013}~\protect\cite[43]{Steed.2013}.}\label{fig:steed-2013}
 \end{figure}
 
 On the virtual phone screen, a \ac{UI} is displayed as seen in Figure~\ref{fig:steed-2013-ui}. This \ac{UI} has control elements like buttons, which amongst others, can be used to toggle a selection mode. In the selection mode, the phone casts a ray out of the top (similar to a laser pointer) as seen in Figure~\ref{fig:steed-2013-laser-pointer}. The ray direction can be changed by rotating the smartphone. As soon as a \ac{UI}-button is pressed, the objects intersecting with the ray are selected~\cite{Steed.2013}.
