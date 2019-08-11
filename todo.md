@@ -4,9 +4,6 @@
 
 NOW:
 
-- mention source of models
-- explain VR https://wiki.tum.de/display/infar/MA+-+Exploration+and+Classification+of+State-of-the-art+3D+User+Interfaces+in+Virtual+and+Augmented+Reality+Scenarios?preview=%2F69049584%2F127468269%2Fmasterarbeit.pdf
-
 MAYBE:
 
 - ? check for usage of times.. time should be consistent (is used vs. was used) ?
