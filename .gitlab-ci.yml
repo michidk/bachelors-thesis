@@ -27,11 +27,11 @@ deploy:
   - mkdir -p ~/.ssh
   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
   - chmod 600 ~/.ssh/id_rsa
-  - ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+  - ssh-keyscan -H gitlab.com >> ~/.ssh/known_hosts
   - git config --global user.email "gitlab-ci@lohr.dev"
   - git config --global user.name "GitLab CI"
   script:
-  - git clone --depth 1 --single-branch -b out git@gitlab.com:ml-university/bachelors-thesis/thesis.git repo
+  - git clone --depth 1 --single-branch -b out git@gitlab.com:ml-university/bachelors-thesis/thesis.git out
   - mv repo/.git repo-.git
   - rm -rf repo
   - mkdir repo
