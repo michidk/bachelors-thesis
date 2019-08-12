@@ -19,7 +19,17 @@
 	uniquename=init]{biblatex}
 \setcounter{biburlnumpenalty}{7000} % break urls in bibliography https://texwelt.de/wissen/fragen/7008/zeilenumbruche-in-bibliografielinks
 \usepackage{url}
-\usepackage[hidelinks, breaklinks]{hyperref} % hidelinks removes colored boxes around references and links
+\usepackage[pdftex]{hyperref}
+\hypersetup{
+  hidelinks,  % hidelinks removes colored boxes around references and links
+  breaklinks,
+  pdfauthor={\getAuthor},
+  pdftitle={\getTitle},
+  pdfproducer={\getAuthor},
+  pdfcreator={\getAuthor},
+  pdfnewwindow=true, % links in new window
+  pdfstartview={FitH}% fits the width of the page to the window
+}%
 \usepackage{textcomp} % for good looking copyright and registered symbols and arrows and more symbols
 \usepackage{scrhack} % necessary for listings package
 \usepackage{listings} % code highlighting
@@ -52,6 +62,7 @@
 \usepackage[titles]{tocloft} % https://tex.stackexchange.com/questions/187180/spacing-problem-at-list-of-figures
 \cftsetindents{figure}{0em}{3em}
 \cftsetindents{table}{0em}{3em}
+\usepackage{hyphenat} % silbentrennung
 
 
 \bibliography{bibliography}

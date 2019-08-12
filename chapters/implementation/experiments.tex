@@ -53,7 +53,7 @@ Selecting elements in a virtual world is an essential interaction most \ac{VR} a
 
 Ray casting\footnote{Ray casting describes a technique to determine the objects which intersect with a ray, cast from a given point into a given direction.} is used to solve this problem: A ray, with the virtual devices' position as origin, is created. Then, the element first hit by the ray is selected. Implementations without a tracked device, often use the position and orientation of the \ac{HMD}. The ray is fixed to the head of the user and cast along his viewing direction~\cite[23]{Kamm.2018}. This forces the user to keep the head still and look at a particular object to select it until a button is pressed or a specific time has passed.
 
-% TODO: maybe explain some more strategies, like in the keyboard chapter
+% maybe explain some more strategies, like in the keyboard chapter
 
 A better solution is the use of handheld controllers, where the position of the controller is used as origin for the ray. Since the smartphone provides orientation data, it can be used for this task, too. However, most handheld controllers also have positional tracking, which allows them to represent the hand of a user by displaying a virtual phone. This emulates the use of a handheld laser pointer in the real world. Since a smartphone does not have positional tracking, the origin has to be somewhere else.
 
