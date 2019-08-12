@@ -31,7 +31,7 @@ deploy:
   - git config --global user.email "gitlab-ci@lohr.dev"
   - git config --global user.name "GitLab CI"
   script:
-  - git clone --depth 1 --single-branch -b out git@gitlab.com:ml-university/bachelors-thesis/thesis.git out
+  - git clone --depth 1 --single-branch -b out git@gitlab.com:ml-university/bachelors-thesis/thesis.git repo
   - mv repo/.git repo-.git
   - rm -rf repo
   - mkdir repo
