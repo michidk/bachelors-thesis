@@ -62,7 +62,17 @@
 \usepackage[titles]{tocloft} % https://tex.stackexchange.com/questions/187180/spacing-problem-at-list-of-figures
 \cftsetindents{figure}{0em}{3em}
 \cftsetindents{table}{0em}{3em}
-\usepackage{hyphenat} % silbentrennung
+
+
+% Schriftart Helvetica:
+\usepackage[scaled]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Silbentrennung:
+%\usepackage{hyphenat}
+%\hyphenation{TUM in-te-res-siert} % Eigene Silbentrennung
+
+\usepackage[onehalfspacing]{setspace} % 1,5facher Zeilenabstand
 
 
 \bibliography{bibliography}
