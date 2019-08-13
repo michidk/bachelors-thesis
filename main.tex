@@ -18,7 +18,11 @@
 
 \input{settings}
 
+\input{acronyms}
+
+
 \begin{document}
+
 
 % Set page numbering to avoid "destination with the same identifier has been already used" warning for cover page.
 % (see https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Problems_with_Links_and_Pages).
@@ -34,8 +38,6 @@
 \microtypesetup{protrusion=false} % disable for lists: http://www.khirevich.com/latex/microtype/
 \tableofcontents{}
 \microtypesetup{protrusion=true}
-\input{pages/acronyms}
-
 
 \mainmatter{}
 
@@ -60,9 +62,9 @@
 \listoftables{}
 \microtypesetup{protrusion=true}
 
+\printglossary[type=\acronymtype,title={Abbreviations}]
+
 \input{pages/appendices}
 \printbibliography{}
-
-
 
 \end{document}

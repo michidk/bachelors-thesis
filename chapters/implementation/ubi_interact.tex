@@ -2,12 +2,12 @@
 \section{Ubi-Interact}\label{section:ubi-interact}
 %\setcounter{footnote}{0} % for some reason, the footnote wants to start at 2
 
-\acf{UBII} is a networking framework for distributed applications. Different devices connect to a centralized server, which manages the system in a local network. Every client can read and post data into channels (\enquote{Topics}) and execute code (\enquote{Interactions}) on the server. The protocol is extensible and platform-independent because \acf{Protobuf}\footnote{Protobuf is a mechanism to serialize data. The data is defined in a platform-neutral language, which compiles as a library to all commonly used programming languages~\cite{GoogleLLC.2019b}. Website: \href{https://developers.google.com/protocol-buffers/}{www.developers.google.com/protocol-buffers/}} is used to define it. The base components that build up the system are abstracted into Devices, Topics, and Interactions, which allows decoupling the implementation of software from device-specific environments.
+\acrfull{UBII} is a networking framework for distributed applications. Different devices connect to a centralized server, which manages the system in a local network. Every client can read and post data into channels (\enquote{Topics}) and execute code (\enquote{Interactions}) on the server. The protocol is extensible and platform-independent because \acrfull{Protobuf}\footnote{Protobuf is a mechanism to serialize data. The data is defined in a platform-neutral language, which compiles as a library to all commonly used programming languages~\cite{GoogleLLC.2019b}. Website: \href{https://developers.google.com/protocol-buffers/}{www.developers.google.com/protocol-buffers/}} is used to define it. The base components that build up the system are abstracted into Devices, Topics, and Interactions, which allows decoupling the implementation of software from device-specific environments.
 
 
 \subsection{Architecture}\label{subsection:architecture}
 
-The components of the \ac{UBII} framework, as visualized in Figure~\ref{fig:ubii-er}, are explained below.
+The components of the \gls{UBII} framework, as visualized in Figure~\ref{fig:ubii-er}, are explained below.
 
 \begin{figure}[H]
 	\centering
@@ -26,19 +26,19 @@ The components of the \ac{UBII} framework, as visualized in Figure~\ref{fig:ubii
 
 \begin{description}
 	\item[Server] or backend describes the centralized application which manages the connections. The Server is written in Node.js\footnote{Node.js is a JavaScript runtime. JavaScript is a programming language often used in web applications. Website: \href{https://nodejs.org/}{www.nodejs.org}}.
-	\item[Clients] are basic network participants. They have to be registered on the Server before communication with other clients or the Server is possible. Clients are an abstraction of a physical network device and are defined by a \ac{UID}.
-	\item[Devices] can be registered by Clients. A Device groups different input and output devices together. It is defined by a \ac{UID} and a list of Components.
+	\item[Clients] are basic network participants. They have to be registered on the Server before communication with other clients or the Server is possible. Clients are an abstraction of a physical network device and are defined by a \gls{UID}.
+	\item[Devices] can be registered by Clients. A Device groups different input and output devices together. It is defined by a \gls{UID} and a list of Components.
 	\item[Components] specify the Topic name, Message Formats for input/output devices and whether it publishes input or receives output data. A data source for such an input device could be any sensor, for example, a button or a camera. Data output examples for input devices are lamps and displays.
-	\item[Message Formats] defines the format of data published to a Topic. Even though it is possible to implement custom ones with \ac{Protobuf}, most common data types are already available. For example, \lstinline[mathescape=true]{Vector4$\times$4} (a four by four matrix), \lstinline{Vector2} (a two-dimensional vector) or \lstinline{boolean} (a binary value) are built-in. % chktex 46
+	\item[Message Formats] defines the format of data published to a Topic. Even though it is possible to implement custom ones with \gls{Protobuf}, most common data types are already available. For example, \lstinline[mathescape=true]{Vector4$\times$4} (a four by four matrix), \lstinline{Vector2} (a two-dimensional vector) or \lstinline{boolean} (a binary value) are built-in. % chktex 46
 	\item[Topics] are data channels which are addressed by a name. Clients can publish messages to Topics, which are registered by a Device. They can receive messages, after subscribing to a Topic. Such messages (also called \enquote{Topic Data}) are formatted as JSON\footnote{JSON is a standardized data exchange format, that uses human-readable text. It is often used for web-based data communication~\cite[iii]{ECMAInternational.2017}.}-string, whose structure is defined by the Message Formats.
-	\item[Sessions] operate on the Server but are specified by the Client. They are defined by a \ac{UID} as well as a list of Interactions and mappings. The mappings (\enquote{Input/Output Mappings}) are defined by a Message Format and Topic name.
+	\item[Sessions] operate on the Server but are specified by the Client. They are defined by a \gls{UID} as well as a list of Interactions and mappings. The mappings (\enquote{Input/Output Mappings}) are defined by a Message Format and Topic name.
 	\item[Interactions] are reactive components. They operate on Topics and are defined by a source code snippet\footnote{Currently, only JavaScript is supported as a programming language for Interactions, but Python is planned. Python is a programming language frequently used in scientific contexts. Website: \href{https://www.python.org/}{www.python.org}}. Interactions are executed in a fixed interval on the Server. They can subscribe to Topics and use the received Topic Data as input, given an Input/Output Mapping description. The output of the Interaction is published into another Topic. It is also possible to store data, which can be used in future executions (persistent state).
 	\item[Services] are channels similar, used to send commands or requests to the Server. For example, they are used to subscribe to a Topic or list all available Topics.
 \end{description}
 
 
 \subsection{Interactions}\label{subsection:interactions}
-A powerful feature of \ac{UBII} are Interactions. As explained in the component overview in Chapter~\ref{subsection:architecture}, they are reactive components, which operate on Topics and regularly execute given code snippets on the Server. Interactions are isolated components, which depend on Topic Data. This abstraction introduces the possibility to reuse logic in other applications in a similar context. The data flow from a Device to the Interaction is visualized in the Figure~\ref{fig:ubii-cd}.
+A powerful feature of \gls{UBII} are Interactions. As explained in the component overview in Chapter~\ref{subsection:architecture}, they are reactive components, which operate on Topics and regularly execute given code snippets on the Server. Interactions are isolated components, which depend on Topic Data. This abstraction introduces the possibility to reuse logic in other applications in a similar context. The data flow from a Device to the Interaction is visualized in the Figure~\ref{fig:ubii-cd}.
 
 \begin{figure}[H]
 	\centering

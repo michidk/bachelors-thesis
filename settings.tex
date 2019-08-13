@@ -28,8 +28,7 @@
   pdfproducer={\getAuthor},
   pdfcreator={\getAuthor},
   pdfnewwindow=true, % links in new window
-  pdfstartview={FitH}% fits the width of the page to the window
-}%
+  pdfstartview={FitH}}% fits the width of the page to the window
 \usepackage{textcomp} % for good looking copyright and registered symbols and arrows and more symbols
 \usepackage{scrhack} % necessary for listings package
 \usepackage{listings} % code highlighting
@@ -43,7 +42,6 @@
 \usepackage{booktabs} % nice tables: https://inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf
 \usepackage{float} % require by the H-argument of figure e.g. \begin{figure}[H]
 \usepackage[final]{microtype} % better font cerning: http://www.khirevich.com/latex/microtype/
-\usepackage[printonlyused]{acronym} % acronyms toc and referencing
 \usepackage{enumitem} % bullet lists
 \usepackage[bf]{caption} % figure captions, make figure label bold
 \captionsetup{format=plain} % hang caption label in caption text https://tex.stackexchange.com/questions/40163/caption-package-bold-numbering-indents-caption-text-how-to-avoid-that
@@ -62,7 +60,9 @@
 \usepackage[titles]{tocloft} % https://tex.stackexchange.com/questions/187180/spacing-problem-at-list-of-figures
 \cftsetindents{figure}{0em}{3em}
 \cftsetindents{table}{0em}{3em}
-
+%\usepackage[printonlyused]{acronym} % acronyms toc and referencing
+\usepackage[acronym, nonumberlist, nopostdot]{glossaries}%nomain
+\makeglossaries{}
 
 % Schriftart Helvetica:
 \usepackage[scaled]{helvet}
