@@ -1,6 +1,11 @@
 % !TeX root = ../main.tex
 \chapter{Related Work}\label{chapter:related-work}
 
+% TODO:
+% WHY RELEVANT AND HWAT DID YOU USE ..insipiration for this thesis
+% define VE (only in virtual worl)
+% then remove VR from flying through \glspl{VE} in \gls{VR}
+% alle zeiten vergangenheit
 
 % ModControl – Mobile Phones as a Versatile Interaction Device for Large Screen Applications
 %\section{Mobile Phones as a Versatile Interaction Device for Large Screen Applications}\label{section:mobile-phones-interaction-device-large-screen}
@@ -8,6 +13,7 @@
 \citeauthor{Deller.2011} propose a modular framework to enable multi-user interactions between smartphones and large-screen applications. A typical client-server architecture with an XML\footnote{XML is a standardized data exchange format, that uses human-readable text.}-based protocol is used. They differentiate between application clients (the large screen) and interaction clients (the smartphones).
 
 The client app is provided with different modules. Some modules offer similar functionality like the experiments implemented in this thesis: The text module enables the user to enter a text; The accelerometer/magnetometer module sends \gls{IMU} data like acceleration and magnetic field data in the background to the server. They also described how they integrated their framework in an application where users can navigate a map and toggle display settings~\cite{Deller.2011}.
+%TODO: fernehr betonen
 
 
 % Phone-based motion control in VR (Klinker)
@@ -40,12 +46,12 @@ Different methods using the accelerometer, magnetic field sensor, and touch scre
 \end{figure}
 
 Because the user interacts with the \gls{UI} using the touch screen of the phone as he would in real life, the fingers have to be tracked and visualized. Otherwise, the user would not know where his fingers are going to hit the touch screen because the sight is occluded by the \gls{HMD}. To solves this problem, they attached a Leap Motion sensor to the \gls{HMD}, which displays a hand avatar~\cite{Dias.2018}.
-
+% explain more
 
 % Design and Implementation of an Immersive Virtual Reality System based on a Smartphone Platform
 %\section{Design and Implementation of an Immersive VR System based on a Smartphone Platform}\label{section:design-implementation-vr-system-smartphone-platform}
 \section{Steed at al.}\label{section:steed-2013}
-The approach by \citeauthor{Steed.2013} also uses a smartphone and a \gls{VR} headset. They implemented a visual representation of the phone, as well. However, since they do not have positional tracking for the smartphone, the position is fixed relative to the position of the \gls{HMD}. There are two different possible positions, one in front of the \gls{HMD} (shown in Figure~\ref{fig:steed-2013-laser-pointer}) and the other one in front of the stomach (shown in Figure~\ref{fig:steed-2013-ui}). The position is switched if a hand raise gesture with the phone in the hand is detected. Gestures and orientation of the smartphone are detected using the data of the \gls{IMU}.
+The approach by \citeauthor{Steed.2013} also used a smartphone and a \gls{VR} headset as well as a visual representation of the phone. However, since they do not have positional tracking for the smartphone, the position is fixed relative to the position of the \gls{HMD}. There are two different possible positions, one in front of the \gls{HMD} (shown in Figure~\ref{fig:steed-2013-laser-pointer}) and the other one in front of the stomach (shown in Figure~\ref{fig:steed-2013-ui}). The position is switched if a hand raise gesture with the phone in the hand is detected. Gestures and orientation of the smartphone are detected using the data of the \gls{IMU}.
 
 \begin{figure}[H]
 	\centering
@@ -64,3 +70,4 @@ The approach by \citeauthor{Steed.2013} also uses a smartphone and a \gls{VR} he
 \end{figure}
 
 On the virtual phone screen, a \gls{UI} is displayed as seen in Figure~\ref{fig:steed-2013-ui}. This \gls{UI} has control elements like buttons, which amongst others, can be used to toggle a selection mode. In the selection mode, the phone casts a ray out of the top (similar to a laser pointer) as seen in Figure~\ref{fig:steed-2013-laser-pointer}. The ray direction can be changed by rotating the smartphone. As soon as a \gls{UI}-button is pressed, the objects intersecting with the ray are selected~\cite{Steed.2013}.
+% explain more, vorteile nachteile

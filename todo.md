@@ -7,4 +7,9 @@ NOW:
 MAYBE:
 
 - ? check for usage of times.. time should be consistent (is used vs. was used) ?
-- ? think about renaming references to section from Chapter~\ref to Section~\ref
+- rename references to section from Chapter~\ref to Section~\ref TODO: Google
+- check 's (singular genitiv) s' (plural genitiv) https://www.englisch-hilfen.de/en/grammar/genitiv.htm
+- never force the ausschreiben von abkürzungen
+- replace all he or she
+- todo explain how the sus core is calcuated
+- check usage of \lstinline
