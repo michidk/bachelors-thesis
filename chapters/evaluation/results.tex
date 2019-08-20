@@ -127,7 +127,7 @@ The second question asked about the interest in \gls{VR}, to which no participan
 
 \subsection{Model Viewer}\label{section:eval-res-mv}
 
-The model viewer experiment, described in Section~\ref{subsection:model-viewer}, allows users to view a \gls{3D} model from different angles. To benchmark extensive usage, the users had to match the orientation of the model with the orientation of a second model instance in a golden color (the target). After starting the task, the target is spawned with a random orientation.
+The model viewer experiment, described in Section~\ref{subsection:model-viewer}, allows users to view a three-dimensional model from different angles. To benchmark extensive usage, the users had to match the orientation of the model with the orientation of a second model instance in a golden color (the target). After starting the task, the target is spawned with a random orientation.
 Since in the current implementation, the model cannot be rotated upside down (as mentioned in Section~\ref{subsection:topic-data}), only reachable target positions are generated.
 
 As soon as the task is started, the user has 30 seconds to match as many orientations as possible. Similar to the implementation by \citeauthor{Katzakis.2010}, the target is rotated to a new random orientation after one orientation was matched~\cite[140]{Katzakis.2010}.
@@ -164,14 +164,14 @@ Not only the measured statistics from the experiment but also the \gls{SUS} stud
 	\caption[Model viewer SUS results]{Box plots of the results of the \gls{SUS} user study for the model viewer.}\label{fig:exp-mv-stats}
 \end{figure}
 
-Participants provided additional feedback after the \gls{SUS} user study. They raised the concern that the phone is too large and has a weird shape for controlling a \gls{3D} model on the display. Since every device, similar to a smartphone, with basic web capabilities and sensors, could be used, it would be no problem to use another more comfortable device. 
+Participants provided additional feedback after the \gls{SUS} user study. They raised the concern that the phone is too large and has a weird shape for controlling a three-dimensional model on the display. Since every device, similar to a smartphone, with basic web capabilities and sensors, could be used, it would be no problem to use another more comfortable device. 
 
 
 \subsection{Laser Pointer}\label{section:eval-res-lp}
 
 Section~\ref{subsection:laser-pointer} introduces the laser pointer experiment. To test the performance of participants using this interaction, the participant has to select as many targets as possible in 30 seconds. The user was told to be as fast and especially as accurate as possible since the miss-hits are counted. To trigger a selection, the user has to touch the smartphone display. This counts as a click. If no target was selected, a miss is counted. The total selection (click) count is the sum of hits and miss-clicks.
 
-%Cubes were chosen as target objects, because \gls{UI} elements are often rectangular like the \gls{2D} projection of a cube.
+%Cubes were chosen as target objects, because \gls{UI} elements are often rectangular like the two-dimensional projection of a cube.
 Three cubes (the targets) are spawned at random locations in front of the user. The cubes are always spawned in the view of the user so that the user does not have to look for the targets actively. 
 If one cube was hit, another one is spawned, so that always three cubes are visible. This is important because the user can plan to hit the next target while currently aiming for the current one. Otherwise, the task would test the user's reaction time, which is not desired. It was found that three cubes are a good amount, because too much targets would not only clutter the view, but also shorten the aiming periods.
 

@@ -4,12 +4,12 @@
 Three experiments were implemented to demonstrate how the smartphone can help with common interactions when using \gls{VR} software.
 To achieve consistency amongst all experiments in terms of optics and basic functionality, a parent class was implemented. The parent class implements utilities, which are required and inherited by each experiment. It also sets up a basic scene, which contains a background, a floor, and lights. Additionally, it handles the connection to the \gls{UBII} Server.
 
-Some \gls{3D} models, used in the following experiments, were downloaded from the internet. Those resources are listed in Appendix~\ref{chapter:external-assets-used} including their licenses.
+Some three-dimensional models, used in the following experiments, were downloaded from the internet. Those resources are listed in Appendix~\ref{chapter:external-assets-used} including their licenses.
 
 
 \subsection{Model Viewer}\label{subsection:model-viewer}
 
-\acrlong{VR} offers a new way of experiencing \gls{3D} content. It is convenient to view a model from different angles and gives a feel of a real presence of the object. Applications where the user can load custom \gls{3D} models into the scene and use the app to explorer the models are commonly called \enquote{model viewers}. One instance of such a model viewer is the online model viewing platform Sketchfab\footnote{Sketchfab is an online platform where one can publish and view \gls{3D} content. Website: \href{https://sketchfab.com}{www.sketchfab.com}} which supports Web\gls{VR} since 2016, to view \gls{3D} models online.~\cite{Denoyel.2016}. 
+\acrlong{VR} offers a new way of experiencing three-dimensional content. It is convenient to view a model from different angles and gives a feel of a real presence of the object. Applications where the user can load custom three-dimensional models into the scene and use the app to explorer the models are commonly called \enquote{model viewers}. One instance of such a model viewer is the online model viewing platform Sketchfab\footnote{Sketchfab is an online platform where one can publish and view three-dimensional content. Website: \href{https://sketchfab.com}{www.sketchfab.com}} which supports Web\gls{VR} since 2016, to view three-dimensional models online.~\cite{Denoyel.2016}. 
 
 Especially model viewing applications can be enhanced with a smartphone. Without the need for changing the position of the \gls{HMD} or using an expensive hand motion tracking system, the orientation of the models can be manipulated.
 \citeauthor{Katzakis.2010} implemented such a system without using \gls{VR}. Their approach uses a smartphone to rotate a model which is displayed on a conventional display. They use a similar setup as the one presented in this thesis, in which the phone is wirelessly connected to a computer where the model is rendered. The orientation data is provided by the magnetometer and, once calibrated to the screen position, is directly mapped to the model~\cite[139]{Katzakis.2010}. In the evaluation of their system, a mouse, a touch pen, and the smartphone were compared. The latter wins in terms of the time it takes to rotate the model to a certain pose~\cite[140]{Katzakis.2010}.
@@ -51,7 +51,7 @@ As in Section~\ref{subsection:topic-data} described, the current implementation 
 
 \subsection{Laser Pointer}\label{subsection:laser-pointer}
 
-Selecting elements in a virtual world is an essential interaction most \gls{VR} applications use. The selection of elements in a \gls{2D} environment with standard input devices like a mouse or touch screen is rather trivial. However, the selection of elements in a \gls{3D} environment is problematic because the element might be too far away from the user or the cursor.
+Selecting elements in a virtual world is an essential interaction most \gls{VR} applications use. The selection of elements in a two-dimensional environment with standard input devices like a mouse or touch screen is rather trivial. However, the selection of elements in a three-dimensional environment is problematic because the element might be too far away from the user or the cursor.
 
 Ray casting\footnote{Ray casting describes a technique to determine the objects which intersect with a ray, cast from a given point into a given direction.} is used to solve this problem: A ray, with the virtual device's position as origin, is created. Then, the element first hit by the ray is selected. Implementations without a tracked device, often use the position and orientation of the \gls{HMD}. The ray is fixed to the head of the user and cast along his viewing direction~\cite[23]{Kamm.2018}. This forces the user to keep the head still and look at a particular object to select it until a button is pressed or a specific time has passed.
 
@@ -69,7 +69,7 @@ even when rotating it in the opposite direction of the view direction.
 To give the user a better feel for the direction he is pointing, a visual representation is needed.
 To work around the missing position data of the device, the approach by \citeauthor{Pietroszek.2014} is used: The ray origin is set to a fixed location relative to the users head where the phone could be in the real world~\cite[Figure 3]{Pietroszek.2014}.
 
-The ray origin is represented by a \gls{3D} phone model, whose orientation is synchronized with the one from the last connected smart device client (see Section~\ref{section:smart-device}), similar to the first experiment (see Section~\ref{subsection:model-viewer}). To keep the virtual phone inside the field of view of the user, it rotates relative to the user on the up-axis and moves only on the right/forward-axis.
+The ray origin is represented by a three-dimensional phone model, whose orientation is synchronized with the one from the last connected smart device client (see Section~\ref{section:smart-device}), similar to the first experiment (see Section~\ref{subsection:model-viewer}). To keep the virtual phone inside the field of view of the user, it rotates relative to the user on the up-axis and moves only on the right/forward-axis.
 A line is attached to the front of the phone (the \enquote{laser}) to indicate the direction of the ray, as can be seen in the screenshot of this setup in Figure~\ref{fig:screenshot-exp-lp}.
 
 \begin{figure}[H]
@@ -91,7 +91,7 @@ Text input is not an easy task to perform in \gls{VR}. This is why many applicat
 
 Tilt Brush\footnote{Tilt Brush by Google is a tool for three-dimensional painting in VR. Website: \href{https://www.tiltbrush.com/}{www.tiltbrush.com}} avoids this during the select and load process of scenes, by identifying the scenes with a screenshot of the scene rather than a filename. To save a scene, the user gets a virtual camera attached to his hand motion controller, which he then uses to create a thumbnail of the current scene~\cite{GoogleLLC.2019}. % chktex 13
 
-Some applications use a laser pointer either attached to the motion controller or to the \gls{HMD} to select virtual keys on a \gls{2D} image of a keyboard~\cite{WeelcoInc.2017}. A more recent approach is the frequently called \enquote{drum keyboard}, which attaches drum sticks to the hand controllers which are then used to hit \gls{3D} keys~\cite{Weisel.2017}.
+Some applications use a laser pointer either attached to the motion controller or to the \gls{HMD} to select virtual keys on a two-dimensional image of a keyboard~\cite{WeelcoInc.2017}. A more recent approach is the frequently called \enquote{drum keyboard}, which attaches drum sticks to the hand controllers which are then used to hit three-dimensional keys~\cite{Weisel.2017}.
 
 Other approaches use hand gloves~\cite{Evans.1999,Rhoton.2002}, a real keyboard~\cite{McGill.2015,Walker.2017} or other peripherals~\cite[111\psq]{Gonzalez.2009}. Also, methods like speech recognition~\cite[2154\psqq]{Rhoton.2002} and handwritten character recognition~\cite[113]{Gonzalez.2009} are possible.
 
