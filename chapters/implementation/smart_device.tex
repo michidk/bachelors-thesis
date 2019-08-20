@@ -4,9 +4,7 @@
 The \enquote{Smart Device} is a part of the \gls{UBII} front end. It is a general-purpose client, which shares sensor data to different Topics. Because it is web-based, only hardware data which is available through the Web \gls{API} can be obtained. Since it was not designed for a specific use case, it is thought as a general-purpose or testing device. Only touch positions, touch events, orientation, and acceleration are sent to different Topics using the \gls{UBII} Client. For more specific scenarios, the smart device cannot be used, and a custom interface has to be implemented.
 
 After implementing some improvements, the smart device client was sufficient for the experiments in this thesis. One improvement which was implemented, is a full-screen mode, to prevent unintentional interactions with control elements of the web browser or the operating system.
-Also a calibration system was implemented, since the orientation, obtained using the Web\gls{API}
-% TODO: rewrite that sentence
-Since the reference system for the orientation, obtained using the Web , is fixed to the earth (see Chapter~4.1).{DevicesandSensorsWorkingGroup.2019}, also a calibration system was implemented. With the press of the \enquote{Calibrate} button, the device is calibrated to the current orientation. % TODO: change to Also a calibration system was implement
+Also, a calibration system was implemented since the orientation, obtained using the Web\gls{API}, cannot be recalibrated later\cite{DevicesandSensorsWorkingGroup.2019}. 
 
 
 \subsection{Topic Data}\label{subsection:topic-data}
@@ -26,7 +24,7 @@ The Web \gls{API} also provides the \lstinline{MotionEvent} which returns multip
 
 The data from the \lstinline{DeviceOrientation} event already provides all three Euler angles and is smoothed. Implementing an algorithm to derive the correct orientation and further process it as the \lstinline{MotionEvent} does, would be outside the scope of this thesis. Because of this consideration, the \lstinline{DeviceOrientation} event data is used in the following experiments.
 
-The touch position relative to the display is normalized to floating-point values,  ranging from zero to one. This keeps the data independent of the display resolution and size. Events for starting and stopping touching the screen are sent on different Topics. The acceleration of the smartphone is also sent to a Topic but is not used in any of the experiments of this thesis.
+The touch position of the first finger on the smartphone display is published multiple times per second. Before sending, it is normalized to floating-point values ranging from zero to one. This keeps the data independent of the display resolution and size. Events for starting and stopping touching the screen are sent on different Topics. The acceleration of the smartphone is also sent to a Topic but is not used in any of the experiments of this thesis.
 
 
 \subsection{UBII Device Definition}\label{subsection:ubii-device-definition}
@@ -65,12 +63,7 @@ The smart device is registered as a Device in the \gls{UBII} network. The Device
 
 A Device and all Topics must be registered with a \gls{UID} for each client because it should be possible to read the data from different devices. This allows for using multiple devices at the same time so that they can be differentiated in Interactions. If the Topic names did not include the \lstinline{clientId}, each connected device would publish to the same Topic, which would make the data unusable.
 
-% rework the sentence
-The touch position is published multiple times per second, but only sends the current position of the first touch on the smartphone display. Using this data, it is not possible to detect whether the display was just touched or released. A new Topic containing a \lstinline{Boolean}-type could have been used, but the position still has to be obtained from the touch position Topic.
-% TODO: ... but the position still would have to be obtained from...
-
-%TODO: put into grammarly and revamp
-To not have to check both Topics, the touch position topic and the new topic, the new type \lstinline{TouchEvent} was implemented. The \gls{Protobuf} definition can be seen in Figure~\ref{fig:ubii-event-type}. It contains the two-dimensional position and the binary type \mbox{\lstinline{ButtonEventType},} which can be reused in other events, too. \lstinline{ButtonEventType} is an enumeration type which defines whether the touch interface was just touched or released.
+The new type \lstinline{TouchEvent} was implemented. The \gls{Protobuf} definition can be seen in Figure~\ref{fig:ubii-event-type}. It contains the two-dimensional position and the binary type \mbox{\lstinline{ButtonEventType},} which can be reused in other events, too. \lstinline{ButtonEventType} is an enumeration type which defines whether the touch interface was just touched or released.
 
 \begin{figure}[H]
 	\begin{lstlisting}[language=Protobuf]
