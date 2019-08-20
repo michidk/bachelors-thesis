@@ -40,13 +40,12 @@
 
 The results were evaluated in Python. Also, the plots were created using several Python libraries.
 
-\participantsCount{} people participated in the evaluation. \participantsMale{} identified as male while the others identified as female. The average age is \participantsAge{} years, so most of participants were relatively young.
-%The evaluation was conducted during different times of the day. does say nothing
+\participantsCount{} people participated in the evaluation. \participantsMale{} identified as male while the others identified as female. The average age is \participantsAge{} years, so most of participants were relatively young. This could influence the results since younger people might be more exposed to new technologies and therefore, could pick up new technologies faster.
+% The evaluation was conducted during different times of the day. does say nothing
 
 The main disciplines and degrees of the participants are shown in Table~\ref{tab:sus-d}. As seen in Table~\ref{tab:sus-degree}, the highest degree of half of the participants is a high school degree or equivalent.
 Table~\ref{tab:sus-discipline} exhibits that the disciplines are spread amongst different fields.
 
-% TODO: increase figure captiopns, describe results
 \begin{table}[H]
 	\centering
 	\begin{subtable}{.5\linewidth}
@@ -137,11 +136,7 @@ Because it is hard to match the rotation exactly on all three axes, it is enough
 %  T-Test:
 %\pgfmathparse{(\evalExpMvAvgPoses-6.5)/(\evalExpMvStdPoses/sqrt(\evalExpMvParticipants))}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult} 
 % chktex 1
-
-% TODO: merge the following two absatzes
-As seen in Figure~\ref{fig:eval-exp-mv}, the average time it took to match a correct pose is roughly \evalExpMvAvgPoses{} seconds. \citeauthor{Katzakis.2010} tracked the time it takes to match a pre-defined pose with a Smartphone, a mouse, and a touch panel. The lowest time in average to match one pose, 6.5 seconds, was achieved using the smartphone as input device~\cite[140]{Katzakis.2010}.
-
-The average time to match a pose in the model viewer experiment of this thesis (\evalExpMvAvgPoses{} seconds) is lower than the average of the evaluation of \citeauthor{Katzakis.2010} (6.5 seconds). This can be due to the fact that users never had to turn the smartphone completely upside down, due to the previously mentioned limitation.
+\citeauthor{Katzakis.2010} tracked the time it takes to match a pre-defined pose with a smartphone, a mouse, and a touch panel. The lowest time in average to match one pose, 6.5 seconds, was achieved using the smartphone as input device~\cite[140]{Katzakis.2010}. As seen in Figure~\ref{fig:eval-exp-mv}, the average time it took to match a correct pose in the model viewer experiment is roughly \evalExpMvAvgPoses{} seconds, which is lower than the average time of \citeauthor{Katzakis.2010}. This can be due to the fact that users never had to turn the smartphone completely upside down, due to the previously mentioned limitation.
 
 \begin{figure}[H]
 	\centering
@@ -149,11 +144,9 @@ The average time to match a pose in the model viewer experiment of this thesis (
 	\caption[Model viewer task results]{A box plot of the time in seconds, it took to match a correct pose in the model viewer experiment.}\label{fig:eval-exp-mv}
 \end{figure}
 
-% TODO: Another reason for the lower average time...
-An advantage of the presented implementation is that the target and the controlled model are not displayed in two separate locations like in {\citetitle{Katzakis.2010}} by \citeauthor{Katzakis.2010}, but instead with the same origin in the same coordinate space, which makes it easier to see the difference between both rotations~\cite[140]{Katzakis.2010}. Also, the fact that a skeleton model, instead of a multi-colored cube was used, could play a role.
+Another reason for the lower average time is that the target and the controlled model are not displayed in two separate locations like in {\citetitle{Katzakis.2010}} by \citeauthor{Katzakis.2010}, but instead with the same origin in the same coordinate space, which makes it easier to see the difference between both rotations~\cite[140]{Katzakis.2010}. Also, the fact that a skeleton model, instead of a multi-colored cube was used, could play a role.
 
-% TODO: no also... because it references  a further advantage we had with better times
-Also the \gls{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-mv-stats}. A score of \evalExpMvSusScore{} is considered \evalExpMvSusAdj{} and mapped to the grade \evalExpMvSusGrade, according to \citeauthor{Bangor.2009}~\cite[120\psq]{Bangor.2009}.
+Not only the measured statistics from the experiment but also the \gls{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-mv-stats}. A score of \evalExpMvSusScore{} is considered \evalExpMvSusAdj{} and mapped to the grade \evalExpMvSusGrade, according to \citeauthor{Bangor.2009}~\cite[120\psq]{Bangor.2009}.
 
 \begin{figure}[H]
 	\centering
@@ -171,15 +164,16 @@ Also the \gls{SUS} study results indicate a useable implementation, as seen in F
 	\caption[Model viewer SUS results]{Box plots of the results of the \gls{SUS} user study for the model viewer.}\label{fig:exp-mv-stats}
 \end{figure}
 
-In the additional feedback part of the user evaluation, users mentioned that the phone is too large and has a weird shape for controlling a \gls{3D} model on screen. % TODO: it would bot be a problem to use a smaller phone
+Participants provided additional feedback after the \gls{SUS} user study. They raised the concern that the phone is too large and has a weird shape for controlling a \gls{3D} model on the display. Since every device, similar to a smartphone, with basic web capabilities and sensors, could be used, it would be no problem to use another more comfortable device. 
 
 
 \subsection{Laser Pointer}\label{section:eval-res-lp}
 
-Section~\ref{subsection:laser-pointer} introduces the laser pointer experiment. To test the performance of participants using this interaction, three cubes (the targets) are spawned at random locations in front of the user. The cubes are always spawned in the view of the user so that the user does not have to look for the targets actively. The participant has to select as many cubes as possible in 30 seconds. The user was told to be as fast and especially as accurate as possible since the miss-hits are counted.
-% TODO: some things are mentioned doppelt
-%TODO: explainwhy three cubes, screen not cluttered
-To trigger a selection, the user has to touch the smartphone display. This counts as a click. If no cube was selected, a miss is counted. The total selection (click) count is the sum of hits and miss-clicks. If one cube was hit, another one is spawned, so that always three cubes are visible. This is important because the user can plan to hit the next target while currently aiming for the current one. Otherwise, the task would test the user's reaction time, which is not desired.
+Section~\ref{subsection:laser-pointer} introduces the laser pointer experiment. To test the performance of participants using this interaction, the participant has to select as many targets as possible in 30 seconds. The user was told to be as fast and especially as accurate as possible since the miss-hits are counted. To trigger a selection, the user has to touch the smartphone display. This counts as a click. If no target was selected, a miss is counted. The total selection (click) count is the sum of hits and miss-clicks.
+
+%Cubes were choosen as target objects, because \gls{UI} elements are often rectangular like the \gls{2D} projection of a cube.
+Three cubes (the targets) are spawned at random locations in front of the user. The cubes are always spawned in the view of the user so that the user does not have to look for the targets actively. 
+If one cube was hit, another one is spawned, so that always three cubes are visible. This is important because the user can plan to hit the next target while currently aiming for the current one. Otherwise, the task would test the user's reaction time, which is not desired. It was found that three cubes are a good amount, because too much targets would not only clutter the view, but also shorten the aiming periods.
 
 Figure~\ref{fig:eval-exp-lp} visualizes the total click count (Mean: 31.83; \gls{STD}: 6.89), the actual hit count (Mean: 26.13; \gls{STD}: 5.52) and the count of miss-hits (Mean: 5.70; \gls{STD}: 4.37) per 30 seconds. Participants were able to successfully point to and select objects with a speed of nearly one click per second. As seen in Figure~\ref{fig:eval-exp-lp-ratio-scatter}, the hit/miss ratio is very high for slightly lower speeds but decreases fast with higher click speeds.
 
@@ -189,16 +183,14 @@ Figure~\ref{fig:eval-exp-lp} visualizes the total click count (Mean: 31.83; \gls
 		\centering
 		\includegraphics[width=\linewidth]{figures/evaluation/eval_exp_lp.pdf}
 		\caption{The count of clicks, hits and misses per 30 seconds. Clicks are the sum of hits and misses.}\label{fig:eval-exp-lp}
-		%TODO: describe that more hits than misses
 	\end{subfigure}%
 	\hspace{0.02\linewidth}%
 	\begin{subfigure}{.48\linewidth}%
 		\centering
 		\includegraphics[width=\linewidth]{figures/evaluation/eval_exp_lp_ratio_scatter.pdf}
 		\caption{The Hit/Miss ratio per click speed.}\label{fig:eval-exp-lp-ratio-scatter} %The line visualizes the linear regression with a 95\% confidence interval.
-		%TODO: repeat from text
 	\end{subfigure}%
-	\caption[Laser pointer task results]{The results of the laser pointer experiment.}\label{fig:exp-lp-eval}
+	\caption[Laser pointer task results]{These figures present the measured statistics of the laser pointer experiment. Participants hit targets more often (Mean: 26.13; \gls{STD}: 5.52) than they missed targets (Mean: 5.70; \gls{STD}: 4.37) in average per 30 seconds. The hit/miss ratio decreases with increasing hit speeds.}\label{fig:exp-lp-eval}
 \end{figure}
 
 The performance of this experiment is hard to compare with other implementations without a standardized experiment setup. For example, the size, shape, position, and distance of the targets but also the spawn area and whether distracting elements are present, varies between different task evaluations of other research. However, a comparison should still give a rough estimate of the performance. Often the hit count is measured in different time intervals. To compare the results, the average hit count per second is calculated.
@@ -277,7 +269,6 @@ According to \citeauthor{Bangor.2009}, this score is considered \evalExpVkSusAdj
 	\caption[Virtual keyboard SUS results]{Box plots of the results of the \gls{SUS} user study for the virtual keyboard.}\label{fig:exp-vk-stats}
 \end{figure}
 
-%TODO: remove would be great.. to would improve user interaction...
 Further, many users made comments about the experiment:
 \begin{itemize}
 	\item The sensitivity of the movement detection should be decreased.
@@ -285,8 +276,8 @@ Further, many users made comments about the experiment:
 	\item Visual, audible or vibrational feedback after typing a character would be great.
 	\item The one to one mapping of the display to the virtual keyboard is not very intuitive.
 	\item A cursor in the input text should be displayed, to visualize spaces. Also, arrow keys to navigate through the text would be handy.
-	\item A better approach would be to select buttons when the finger releases the touch screen, instead of waiting.
-	\item It would be great if it was possible to use multiple fingers at the same time.
+	\item To improve usability, select buttons when the finger releases the touch screen, instead of waiting.
+	\item It should be possible to use multiple fingers at the same time.
 	\item An implementation like the Swift-keyboard for Android might be a better one, since holding the finger down was cumbersome.
 	\item Another approach would be to paint characters on the screen using the touch screen, or the laser pointer.
 \end{itemize}
