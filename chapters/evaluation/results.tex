@@ -197,9 +197,9 @@ The performance of this experiment is hard to compare with other implementations
 
 \citeauthor{Kamm.2018} tested his implementation in a similar \gls{VR} scenario with a wrist band as an input device. To compare his implementation, he also tested a laser pointer approach using a \gls{VR} motion controller~\cite[39]{Kamm.2018}. A major difference to his experiment setup is that only one target is displayed at a time. Another difference is that the user has to rotate his head more in order to see the targets as they are placed in a 90 degrees radius. An arrow, which always points to the next target, is displayed to prevent wasting time while searching for the next target. Also, the distance from the user to the targets is randomized~\cite[45]{Kamm.2018}.
 
-\citeauthor{JiYoungOh.2002} compared a real-world laser pointer for large screen interactions to a computer mouse. The application is displayed through a projector, and the laser is detected by a camera. The pointer-device also has a button, which is pressed down to select an object, similar to the laser pointer implementation presented in Chapter~\ref{section:eval-res-lp}. All targets are always visible and have to be selected in a pre-determined order. Also, the fact that all objects are on the same plane makes the task similar to the one presented in this thesis~\cite[3\psq]{JiYoungOh.2002}.
+\citeauthor{JiYoungOh.2002} compared a real-world laser pointer for large screen interactions to a computer mouse. The application is displayed through a projector, and the laser is detected by a camera. The pointer-device also has a button, which is pressed down to select an object, similar to the laser pointer implementation presented in Section~\ref{section:eval-res-lp}. All targets are always visible and have to be selected in a pre-determined order. Also, the fact that all objects are on the same plane makes the task similar to the one presented in this thesis~\cite[3\psq]{JiYoungOh.2002}.
 
-As seen in Table~\ref{tab:lp-comp}, the technique presented in Chapter~\ref{section:eval-res-lp} is the one with the best results. However, due to the different conditions and task setups, it is not possible to draw a strong conclusion. Still, the result is similar to a real-world pointing technique, which is a good sign.
+As seen in Table~\ref{tab:lp-comp}, the technique presented in Section~\ref{section:eval-res-lp} is the one with the best results. However, due to the different conditions and task setups, it is not possible to draw a strong conclusion. Still, the result is similar to a real-world pointing technique, which is a good sign.
 
 \begin{table}[H]
 	\centering
@@ -209,10 +209,10 @@ As seen in Table~\ref{tab:lp-comp}, the technique presented in Chapter~\ref{sect
 		\midrule
 		\citeauthor{Kamm.2018}~\cite{Kamm.2018}           & \pgfmathparse{\kammAvgHits}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult} & \pgfmathparse{\kammAvgStd}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult} \\%chktex 2
 		\citeauthor{JiYoungOh.2002}~\cite{JiYoungOh.2002} & $\youngAvgHits{}$                                                                  & $\youngAvgStd{}$                                                                  \\%chktex 2 21
-		Chapter~\ref{section:eval-res-lp}                 & \pgfmathparse{\oursAvgHits}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult} & \pgfmathparse{\oursAvgStd}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult} \\
+		Section~\ref{section:eval-res-lp}                 & \pgfmathparse{\oursAvgHits}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult} & \pgfmathparse{\oursAvgStd}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult} \\
 		\bottomrule
 	\end{tabular}
-	\caption[Comparison of laser pointer task results]{This table compares the average hits per second from similar laser pointer evaluations of other research. The implementation from Chapter~\ref{section:eval-res-lp} achieved the highest average hits per second.}\label{tab:lp-comp}
+	\caption[Comparison of laser pointer task results]{This table compares the average hits per second from similar laser pointer evaluations of other research. The implementation from Section~\ref{section:eval-res-lp} achieved the highest average hits per second.}\label{tab:lp-comp}
 \end{table}
 
 Not only the measured interaction times but also the \gls{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-lp-stats}. A score of \evalExpLpSusScore{} is considered \evalExpLpSusAdj{} and mapped to the grade \evalExpLpSusGrade{}, according to \citeauthor{Bangor.2009}~\cite[120\psq]{Bangor.2009}.
@@ -238,11 +238,11 @@ Some participants mentioned that it is hard to notice whether the laser pointer 
 
 \subsection{Virtual Keyboard}\label{section:eval-res-vk}
 
-The task for the virtual keyboard experiment, presented in Chapter~\ref{subsection:virtual-keyboard}, is to enter a text as fast as possible without mistakes. The text chosen for this task is \enquote{A quick brown fox jumps over the lazy dog}, which is commonly used when testing keyboards, typewriters or fonts because it contains all characters of the alphabet.
+The task for the virtual keyboard experiment, presented in Subsection~\ref{subsection:virtual-keyboard}, is to enter a text as fast as possible without mistakes. The text chosen for this task is \enquote{A quick brown fox jumps over the lazy dog}, which is commonly used when testing keyboards, typewriters or fonts because it contains all characters of the alphabet.
 
 To test the \enquote{shift}-key more than just with the first capitalized letter, also an exclamation mark is added at the end. This given text is displayed on top of the text which is currently typed with the keyboard. If a mistake was made, it has to be corrected in order to complete the task. After starting the task, a timer counts the time until the \enquote{enter}-button is pressed.
 
-The count of corrections the participants made while entering the given text has an average of 2.7 (mean: 2.74; \gls{STD}: 2.38). A correction is counted when the user uses the \enquote{backspace}-key to remove one character. If he did not recognize his error soon enough, it is possible that in order to correct one letter, the user has to remove multiple characters which are counted as multiple \enquote{corrections}. Since the participant has to type a total of 42 characters, the average correction count to character count ratio is at 6.52\%.
+The count of corrections the participants made while entering the given text has an average of 2.7 (mean: 2.74; \gls{STD}: 2.38). A correction is counted when the user uses the \enquote{backspace}-key to remove one character. If he or she did not recognize his error soon enough, it is possible that in order to correct one letter, the user has to remove multiple characters which are counted as multiple \enquote{corrections}. Since the participant has to type a total of 42 characters, the average correction count to character count ratio is at 6.52\%.
 Participants took 31.7 seconds on average (\gls{STD}: 5.1) to complete the task. Figure~\ref{fig:eval-exp-vk-ratio-scatter} shows that the more mistakes were made, the more time users needed to complete the task.
 
 \begin{figure}[H]

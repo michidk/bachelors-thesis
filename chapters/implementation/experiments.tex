@@ -23,7 +23,7 @@ To feature how easy it is to view a more complex model using \gls{VR} and the sm
 	\caption[Screenshot of the model viewer]{A screenshot showing three models, whose rotation is being controlled by three smartphones.}\label{fig:screenshot-exp-mv}
 \end{figure}
 
-The experiment always listens for new clients. As soon as one connects, a new Interaction is published, and the resulting Topic subscribed. Since the smart device (see Section~\ref{section:smart-device}) publishes the orientation data in a different format than ThreeJS needs for rendering, a reusable Interaction was created. This Interaction converts the angles from radian to degrees, changes the coordinate system, and publishes them to the \lstinline[breaklines=false]{[client id]/SAVRLaserPointer/orientation} topic. The code for the Interaction is shown in Figure~\ref{fig:ubii-interaction-angles}.
+The experiment always listens for new clients. As soon as one connects, a new Interaction is published, and the resulting Topic subscribed. Since the smart device (see Section~\ref{section:smart-device}) publishes the orientation data in a different format than ThreeJS needs for rendering, a reusable Interaction was created. This Interaction converts the angles from radian to degrees, changes the coordinate system, and publishes them to the \lstinline[breaklines=true]{[client id]/SAVRLaserPointer/orientation} topic. The code for the Interaction is shown in Figure~\ref{fig:ubii-interaction-angles}.
 
 \begin{figure}[H]
 	\begin{lstlisting}[language=JavaScript]
@@ -59,7 +59,7 @@ Ray casting\footnote{Ray casting describes a technique to determine the objects 
 A better solution is the use of handheld controllers, where the position of the controller is used as origin for the ray. This approach is more suited for the laser pointer application because it feels more comfortable to use our natural pointing devices, the hands, for aiming. The positional tracking enables to represent the hand of a user as well as the laser pointer in \gls{VR} at the real-world location. Since a smartphone does not have positional tracking, only the rotation can be synchronized with the one from the real world. However, the virtual laser pointer still needs a position/origin.
 
 %\citeauthor{Argelaguet.2013} evaluated more than 30 different selection techniques for virtual environments, but no technique uses the orientation but not the position of the pointing device~\cite[Table 1]{Argelaguet.2013}.
-The user's head position could be used as origin while the smartphone provides the rotation data. Without any smartphone representation in the \gls{VE}, the user would have no visual clue, other than the virtual laser beam, of the rotation of the phone. This becomes a problem when the user's head rotation is unequal to the laser direction because the user cannot see the virtual laser beam. To give the user a better feel for the direction he is pointing at, a visual representation of the smartphone is needed.
+The user's head position could be used as origin while the smartphone provides the rotation data. Without any smartphone representation in the \gls{VE}, the user would have no visual clue, other than the virtual laser beam, of the rotation of the phone. This becomes a problem when the user's head rotation is unequal to the laser direction because the user cannot see the virtual laser beam. To give the user a better feel for the direction he or she is pointing at, a visual representation of the smartphone is needed.
 
 As a workaround, to the missing positional data of the device, the approach by \citeauthor{Pietroszek.2014} is used: The ray origin/virtual smartphone position is set to a fixed location relative to the user's head~\cite[Figure 3]{Pietroszek.2014}. The location should be where the phone could be in the real world.
 
@@ -72,7 +72,7 @@ Similar to the approach from \citeauthor{Steed.2013}, a line is attached to the 
 	\caption[Screenshot of the laser pointer]{A screenshot, showing the virtual phone, the virtual laser pointer and selectable cubes.}\label{fig:screenshot-exp-lp}
 \end{figure}
 
-In addition to the orientation Topic, this implementation subscribes to the \lstinline{TouchEvent} Topic, presented in Chapter~\ref{subsection:ubii-device-definition}. The \lstinline{touch down} event is needed to trigger the actual selection when the user touches the touch display.
+In addition to the orientation Topic, this implementation subscribes to the \lstinline{TouchEvent} Topic, presented in Subsection~\ref{subsection:ubii-device-definition}. This event is needed to trigger the actual selection when the user touches the smartphone's touch display.
 
 To illustrate a selection task with this system, selectable cubes float in front of the user. 
 When a randomly colored cube is selected, it will change its color again. This works not only with cubes but with any mesh. Also, the system can trigger any kind of event or action.
@@ -82,7 +82,7 @@ When a randomly colored cube is selected, it will change its color again. This w
 
 Text input is not an easy task to perform in \gls{VR}. This is why many applications try to avoid it. However, it is often required for labeling, annotation, entering filenames for saving operations, and setting parameters in visualizations and other productive \gls{VR} software~\cite[2154]{Rhoton.2002}. 
 
-Tilt Brush\footnote{Tilt Brush by Google is a tool for three-dimensional painting in VR. Website: \href{https://www.tiltbrush.com/}{www.tiltbrush.com}} avoids this during the select and load process of scenes, by identifying the scenes with a screenshot of the scene rather than a filename. To save a scene, the user gets a virtual camera attached to his hand motion controller, which he then uses to create a thumbnail of the current scene~\cite{GoogleLLC.2019}. % chktex 13
+Tilt Brush\footnote{Tilt Brush by Google is a tool for three-dimensional painting in VR. Website: \href{https://www.tiltbrush.com/}{www.tiltbrush.com}} avoids this during the select and load process of scenes, by identifying the scenes with a screenshot of the scene rather than a filename. To save a scene, the user gets a virtual camera attached to his hand motion controller, which he or she then uses to create a thumbnail of the current scene~\cite{GoogleLLC.2019}. % chktex 13
 
 Some applications use a laser pointer either attached to the motion controller or to the \gls{HMD} to select virtual keys on a two-dimensional image of a keyboard~\cite{WeelcoInc.2017}. A more recent approach is the frequently called \enquote{drum keyboard}, which attaches drum sticks to the hand controllers which are then used to hit three-dimensional keys~\cite{Weisel.2017}.
 
@@ -97,7 +97,7 @@ The surface of the virtual keyboard is mapped to the touchscreen of the smart de
 	\caption[Screenshot of the virtual keyboard]{This screenshot is showing the virtual keyboard with the blue cursor. The previously typed text is displayed above.}\label{fig:screenshot-exp-vk}
 \end{figure}
 
-When executing the keypress on the first touch and without a cursor (like on a regular smartphone keyboard), the user would not know which key he is going to hit with his finger, because his sight is physically obscured by the \gls{HMD}. \citeauthor{Dias.2018} work around this problem by using a Leap Motion sensor, which tracks the whole hand, (see Chapter~\ref{section:motivation}) to visualize the finger positions~\cite[4]{Dias.2018}.
+When executing the keypress on the first touch and without a cursor (like on a regular smartphone keyboard), the user would not know which key he or she is going to hit with his finger, because his sight is physically obscured by the \gls{HMD}. \citeauthor{Dias.2018} work around this problem by using a Leap Motion sensor, which tracks the whole hand, (see Section~\ref{section:motivation}) to visualize the finger positions~\cite[4]{Dias.2018}.
 
 In this implementation, the cursor is only visible when the user is touching the screen. To select a key, the user has to move the cursor on top of a key and then keep the finger there for roughly a second. As long as the user is holding his finger on a key to select it, the blue circle increases in size to display the selection progress.
 

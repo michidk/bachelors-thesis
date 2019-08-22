@@ -29,7 +29,7 @@ The touch position of the first finger on the smartphone display is published mu
 
 \subsection{UBII Device Definition}\label{subsection:ubii-device-definition}
 
-The smart device is registered as a Device in the \gls{UBII} network. The Device definition in \gls{JS} can be seen in Figure~\ref{fig:ubii-device-registration}. The general structure of a Device was described in Chapter~\ref{subsection:architecture}.
+The smart device is registered as a Device in the \gls{UBII} network. The Device definition in \gls{JS} can be seen in Figure~\ref{fig:ubii-device-registration}. The general structure of a Device was described in Subsection~\ref{subsection:architecture}.
 
 \begin{figure}[H]
 	\begin{lstlisting}[language=JavaScript]
@@ -58,7 +58,7 @@ The smart device is registered as a Device in the \gls{UBII} network. The Device
       ]
     };
   \end{lstlisting}
-	\caption[Protobuf definition of the smart device]{The smart device definition in JavaScript. It is defined by a name and a list of \gls{UBII} Components. The structure of a Device is further described in Chapter~\ref{subsection:architecture}.}\label{fig:ubii-device-registration}
+	\caption[Protobuf definition of the smart device]{The smart device definition in JavaScript. It is defined by a name and a list of \gls{UBII} Components. The structure of a Device is further described in Subsection~\ref{subsection:architecture}.}\label{fig:ubii-device-registration}
 \end{figure}
 
 A Device and all Topics must be registered with a \gls{UID} for each client because it should be possible to read the data from different devices. This allows for using multiple devices at the same time so that they can be differentiated in Interactions. If the Topic names did not include the \lstinline{clientId}, each connected device would publish to the same Topic, which would make the data unusable.

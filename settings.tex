@@ -114,7 +114,7 @@
 
 % Settings for lstlistings
 \lstset{%
-	basicstyle=\ttfamily\footnotesize,
+	basicstyle=\ttfamily\lst@ifdisplaystyle\footnotesize\fi, % Overwrite lstinline settings to use correct fontsize (https://tex.stackexchange.com/questions/161549/scaling-inline-code-to-the-current-font-size)
 	columns=fullflexible,
 	autogobble,
 	extendedchars=true,
