@@ -2,7 +2,7 @@
 \section{Ubi-Interact}\label{section:ubi-interact}
 %\setcounter{footnote}{0} % for some reason, the footnote wants to start at 2
 
-\gls{UBII} is a networking framework for distributed applications. Different devices connect to a centralized server, which manages the system in a local network. Every client can read and post data into channels (\enquote{Topics}) and execute code (\enquote{Interactions}) on the server. The protocol is extensible and platform-independent because \gls{Protobuf}\footnote{Protobuf is a mechanism to serialize data. The data is defined in a platform-neutral language, which compiles as a library to all commonly used programming languages~\cite{GoogleLLC.2019b}. Website: \href{https://developers.google.com/protocol-buffers/}{www.developers.google.com/protocol-buffers/}} is used to define it. The base components that build up the system are abstracted into Devices, Topics, and Interactions, which allows decoupling the implementation of software from device-specific environments.
+\gls{UBII} is a networking framework for distributed applications, which is currently developed at the research group Forschungsgruppe Augmented Reality (FAR) at the Chair for Computer Aided Medical Procedures \& Augmented Reality. Its main purpose is to enable communication between the different devices, like a smartphone and a \gls{PC}. They connect to a centralized server, which manages the system in a local network. Every client can read and post data into channels (\enquote{Topics}) and execute code (\enquote{Interactions}) on the server. The protocol is extensible and platform-independent because \gls{Protobuf}\footnote{Protobuf is a mechanism to serialize data. The data is defined in a platform-neutral language, which compiles as a library to all commonly used programming languages~\cite{GoogleLLC.2019b}. Website: \href{https://developers.google.com/protocol-buffers/}{www.developers.google.com/protocol-buffers/}} are used to define it. The base components that build up the system are abstracted into Devices, Topics, and Interactions, which allows decoupling the implementation of software from device-specific environments.
 
 
 \subsection{Architecture}\label{subsection:architecture}
@@ -14,7 +14,7 @@ The components of the \gls{UBII} framework, as visualized in Figure~\ref{fig:ubi
 	\begin{subfigure}[t]{.48\textwidth}
 		\centering
 		\includegraphics[height=6.5cm]{figures/implementation/ubii_er_client.pdf}
-		\caption{The client components. A Client has multiple Devices, which has multiple Components.}\label{fig:ubii-er-client}
+		\caption{This Figure shows that multiple Components are assigned to one Device. Also, several Devices are assigned to a Client.}\label{fig:ubii-er-client}
   \end{subfigure}%
   \hspace{0.04\textwidth}%
 	\begin{subfigure}[t]{.48\textwidth}
