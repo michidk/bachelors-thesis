@@ -22,7 +22,7 @@ The components of the \gls{UBII} framework, as visualized in Figure~\ref{fig:ubi
 		\includegraphics[height=6.5cm]{figures/implementation/ubii_er_server.pdf}
 		\caption{The session components. A Session has multiple Interactions and Input Output Mappings. An Interaction has multiple Input Output Formats. The Input Output Mapping has one Input Output Format.}\label{fig:ubii-er-server}
 	\end{subfigure}
-	\caption[UBII components diagram]{The relationships of the core components in an entity relationship diagram.  Entities wich just contain a string are not shown for the sake of clarity.}\label{fig:ubii-er}
+	\caption[UBII components diagram]{The relationships of the core components in an entity-relationship diagram. Entities which just contain a string are not shown for the sake of clarity.}\label{fig:ubii-er}
 \end{figure}
 
 \begin{description}
@@ -31,10 +31,10 @@ The components of the \gls{UBII} framework, as visualized in Figure~\ref{fig:ubi
 	\item[Devices] can be registered by Clients. A Device groups different input and output devices together. It is defined by a \gls{UID} and a list of Components. A data source for such an input device could be any sensor, for example, a button or a camera. Data output examples for input devices are lamps and displays.
 	\item[Components] specify the Topic name, Message Formats for input/output devices and whether it publishes input or receives output data. 
 	\item[Message Formats] define the format of data published to a Topic. Even though it is possible to implement custom formats with \gls{Protobuf}, most common data types are already available. For example, \lstinline[mathescape=true]{Vector4$\times$4} (a four by four matrix), \lstinline{Vector2} (a two-dimensional vector) or \lstinline{boolean} (a truth value) are built-in. % chktex 46
-	\item[Topics] are data channels which are addressed by a name. Clients can publish messages to Topics, which are registered by a Device. They can receive messages, after subscribing to a Topic. Such messages (also called \enquote{Topic Data}) are formatted as JSON\footnote{JSON is a standardized data exchange format, that uses human-readable text. It is often used for web-based data communication~\cite[iii]{ECMAInternational.2017}.}-string, whose structure is defined by the Message Formats.
+	\item[Topics] are data channels which are addressed by a name. Clients can publish messages to Topics, which are registered by a Device. They can receive messages after subscribing to a Topic. Such messages (also called \enquote{Topic Data}) are formatted as JSON\footnote{JSON is a standardized data exchange format, that uses human-readable text. It is often used for web-based data communication~\cite[iii]{ECMAInternational.2017}.}-string, whose structure is defined by the Message Formats.
 	\item[Sessions] operate on the Server but are specified by the Client. They are defined by a \gls{UID} as well as a list of Interactions and mappings. The mappings (\enquote{Input/Output Mappings}) are defined by a Message Format and Topic name.
-	\item[Interactions] are reactive components. They operate on Topics and are defined by a source code snippet\footnote{Currently, only JavaScript is supported as a programming language for Interactions, but Python is planned. Python is a programming language frequently used in scientific contexts. Website: \href{https://www.python.org/}{www.python.org}}. Interactions are executed in a fixed interval on the Server. They can subscribe to Topics and use the received Topic Data as input, given an Input/Output Mapping description. The output of the Interaction is published into another Topic. It is also possible to store data, which can be used in future executions (persistent state).
-	\item[Services] are channels similar, used to send commands or requests to the Server. For example, they are used to subscribe to a Topic or list all available Topics.
+	\item[Interactions] are reactive components. They operate on Topics and are defined by a source code snippet\footnote{Currently, only JavaScript is supported as a programming language for Interactions, but Python is planned. Python is a programming language frequently used in scientific contexts. Website: \href{https://www.python.org/}{www.python.org}} and are executed in a fixed interval on the Server. Using an Input/Output Mapping description, they can subscribe to Topics and use the received Topic Data as input. The output of the Interaction is published into another Topic. It is also possible to store data, which can be used in future executions (persistent state).
+	\item[Services] are communication channels, used to send special commands or requests to the Server. For example, they are used to subscribe to a Topic or list all available Topics.
 \end{description}
 
 
@@ -76,7 +76,7 @@ Interactions should be designed in an atomic and generic way so that they are ea
 
 % this might be left out or merged into above
 Another field of application would be to exchange data between two Topics, for example, to convert data from one format or unit to another one. An example of such a scenario could be an application, which consumes a rotation given in Euler angles. % replace however.. A problem might arise...
-However, some input devices publish Euler angles in degrees. An Interaction, which takes Euler angles in degrees from one Topic and publishes Euler angles in radians to another one, could be implemented.
+However, some input devices publish Euler angles in degrees. An Interaction which takes Euler angles in degrees from one Topic and publishes Euler angles in radians to another one, could be implemented.
 
 A code snippet, required to define an Interaction, has to define a function, which accepts three parameters:
 \lstinline{inputs} is a collection of values, which were published into a Topic. The Topic is defined by the Input Mappings of the Session. \lstinline{outputs} is an empty collection, where values can be added. Those values are then published into a Topic, defined by the output mappings of the Session. \lstinline{state} stores a persistent collection of values, which can be used in later executions of the same Interaction.
