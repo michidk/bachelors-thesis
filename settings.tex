@@ -57,7 +57,7 @@
 \counterwithin{figure}{section} % also count sections
 %\counterwithin{figure}{subsection} % also count subsections
 \counterwithin{table}{section} % also count sections
-\usepackage[titles]{tocloft} % https://tex.stackexchange.com/questions/187180/spacing-problem-at-list-of-figures
+\usepackage[titles]{tocloft} %\usepackage{underscore} https://tex.stackexchange.com/questions/187180/spacing-problem-at-list-of-figures
 \cftsetindents{figure}{0em}{3em}
 \cftsetindents{table}{0em}{3em}
 %\usepackage[printonlyused]{acronym} % acronyms toc and referencing
@@ -74,6 +74,14 @@
 
 \usepackage[onehalfspacing]{setspace} % 1,5facher Zeilenabstand
 
+% make underscores in dois in biliographies work
+\DeclareSourcemap{
+    \maps[datatype=bibtex]{
+      \map{
+           \step[fieldsource=doi, match={\regexp{\{\\textunderscore.*\}}}, replace={_}]
+          }
+    }     
+}
 
 \bibliography{bibliography}
 
