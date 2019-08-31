@@ -114,7 +114,7 @@ To detect intentional movements, the current position is subtracted by the posit
 
 As long as intentional movements are not detected, a timer counts up to a specific value (with the default settings, roughly one second). To visualize the selection progress, the cursor is filled with blue color. After reaching the value, a select event containing the cursor position is sent to the main program and the blue color is removed. 
 
-The second component renders a virtual QWERTY\footnote{The name QWERTY describes the US layout for computer keyboards.} keyboard to the scene. The keyboard layout, whose definition is shown in Figure~\ref{fig:virtual-keyboard-layout}, can be easily adjusted. Every key has a character or an action assigned as well as properties which influence the look. Special keys like the caps, caps lock, enter and delete key are fully functional as known from a real keyboard. When caps lock is activated, the key is drawn in blue and all characters are displayed in upper case.
+The second component renders a virtual QWERTY keyboard to the scene. The keyboard layout, whose definition is shown in Figure~\ref{fig:virtual-keyboard-layout}, can be easily adjusted. Every key has a character or an action assigned as well as properties which influence the look. Special keys like the caps, caps lock, enter and delete key are fully functional as known from a real keyboard. When caps lock is activated, the key is drawn in blue and all characters are displayed in upper case.
 
 \begin{figure}[H]
 	\begin{lstlisting}[language=JavaScript]

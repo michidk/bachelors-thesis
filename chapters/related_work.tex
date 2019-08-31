@@ -33,12 +33,18 @@ Different methods using the accelerometer, magnetic field sensor, and touch scre
 	\centering
 	\begin{subfigure}[t]{0.48\textwidth}%
 		\includegraphics[width=\textwidth]{figures/related_work/dias_2018_tracking.png}
-		\caption{The front camera of the smartphone tracks the marker on the \gls{HMD}.}\label{fig:dias-2018-tracking}% chktex 9 % chktex 10
+    \caption{The front camera of the smartphone tracks the marker on the \gls{HMD}.
+    \newline{}
+    Source:~\cite[Figure 3]{Dias.2018}
+    }\label{fig:dias-2018-tracking}% chktex 9 % chktex 10
 	\end{subfigure}%
 	\hspace{0.04\textwidth}%
 	\begin{subfigure}[t]{0.48\textwidth}%
 		\includegraphics[width=\textwidth]{figures/related_work/dias_2018_virtual_smartphone.png}
-		\caption{The virtual smartphone representation and hand avatar in the \gls{VE} while interacting with the \gls{UI}.}\label{fig:dias-2018-virtual-smartphone}
+    \caption{The virtual smartphone representation and hand avatar in the \gls{VE} while interacting with the \gls{UI}.
+    \newline{}
+    Source: Adapted from ~\cite[Figure 5]{Dias.2018}
+    }\label{fig:dias-2018-virtual-smartphone}
 	\end{subfigure}%
 	\caption[Tracking setup by Dias et al.]{The tracking system by \citeauthor{Dias.2018}~\protect\cite[4,5]{Dias.2018}.}\label{fig:dias-2018}
 \end{figure}
@@ -68,9 +74,35 @@ The approach by \citeauthor{Steed.2013} also used a smartphone and a \gls{VR} he
 		\includegraphics[height=4cm]{figures/related_work/steed_2013_ui.png}
 		\caption{The virtual \gls{UI} and the cursor.}\label{fig:steed-2013-ui}
 	\end{subfigure}%
-	\caption[Virtual smartphone representation by Steep et al.]{The virtual smartphone representation by \citeauthor{Steed.2013}~\protect\cite[43]{Steed.2013}.}\label{fig:steed-2013}
+  \caption[Virtual smartphone representation by Steep et al.]{The virtual smartphone representation by \citeauthor{Steed.2013}.
+  \newline{}
+  Source: Adapted from~\protect\cite[Figure 1]{Steed.2013}
+  }\label{fig:steed-2013}
 \end{figure}
 
 On the virtual phone screen, a \gls{UI} is displayed as seen in Figure~\ref{fig:steed-2013-ui}. This \gls{UI} has control elements like buttons, which amongst others, can be used to toggle a selection mode. In the selection mode the phone casts a ray out of the top (similar to a laser pointer) as seen in Figure~\ref{fig:steed-2013-laser-pointer}. The ray direction can be changed by rotating the smartphone. As soon as a \gls{UI}-button is pressed, the objects intersecting with the ray are selected~\cite{Steed.2013}.
 
 A similar laser pointer selection approach is implemented in one of the experiments in this thesis. The selection cursor and the fixed phone position also inspired the experiments of this thesis.
+
+
+\section{Markussen et al.}\label{section:markussen-2013}
+In {\citetitle{Markussen.2013}} \citeauthor{Markussen.2013} explore three different mid-air text input methods using large displays. Mid-air approaches track the users' hands and display a cursor on a large display. This method requires little to no visual attention on the hands, because all the visual feedback is displayed on the large display. With common touch surfaces or displays, visual attention is required because the user has to aim for a virtual button or \gls{UI} element on the touch device.
+This approach also allows typing without restricting the users' movement around the display since the user does not have to touch any physical device~\cite[401]{Markussen.2013}.
+
+The first approach, the \enquote{H4 Mid-Air} text entry method, allows to type using four buttons on a physical game controller. To type a character, a specific sequence of the four buttons has to be pressed in the correct order~\cite[406]{Markussen.2013}. 
+
+They also propose a reduced keyboard with nine buttons, where three to four characters are combined on one key (\enquote{MultiTap} approach). The user moves the cursor by moving his hand, which is tracked by a tracking system. When the cursor hovers over a key, the key is highlighted in orange -- the background of the key changes to red, when a key is activated. To type a character, the user taps a key multiple times in a certain time frame. The number of taps corresponds to the character's index on the key~\cite[407]{Markussen.2013}. %chktex 8
+
+Their final method, \enquote{Projected QWERTY}, shown in Figure~\ref{fig:markussen-2013} uses a QWERTY\footnote{The name QWERTY describes the US layout for computer keyboards.} keyboard. It uses a similar cursor and highlighting as in the \enquote{MultiTap} approach, but only one tap is required to type a character. To determine the position of the cursor, the hand position is projected onto the display plane. This makes the cursor movement relative to hand movement independent of the distance from the hand to the display~\cite[408]{Markussen.2013}. 
+
+\begin{figure}[H]%
+	\centering%
+	\includegraphics[width=6.5cm]{figures/related_work/markussen_2013_keyboard.png}%
+  \caption[Virtual keyboard by Markussen et al.]{
+  The virtual keyboard of the user interface from the approach of \citeauthor{Markussen.2013}.
+  \newline{}
+  Source:~\cite[Figure 5]{Markussen.2013}}\label{fig:markussen-2013}
+\end{figure}
+
+A similar visibility-independent text entry method is used in this thesis to demonstrate a text input task for \gls{VR}.
+% TODO: reference in keyboard chapter
