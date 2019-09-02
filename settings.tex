@@ -10,13 +10,11 @@
 \usepackage[autostyle]{csquotes}
 \usepackage[%
 	backend=biber,
-	url=false,
+	%url=false,
 	style=ieee,%alphabetic,
 	maxnames=3,
 	minnames=3,
-	maxbibnames=99,
-	giveninits,
-	uniquename=init]{biblatex}
+	maxbibnames=99]{biblatex}
 \setcounter{biburlnumpenalty}{7000} % break urls in bibliography https://texwelt.de/wissen/fragen/7008/zeilenumbruche-in-bibliografielinks
 \usepackage{url}
 \usepackage[pdftex]{hyperref}
@@ -74,13 +72,18 @@
 
 \usepackage[onehalfspacing]{setspace} % 1,5facher Zeilenabstand
 
-% make underscores in dois in biliographies work, when exporting with citavi
 \DeclareSourcemap{
-    \maps[datatype=bibtex]{
-      \map{
-           \step[fieldsource=doi, match={\regexp{\{\\textunderscore.*\}}}, replace={_}]% chktex 21
-          }
-    }     
+  \maps[datatype=bibtex]{
+    \map{ % make underscores in dois in biliographies work, when exporting with citavi
+      \step[fieldsource=doi, match={\regexp{\{\\textunderscore.*\}}}, replace={_}]% chktex 21
+    }
+    \map[overwrite]{ % convert url dates to american format
+      \step[fieldsource=urldate,
+      match=\regexp{([0-9]{2})\.([0-9]{2})\.([0-9]{4})},% chktex 8
+      replace={$3-$2-$1},% chktex 46
+      final]
+    }
+  }
 }
 
 \bibliography{bibliography}
