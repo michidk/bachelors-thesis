@@ -70,8 +70,8 @@ The users' head position could be used as origin, while the smartphone provides 
 
 As a workaround to the missing positional data of the device, the approach by \citeauthor{Pietroszek.2014} is used: The ray origin/virtual smartphone position is set to a fixed location relative to the users' head~\cite[Figure 3]{Pietroszek.2014}. The location should be where the phone could be in the real world.
 
-Similar to the approach by~\citeauthor{Dias.2018} (presented in Section~\ref{section:dias-2018}), who implemented user interfaces using a real smartphone and a virtual representation in the \gls{VE}~\cite[5]{Dias.2018}, the ray origin is represented by a three-dimensional phone model, whose orientation is synchronized with the orientation of the smartphone in the real world. The data from the most recent smart device client (see Section~\ref{section:smart-device}) which is connected to the server is used. To keep the virtual phone inside the field of view of the users, it rotates relative to the users on the up-axis and moves only on the right/forward-axis.
-Similar to the approach from \citeauthor{Steed.2013}, a line is attached to the front of the phone (the \enquote{laser}) to indicate the direction of the ray~\cite[46]{Steed.2013}, as can be seen in the screenshot of this setup in Figure~\ref{fig:screenshot-exp-lp}.% TODO: grammarly
+Similar to the approach by~\citeauthor{Dias.2018} (presented in Section~\ref{section:dias-2018}), who implemented user interfaces using a real smartphone and a virtual representation in the \gls{VE}~\cite[5]{Dias.2018}, the ray origin is represented by a three-dimensional phone model, whose orientation is synchronized with the orientation of the smartphone in the real world. The data from the most recent smart device client (see Section~\ref{section:smart-device}), which is connected to the server, is used. To keep the virtual phone inside the field of view of the users, it rotates relative to the users on the up-axis and moves only on the right/forward-axis.
+Similar to the approach from \citeauthor{Steed.2013}, a line is attached to the front of the phone (the \enquote{laser beam}) to indicate the direction of the ray~\cite[46]{Steed.2013}, as can be seen in the screenshot of this setup in Figure~\ref{fig:screenshot-exp-lp}.
 
 \begin{figure}[H]
 	\centering
@@ -93,12 +93,12 @@ Tilt Brush\footnote{Tilt Brush by Google is a tool for three-dimensional paintin
 
 Some applications use a laser pointer either attached to the motion controller or to the \gls{HMD} to select virtual keys on a two-dimensional image of a keyboard~\cite{WeelcoInc.2017}. A more recent approach is the frequently called \enquote{drum keyboard}, which attaches drum sticks to the hand controllers, which are then used to hit three-dimensional keys~\cite{Weisel.2017}.
 
-Other approaches use hand gloves~\cite{Evans.1999,Rhoton.2002}, a real keyboard~\cite{McGill.2015,Walker.2017} or other peripherals~\cite[111\psq]{Gonzalez.2009}. Also, methods like speech recognition~\cite[2154\psqq]{Rhoton.2002} and handwritten character recognition~\cite[113]{Gonzalez.2009} are possible. % TODO: check if citation style with commas is correct
+Other approaches use hand gloves~\cite{Evans.1999,Rhoton.2002}, a real keyboard~\cite{McGill.2015,Walker.2017} or other peripherals~\cite[111\psq]{Gonzalez.2009}. Also, methods like speech recognition~\cite[2154\psqq]{Rhoton.2002} and handwritten character recognition~\cite[113]{Gonzalez.2009} are possible.
 
 Inspired by the approach from \citeauthor{Markussen.2013} (presented in Section~\ref{section:markussen-2013}) where users type using their hands and a visual representation on an external display~\cite[408]{Markussen.2013}, this experiment uses a virtual QWERTY keyboard as seen in Figure~\ref{fig:screenshot-exp-vk}.
-Instead of displaying the virtual keyboard on a fixed large display~\cite[408]{Markussen.2013}, the keyboard is visualized at a fixed position in the \gls{VE}. However, the virtual keyboard could also be fixed to a position relative to the user or to tho smart phones orientation.% TODO: grammarly
+Instead of displaying the virtual keyboard on a fixed large display~\cite[408]{Markussen.2013}, the keyboard is visualized at a fixed position in the \gls{VE}. However, the virtual keyboard could also be fixed to a position relative to the user or to the smartphone's orientation.
 
-Like in \citetitle{Markussen.2013} the surface of the virtual keyboard is mapped to the touchscreen of the smart device (see Section~\ref{section:smart-device}) and a cursor, represented by a blue circle, visualizes the position of the finger on the touchscreen~\cite[408]{Markussen.2013}.% TODO: grammarly
+Like in \citetitle{Markussen.2013} the surface of the virtual keyboard is mapped to the touchscreen of the smart device (see Section~\ref{section:smart-device}) and a cursor, represented by a blue circle, visualizes the position of the finger on the touchscreen~\cite[408]{Markussen.2013}.
 
 \begin{figure}[H]
 	\centering
