@@ -56,6 +56,43 @@ Almost the same research team (\citeauthor{Afonso.2017}) evaluated a selection t
 Those papers are especially useful for the research of this thesis because they introduce a visual representation of the smartphone in \gls{VR}, which is used in this thesis, too. 
 
 
+\section{Katzakis et al.}\label{section:katzakis-2010}
+An application to view three-dimensional models controlled with a smartphone was implemented by \citeauthor{Katzakis.2010}. Their approach uses a smartphone to rotate a model which is displayed on a conventional display~\cite[139]{Katzakis.2010}. 
+
+The phone is wirelessly connected to a computer where the model is rendered. The orientation data is provided by the \gls{IMU} of the smartphone and, once calibrated to the screen position, is directly mapped to the model, as seen in Figure~\ref{fig:katzakis-2010}~\cite[139]{Katzakis.2010}. 
+
+\begin{figure}[H]%
+  \centering%
+  \includegraphics[height=6cm]{figures/related_work/katzakis_2010_3d_object.png}%
+  \caption[Model viewer implementation by Katzakis et al.]{
+  The model viewer implementation by \citeauthor{Katzakis.2010}. The smartphone is rotated, to orient the three-dimensional model on the display.
+  \newline{}
+  Source:~\cite[Figure 1]{Katzakis.2010}}\label{fig:katzakis-2010}
+\end{figure}
+
+In the evaluation of their system, a mouse, a touch pen, and the smartphone were compared. The latter wins in terms of the time it takes to rotate the model to a certain pose~\cite[140]{Katzakis.2010}.
+
+A similar system but in use with \gls{VR} is used in the model viewer experiment presented in this thesis.
+
+\section{Pietroszek et al.}\label{section:pietroszek-2014}
+\citeauthor{Pietroszek.2014} developed a system called \enquote{Smartcasting}, which allows multiple users to interact with 3D content on a large display using their personal smartphone. They try to explore whether a smartphone can be used as an effective three-dimensional input device for large displays~\cite[119]{Pietroszek.2014}.
+
+The approach uses the orientation from the smartphone to cast a ray into the direction the phone is pointing. A fixed position is used as the origin of the ray as shown in Figure~\ref{fig:pietroszek-2014}, since no positional tracking is available. Objects colliding with the ray can be selected. The depth can be adjusted using the touch screen of the smartphone, to select objects in the three-dimensional world at different depths. The ray and a depth marker are visualized on the display~\cite[121]{Pietroszek.2014}.
+
+\begin{figure}[H]%
+  \centering%
+  \includegraphics[height=6cm]{figures/related_work/pietroszek_2014_laser_pointer.png}%
+  \caption[Laser pointer implementation by Pietroszek et al.]{
+  The laser pointer interaction with a large display by \citeauthor{Pietroszek.2014}. Since the location of the smartphone is not known, the ray origin is set to a fixed position.
+  \newline{}
+  Source:~\cite[Figure 3]{Pietroszek.2014}}\label{fig:pietroszek-2014}
+\end{figure}
+
+To demonstrate the capabilities of the system, three-dimensional objects in the scene can be positioned and orientated. Finally, they conducted a study where they compare their system with a Wii controller. The results show no significant difference between those two input methods~\cite[125]{Pietroszek.2014}.
+
+The ray casting system with the fixed-origin ray is also implemented in the laser pointer experiment presented later in this thesis.%, but to select objects in a \gls{VE} from \gls{VR}.
+
+
 % Design and Implementation of an Immersive Virtual Reality System based on a Smartphone Platform
 %\section{Design and Implementation of an Immersive VR System based on a Smartphone Platform}\label{section:design-implementation-vr-system-smartphone-platform}
 \section{Steed et al.}\label{section:steed-2013}
@@ -82,26 +119,7 @@ The approach by \citeauthor{Steed.2013} also used a smartphone and a \gls{VR} he
 
 On the virtual phone screen, a \gls{UI} is displayed as seen in Figure~\ref{fig:steed-2013-ui}. This \gls{UI} has control elements like buttons, which amongst others, can be used to toggle a selection mode. In the selection mode the phone casts a ray out of the top (similar to a laser pointer) as seen in Figure~\ref{fig:steed-2013-laser-pointer}. The ray direction can be changed by rotating the smartphone. As soon as a \gls{UI}-button is pressed, the objects intersecting with the ray are selected~\cite{Steed.2013}.
 
-A similar laser pointer selection approach is implemented in one of the experiments in this thesis. The selection cursor and the fixed phone position also inspired the experiments of this thesis.
-
-
-\section{Pietroszek et al.}\label{section:pietroszek-2014}
-\citeauthor{Pietroszek.2014} developed a system called \enquote{Smartcasting}, which allows multiple users to interact with 3D content on a large display using their personal smartphone. They try to explore whether a smartphone can be used as an effective three-dimensional input device for large displays~\cite[119]{Pietroszek.2014}.
-
-The approach uses the orientation from the smartphone to cast a ray into the direction the phone is pointing. A fixed position is used as the origin of the ray as shown in Figure~\ref{fig:pietroszek-2014}, since no positional tracking is available. Objects colliding with the ray can be selected. The depth can be adjusted using the touch screen of the smartphone, to select objects in the three-dimensional world at different depths. The ray and a depth marker are visualized on the display~\cite[121]{Pietroszek.2014}.
-
-\begin{figure}[H]%
-  \centering%
-  \includegraphics[width=6.5cm]{figures/related_work/pietroszek_2014_laser_pointer.png}%
-  \caption[Laser pointer implementation by Pietroszek et al.]{
-  The laser pointer interaction with a large display by \citeauthor{Pietroszek.2014}. Since the location of the smartphone is not known, the ray origin is set to a fixed position.
-  \newline{}
-  Source:~\cite[Figure 3]{Pietroszek.2014}}\label{fig:pietroszek-2014}
-\end{figure}
-
-To demonstrate the capabilities of the system, three-dimensional objects in the scene can be positioned and orientated. Finally, they conducted a study where they compare their system with a Wii controller. The results show no significant difference between those two input methods~\cite[125]{Pietroszek.2014}.
-
-The ray casting system with the fixed-origin ray is also implemented in the laser pointer experiment presented later in this thesis.%, but to select objects in a \gls{VE} from \gls{VR}.
+A similar laser pointer selection approach is implemented in one of the experiments in this thesis. The selection cursor and the fixed phone position also inspired the experiments presented in this thesis.
 
 
 \section{Markussen et al.}\label{section:markussen-2013}
@@ -116,7 +134,7 @@ Their final method, \enquote{Projected QWERTY}, shown in Figure~\ref{fig:markuss
 
 \begin{figure}[H]%
 	\centering%
-	\includegraphics[width=6.5cm]{figures/related_work/markussen_2013_keyboard.png}%
+	\includegraphics[height=6cm]{figures/related_work/markussen_2013_keyboard.png}%
   \caption[Virtual keyboard implementation by Markussen et al.]{
   The virtual keyboard of the user interface from the approach of \citeauthor{Markussen.2013}.
   \newline{}
