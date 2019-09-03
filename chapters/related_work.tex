@@ -86,20 +86,22 @@ A similar laser pointer selection approach is implemented in one of the experime
 
 
 \section{Pietroszek et al.}\label{section:pietroszek-2014}
-\citeauthor{Pietroszek.2014} developed a system called \enquote{Smartcasting}, which allows multiple users to interact with 3D content on a large display using their personal smartphone. They try to explore wether a smartphone can be used as effective three-dimensional input device for large displays~\cite[119]{Pietroszek.2014}.
+\citeauthor{Pietroszek.2014} developed a system called \enquote{Smartcasting}, which allows multiple users to interact with 3D content on a large display using their personal smartphone. They try to explore whether a smartphone can be used as an effective three-dimensional input device for large displays~\cite[119]{Pietroszek.2014}.
 
-The approach uses the orientation from the smartphone to cast a ray into the direction the phone is pointing. A fixed position is used as the origin of the ray as shown in Figure~\ref{fig:pietroszek-2014}, since no positional tracking is available. Objects colliding with the ray are can be selected. The depth can be adjusted using the touch screen of the smartphone, to select objects in the three-dimensional world at different depths. The ray and a depth marker are visualized on the display~\cite[121]{Pietroszek.2014}.
+The approach uses the orientation from the smartphone to cast a ray into the direction the phone is pointing. A fixed position is used as the origin of the ray as shown in Figure~\ref{fig:pietroszek-2014}, since no positional tracking is available. Objects colliding with the ray can be selected. The depth can be adjusted using the touch screen of the smartphone, to select objects in the three-dimensional world at different depths. The ray and a depth marker are visualized on the display~\cite[121]{Pietroszek.2014}.
 
 \begin{figure}[H]%
-	\centering%
-	\includegraphics[width=6.5cm]{figures/related_work/pietroszek_2014_laser_pointer.png}%
+  \centering%
+  \includegraphics[width=6.5cm]{figures/related_work/pietroszek_2014_laser_pointer.png}%
   \caption[Laser pointer implementation by Pietroszek et al.]{
   The laser pointer interaction with a large display by \citeauthor{Pietroszek.2014}. Since the location of the smartphone is not known, the ray origin is set to a fixed position.
   \newline{}
   Source:~\cite[Figure 3]{Pietroszek.2014}}\label{fig:pietroszek-2014}
 \end{figure}
 
-To show the capabilities of the system, three-dimensional objects in the scene can be positioned and orientated. Finally, they conducted a study where they compare their system with a Wii controller. The results show no significant difference between those two input methods~\cite[125]{Pietroszek.2014}.
+To demonstrate the capabilities of the system, three-dimensional objects in the scene can be positioned and orientated. Finally, they conducted a study where they compare their system with a Wii controller. The results show no significant difference between those two input methods~\cite[125]{Pietroszek.2014}.
+
+The ray casting system with the fixed-origin ray is also implemented in the laser pointer experiment presented later in this thesis.%, but to select objects in a \gls{VE} from \gls{VR}.
 
 
 \section{Markussen et al.}\label{section:markussen-2013}
