@@ -5,6 +5,8 @@
 
 \usepackage[utf8]{inputenc} % inputenc package ignored with utf8 based engines
 \usepackage[T1]{fontenc}
+\usepackage{textcomp} % for good looking copyright and registered symbols and arrows and more symbols
+\usepackage[scaled]{helvet} % Schriftart Helvetic, made automatically the default sans serif font
 \usepackage[sc]{mathpazo}
 \usepackage[ngerman,american]{babel}
 \usepackage[autostyle]{csquotes}
@@ -27,7 +29,6 @@
   pdfcreator={\getAuthor},
   pdfnewwindow=true, % links in new window
   pdfstartview={FitH}}% fits the width of the page to the window
-\usepackage{textcomp} % for good looking copyright and registered symbols and arrows and more symbols
 \usepackage{scrhack} % necessary for listings package
 \usepackage{listings} % code highlighting
 \usepackage{lstautogobble}
@@ -62,13 +63,9 @@
 \usepackage[acronym, nonumberlist, nopostdot, toc]{glossaries}
 \makeglossaries{}
 
-% Schriftart Helvetica:
-\usepackage[scaled]{helvet}
-\renewcommand{\familydefault}{\sfdefault}
-
 % Silbentrennung:
-%\usepackage{hyphenat}
-%\hyphenation{TUM in-te-res-siert} % Eigene Silbentrennung
+\usepackage{hyphenat}
+\hyphenation{TUM in-te-res-siert} % Eigene Silbentrennung
 
 \usepackage[onehalfspacing]{setspace} % 1,5facher Zeilenabstand
 
@@ -89,8 +86,7 @@
 \bibliography{bibliography}
 
 \interfootnotelinepenalty=10000 % prevent splitting of footnotes to the next page
-
-\setkomafont{disposition}{\normalfont\bfseries} % use serif font for headings
+%\setkomafont{disposition}{\normalfont\sffamily} % use sans serif font for headings
 \linespread{1.05} % adjust line spread for mathpazo font
 \setlength\parindent{0pt} % remove indents
 \setlength\parskip{1ex} % defines the distance between paragrapgs
