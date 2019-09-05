@@ -53,7 +53,7 @@ Because users interact with the \gls{UI} using the touch screen of the smartphon
 
 Almost the same research team (\citeauthor{Afonso.2017}) evaluated a selection task using a tablet as an input device in \gls{VR} using the same \gls{VR} setup. They compare the selection time of users selecting a button on the tablet using a realistic hand avatar, a translucent hand avatar, and without any avatar of the hand. Surprisingly, the evaluation shows that users performed the best without any virtual avatar. The authors explain that this is due to the tracking inaccuracies of the tablet and the hand. However, users made fewer selection errors when an avatar was displayed~\cite[247-248]{Afonso.2017}.
 
-Those papers are especially useful for the research of this thesis because they introduce a visual representation of the smartphone in \gls{VR}. which is used in this thesis too. 
+Those papers are especially useful for the research of this thesis because they introduce a visual representation of the smartphone in \gls{VR}, which is used in this thesis too. 
 
 
 \section{Katzakis et al.}\label{section:katzakis-2010}
@@ -88,7 +88,7 @@ The approach uses the orientation from the smartphone to cast a ray into the dir
   Source:~\cite[Figure 3]{Pietroszek.2014}}\label{fig:pietroszek-2014}
 \end{figure}
 
-To demonstrate the capabilities of the system, three-dimensional objects in the scene can be positioned and orientated. Finally, they conducted a study where they compare their system with a Wii controller. The results show no significant difference between those two input methods~\cite[125]{Pietroszek.2014}.
+To demonstrate the capabilities of the system, three-dimensional objects in the scene can be positioned and orientated using the laser pointer. Finally, they conducted a study where they compare their system against a Wii controller. The results show no significant difference between those two input methods~\cite[125]{Pietroszek.2014}.
 
 The ray casting system with the fixed-origin ray is also implemented in the laser pointer experiment presented later in this thesis.%, but to select objects in a \gls{VE} from \gls{VR}.
 
@@ -96,7 +96,7 @@ The ray casting system with the fixed-origin ray is also implemented in the lase
 % Design and Implementation of an Immersive Virtual Reality System based on a Smartphone Platform
 %\section{Design and Implementation of an Immersive VR System based on a Smartphone Platform}\label{section:design-implementation-vr-system-smartphone-platform}
 \section{Steed et al.}\label{section:steed-2013}
-The approach by \citeauthor{Steed.2013} also used a smartphone and a \gls{VR} headset as well as a visual representation of the phone. However, since they do not have positional tracking for the smartphone, the position is fixed relative to the position of the \gls{HMD}. There are two different possible positions, one in front of the users head (shown in Figure~\ref{fig:steed-2013-laser-pointer}) and the other one in front of the users belly (shown in Figure~\ref{fig:steed-2013-ui}). The position switches if a hand raise gesture with the phone in the hand is detected. Gestures and orientation of the smartphone are detected using the data of the \gls{IMU}.
+The approach by \citeauthor{Steed.2013} used a smartphone and a \gls{VR} headset as well as a visual representation of the phone. However, since they do not have positional tracking for the smartphone, the position is fixed relative to the position of the \gls{HMD}. There are two different possible positions, one in front of the users head (shown in Figure~\ref{fig:steed-2013-laser-pointer}) and the other one in front of the users belly (shown in Figure~\ref{fig:steed-2013-ui}). The position switches if a hand raise gesture with the phone in the hand is detected. Gestures and orientation of the smartphone are detected using the data of the \gls{IMU}.
 
 \begin{figure}[H]
 	\centering
@@ -109,7 +109,7 @@ The approach by \citeauthor{Steed.2013} also used a smartphone and a \gls{VR} he
 	\begin{subfigure}[t]{0.45\textwidth}%
 		\centering%
 		\includegraphics[height=4cm]{figures/related_work/steed_2013_ui.png}
-		\caption{The virtual \gls{UI} and the cursor.}\label{fig:steed-2013-ui}
+		\caption{The virtual \gls{UI} with the cursor.}\label{fig:steed-2013-ui}
 	\end{subfigure}%
   \caption[Virtual smartphone representation by Steed et al.]{The virtual smartphone representation by \citeauthor{Steed.2013}.
   \newline{}
@@ -117,9 +117,9 @@ The approach by \citeauthor{Steed.2013} also used a smartphone and a \gls{VR} he
   }\label{fig:steed-2013}
 \end{figure}
 
-On the virtual phone screen, a \gls{UI} is displayed as seen in Figure~\ref{fig:steed-2013-ui}. This \gls{UI} has control elements like buttons, which amongst others, can be used to toggle a selection mode. In the selection mode the phone casts a ray out of the top (similar to a laser pointer) as seen in Figure~\ref{fig:steed-2013-laser-pointer}. The ray direction can be changed by rotating the smartphone. As soon as a \gls{UI}-button is pressed, the objects intersecting with the ray are selected~\cite{Steed.2013}.
+On the virtual phone screen, a \gls{UI} is displayed as seen in Figure~\ref{fig:steed-2013-ui}. This \gls{UI} has control elements like buttons, which amongst others, can be used to toggle a selection mode. In the selection mode, the phone casts a ray out of the top (similar to a laser pointer) as seen in Figure~\ref{fig:steed-2013-laser-pointer}. The ray direction can be changed by rotating the smartphone. As soon as a \gls{UI}-button is pressed, the objects intersecting with the ray are selected~\cite{Steed.2013}.
 
-A similar laser pointer selection approach is implemented in one of the experiments in this thesis. The selection cursor and the fixed phone position also inspired the experiments presented in this thesis.
+A similar selection approach is implemented in the laser pointer experiment of this thesis. The selection cursor and the fixed phone position also inspired the experiments presented in this thesis.
 
 
 \section{Markussen et al.}\label{section:markussen-2013}
@@ -128,9 +128,9 @@ This approach also allows typing without restricting the users' movement around 
 
 The first approach, the \enquote{H4 Mid-Air} text entry method, allows to type using four buttons on a physical game controller. To type a character, a specific sequence of the four buttons has to be pressed in the correct order~\cite[406]{Markussen.2013}.
 
-They also propose a reduced keyboard with nine buttons, where three to four characters are combined on one key (\enquote{MultiTap} approach). The user moves the cursor by moving his hand, which is tracked by a tracking system. When the cursor hovers over a key, the key is highlighted in orange -- the background of the key changes to red, when a key is activated. To type a character, the user taps a key multiple times in a certain time frame. The number of taps corresponds to the character's index on the key~\cite[407]{Markussen.2013}. % chktex 8
+They also propose a reduced keyboard with nine buttons, where three to four characters are combined on one key (called the \enquote{MultiTap} approach). The user moves the cursor by moving his hand, which is tracked by a tracking system. When the cursor hovers over a key, the key is highlighted in orange -- the background of the key changes to red, when a key is activated. To type a character, the user taps a key multiple times in a certain time frame. The number of taps corresponds to the character's index on the key~\cite[407]{Markussen.2013}. % chktex 8
 
-Their final method \enquote{Projected QWERTY} shown in Figure~\ref{fig:markussen-2013} uses a QWERTY\footnote{The name QWERTY describes the US layout for computer keyboards.} keyboard. It uses a similar cursor and highlighting as in the \enquote{MultiTap} approach, but only one tap is required to type a character. To determine the position of the cursor, the hand position is projected onto the display plane. This makes the cursor movement relative to hand movement independent of the distance from the hand to the display~\cite[408]{Markussen.2013}. 
+Their final method \enquote{Projected QWERTY} shown in Figure~\ref{fig:markussen-2013} uses a QWERTY\footnote{The name QWERTY describes the US layout for computer keyboards.} keyboard. It uses a similar cursor and highlighting as in the \enquote{MultiTap} approach, but only one tap is required to type a character. To determine the position of the cursor, the hand's position is projected onto the display plane. This makes the cursor movement, relative to hand movement, independent of the distance from the hand to the display~\cite[408]{Markussen.2013}. 
 
 \begin{figure}[H]%
 	\centering%
