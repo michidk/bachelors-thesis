@@ -4,7 +4,7 @@
 
 % ModControl – Mobile Phones as a Versatile Interaction Device for Large Screen Applications
 %\section{Mobile Phones as a Versatile Interaction Device for Large Screen Applications}\label{section:mobile-phones-interaction-device-large-screen}
-\section{Deller et al.}\label{section:deller-2011}
+\section{Deller et al.\@}\label{section:deller-2011}
 \citeauthor{Deller.2011} propose a modular framework to enable multi-user interactions between smartphones and large-screen applications. A typical client-server architecture with an XML\footnote{XML is a standardized data exchange format that uses human-readable text.}-based protocol is used. They differentiate between application clients (the large screen) and interaction clients (the smartphones)~\cite{Deller.2011}.
 
 The client app is provided with different modules. Some modules offer similar functionality to the experiments implemented in this thesis: Their text module enables users to enter a text while their accelerometer and magnetometer module sends \gls{IMU} data like acceleration and magnetic field data in the background to the server. They also described how they integrated their framework in an application where users can navigate a map and toggle display settings~\cite{Deller.2011}.
@@ -14,7 +14,7 @@ The approach presented in this thesis uses a comparable client-server architectu
 
 % Phone-based motion control in VR (Klinker)
 %\section{Phone-based Motion Control in VR}\label{section:phone-based-motion-control-vr}
-\section{Benzina et al.}\label{section:benzina-2011}
+\section{Benzina et al.\@}\label{section:benzina-2011}
 \citeauthor{Benzina.2011} introduce a system for flying through \glspl{VE} by using a smartphone as input device.
 % Since the sight is occluded by the \gls{HMD}, the phone display cannot be used to display information.
 They try to find convenient mappings between the users' actions with the mobile phone and the subsequent reactions in the \gls{VE}. To solve this, they investigate the \glspl{DOF} required to implement a quickly learnable and comfortable travel task.
@@ -26,7 +26,7 @@ Different methods using the accelerometer, magnetic field sensor, and touch scre
 
 % Mobile Devices for Interaction in Immersive Virtual Environments
 %\section{Mobile Devices for Interaction in Immersive Virtual Environments}\label{section:mobile-devices-interaction-ve}
-\section{Dias et al.}\label{section:dias-2018}
+\section{Dias et al.\@}\label{section:dias-2018}
 \citeauthor{Dias.2018} propose a solution where the smartphone has a visual representation in \gls{VR}. The visual representation displays information and a \gls{UI} on its virtual screen. The camera in the smartphone tracks a marker on the \gls{HMD} to track its own position relative to the headset. The setup is shown in Figure~\ref{fig:dias-2018}.
 
 \begin{figure}[H]
@@ -46,7 +46,7 @@ Different methods using the accelerometer, magnetic field sensor, and touch scre
     Source: Adapted from~\cite[Figure 5]{Dias.2018}
     }\label{fig:dias-2018-virtual-smartphone}
 	\end{subfigure}%
-	\caption[Tracking setup by Dias et al.]{The tracking system by \citeauthor{Dias.2018}~\protect\cite[4,5]{Dias.2018}.}\label{fig:dias-2018}
+	\caption[Tracking setup by Dias et al.\@]{The tracking system by \citeauthor{Dias.2018}~\protect\cite[4,5]{Dias.2018}.}\label{fig:dias-2018}
 \end{figure}
 
 Because users interact with the \gls{UI} using the touch screen of the smartphone as they would do in real life, the fingers have to be tracked and visualized. Otherwise, users would not know where their fingers are going to hit the touch screen because the sight is occluded physically by the \gls{HMD}. To solve this problem, they attach a Leap Motion sensor to the \gls{HMD} which tracks the fingers to display a hand avatar~\cite{Dias.2018}.
@@ -56,7 +56,7 @@ Almost the same research team (\citeauthor{Afonso.2017}) evaluated a selection t
 Those papers are especially useful for the research of this thesis because they introduce a visual representation of the smartphone in \gls{VR}, which is used in this thesis too. 
 
 
-\section{Katzakis et al.}\label{section:katzakis-2010}
+\section{Katzakis et al.\@}\label{section:katzakis-2010}
 An application to view three-dimensional models controlled with a smartphone was implemented by \citeauthor{Katzakis.2010}. Their approach uses a smartphone to rotate a model which is displayed on a conventional display~\cite[139]{Katzakis.2010}. 
 
 The phone is wirelessly connected to a computer where the model is rendered. The orientation data is provided by the \gls{IMU} of the smartphone and, once calibrated to the screen position, is directly mapped to the model, as seen in Figure~\ref{fig:katzakis-2010}~\cite[139]{Katzakis.2010}. 
@@ -64,7 +64,7 @@ The phone is wirelessly connected to a computer where the model is rendered. The
 \begin{figure}[H]%
   \centering%
   \includegraphics[height=6cm]{figures/related_work/katzakis_2010_3d_object.png}%
-  \caption[Model viewer implementation by Katzakis et al.]{
+  \caption[Model viewer implementation by Katzakis et al.\@]{
   The model viewer implementation by \citeauthor{Katzakis.2010}. The smartphone can be rotated to change the orientation of the three-dimensional model on the display.
   \newline{}
   Source:~\cite[Figure 1]{Katzakis.2010}}\label{fig:katzakis-2010}
@@ -74,7 +74,7 @@ In the evaluation of their system, a mouse, a touch pen, and the smartphone were
 
 A similar system, but in use with \gls{VR}, is used in the model viewer experiment presented in this thesis.
 
-\section{Pietroszek et al.}\label{section:pietroszek-2014}
+\section{Pietroszek et al.\@}\label{section:pietroszek-2014}
 \citeauthor{Pietroszek.2014} developed a system called \enquote{Smartcasting}, which allows multiple users to interact with 3D content on a large display using their personal smartphone. They try to explore whether a smartphone can be used as an effective three-dimensional input device for large displays~\cite[119]{Pietroszek.2014}.
 
 The approach uses the orientation from the smartphone to cast a ray into the direction the phone is pointing. A fixed position is used as the origin of the ray as shown in Figure~\ref{fig:pietroszek-2014}, since no positional tracking is available. Objects colliding with the ray can be selected. The depth can be adjusted using the touch screen of the smartphone, to select objects in the three-dimensional world at different depths. The ray and a depth marker are visualized on the display~\cite[121]{Pietroszek.2014}.
@@ -82,7 +82,7 @@ The approach uses the orientation from the smartphone to cast a ray into the dir
 \begin{figure}[H]%
   \centering%
   \includegraphics[height=6cm]{figures/related_work/pietroszek_2014_laser_pointer.png}%
-  \caption[Laser pointer implementation by Pietroszek et al.]{
+  \caption[Laser pointer implementation by Pietroszek et al.\@]{
   The laser pointer interaction with a large display by \citeauthor{Pietroszek.2014}. Since the location of the smartphone is not known, the ray origin is set to a fixed position.
   \newline{}
   Source:~\cite[Figure 3]{Pietroszek.2014}}\label{fig:pietroszek-2014}
@@ -95,7 +95,7 @@ The ray casting system with the fixed-origin ray is also implemented in the lase
 
 % Design and Implementation of an Immersive Virtual Reality System based on a Smartphone Platform
 %\section{Design and Implementation of an Immersive VR System based on a Smartphone Platform}\label{section:design-implementation-vr-system-smartphone-platform}
-\section{Steed et al.}\label{section:steed-2013}
+\section{Steed et al.\@}\label{section:steed-2013}
 The approach by \citeauthor{Steed.2013} used a smartphone and a \gls{VR} headset as well as a visual representation of the phone. However, since they do not have positional tracking for the smartphone, the position is fixed relative to the position of the \gls{HMD}. There are two different possible positions, one in front of the users head (shown in Figure~\ref{fig:steed-2013-laser-pointer}) and the other one in front of the users belly (shown in Figure~\ref{fig:steed-2013-ui}). The position switches if a hand raise gesture with the phone in the hand is detected. Gestures and orientation of the smartphone are detected using the data of the \gls{IMU}.
 
 \begin{figure}[H]
@@ -111,7 +111,7 @@ The approach by \citeauthor{Steed.2013} used a smartphone and a \gls{VR} headset
 		\includegraphics[height=4cm]{figures/related_work/steed_2013_ui.png}
 		\caption{The virtual \gls{UI} with the cursor.}\label{fig:steed-2013-ui}
 	\end{subfigure}%
-  \caption[Virtual smartphone representation by Steed et al.]{The virtual smartphone representation by \citeauthor{Steed.2013}.
+  \caption[Virtual smartphone representation by Steed et al.\@]{The virtual smartphone representation by \citeauthor{Steed.2013}.
   \newline{}
   Source: Adapted from~\protect\cite[Figure 1]{Steed.2013}
   }\label{fig:steed-2013}
@@ -122,7 +122,7 @@ On the virtual phone screen, a \gls{UI} is displayed as seen in Figure~\ref{fig:
 A similar selection approach is implemented in the laser pointer experiment of this thesis. The selection cursor and the fixed phone position also inspired the experiments presented in this thesis.
 
 
-\section{Markussen et al.}\label{section:markussen-2013}
+\section{Markussen et al.\@}\label{section:markussen-2013}
 In {\citetitle{Markussen.2013}} \citeauthor{Markussen.2013} explore three different mid-air text input methods for large displays. Mid-air approaches track the users' hands and display a cursor on a external display. This method requires little to no visual attention of the users on their hands, because all the visual feedback is displayed on the large display. With common touch surfaces or displays, visual attention is required because the user has to aim for a virtual button or \gls{UI} element displayed on the touch device.
 This approach also allows typing without restricting the users' movement around the display since the user does not have to touch any physical device~\cite[401]{Markussen.2013}.
 
@@ -135,7 +135,7 @@ Their final method \enquote{Projected QWERTY} shown in Figure~\ref{fig:markussen
 \begin{figure}[H]%
 	\centering%
 	\includegraphics[height=6cm]{figures/related_work/markussen_2013_keyboard.png}%
-  \caption[Virtual keyboard implementation by Markussen et al.]{
+  \caption[Virtual keyboard implementation by Markussen et al.\@]{
   The virtual keyboard of the user interface from the approach of \citeauthor{Markussen.2013}.
   \newline{}
   Source:~\cite[Figure 5]{Markussen.2013}}\label{fig:markussen-2013}
