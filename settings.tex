@@ -18,8 +18,9 @@
 	minnames=3,
 	maxbibnames=99]{biblatex}
 \setcounter{biburlnumpenalty}{7000} % break urls in bibliography https://texwelt.de/wissen/fragen/7008/zeilenumbruche-in-bibliografielinks
+\usepackage[perpage, flushmargin, multiple]{footmisc} % reset counters per page and keeps the footnotes aligned and allow comma seperated footnotes
 \usepackage{url}
-\usepackage[pdftex]{hyperref}
+\usepackage[pdftex, hyperfootnotes=false]{hyperref}
 \hypersetup{
   hidelinks,  % hidelinks removes colored boxes around references and links
   breaklinks,
@@ -29,6 +30,7 @@
   pdfcreator={\getAuthor},
   pdfnewwindow=true, % links in new window
   pdfstartview={FitH}}% fits the width of the page to the window
+\usepackage{footnotebackref}
 \usepackage{scrhack} % necessary for listings package
 \usepackage{listings} % code highlighting
 \usepackage{lstautogobble}
@@ -46,7 +48,6 @@
 \captionsetup{format=plain} % hang caption label in caption text https://tex.stackexchange.com/questions/40163/caption-package-bold-numbering-indents-caption-text-how-to-avoid-that
 \captionsetup{width=0.9\textwidth}
 \usepackage{subcaption} % caption inside a figure with a caption
-\usepackage[perpage, flushmargin, multiple]{footmisc} % reset counters per page and keeps the footnotes aligned and allow comma seperated footnotes
 \usepackage{etoolbox} % advanced scripting.. se acronyms def.
 \usepackage[toc, page]{appendix} % more control over appendix
 \usepackage[final]{pdfpages} % allow embedding of pdf documents

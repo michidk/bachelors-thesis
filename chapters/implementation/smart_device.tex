@@ -1,10 +1,10 @@
 % !TeX root = ../../main.tex
 \section{Smart Device}\label{section:smart-device}
 
-The \enquote{Smart Device} is a part of the \gls{UBII} front end. It is a general-purpose client, which shares sensor data to different Topics. Because it is web-based, only hardware data which is available through the Web \gls{API} can be obtained. Since it was not designed for a specific use case, it is thought as a general-purpose or testing device. Only touch positions, touch events, orientation, and acceleration are sent to different Topics using the \gls{UBII} Client. For more specific scenarios, the smart device cannot be used, and a custom interface has to be implemented.
+The \enquote{Smart Device} is part of the \gls{UBII} front end. It is a general-purpose client, which shares sensor data to different Topics. Because it is web-based, only hardware data which is available through the Web \gls{API} can be obtained. Since it was not designed for a specific use case, it is thought as a general-purpose or testing device. Only touch positions, touch events, orientation, and acceleration are sent to different Topics using the \gls{UBII} Client. For more specific scenarios, the smart device cannot be used, and a custom interface has to be implemented.
 
-After implementing some improvements, the smart device client was sufficient for the experiments in this thesis. One improvement which was implemented is a full-screen mode to prevent unintentional interactions with control elements of the web browser or the operating system.
-Also, a calibration system was implemented since the orientation, obtained using the Web\gls{API}, cannot be recalibrated later~\cite{DevicesandSensorsWorkingGroup.2019}. 
+After implementing some improvements, the smart device client was sufficient for the experiments in this thesis. One improvement which was implemented is a full-screen mode to prevent unintentional interactions with control elements of the web browser or the \gls{OS}.
+Also, a calibration system was implemented since the orientation, obtained using the Web\gls{API}, cannot be recalibrated later on~\cite{DevicesandSensorsWorkingGroup.2019}. 
 
 
 \subsection{Topic Data}\label{subsection:topic-data}
@@ -22,7 +22,7 @@ This limitation entails that no full orientation tracking is possible with this 
 % explain further role of acceleration.. only gravity is used
 The Web \gls{API} also provides the \lstinline{MotionEvent} which returns multiple vectors, one being the acceleration including the gravity (\lstinline{accelerationIncludingGravity}). Since the gravity vector always points to the center of the earth, this vector can be used as a reference vector. Together with the values from the \lstinline{DeviceOrientation} event, the full orientation can be derived. The resulting orientation then has to be further processed because the acceleration vector uses the raw \gls{IMU} acceleration output, which might be very noisy.
 
-The data from the \lstinline{DeviceOrientation} event already provides all three Euler angles and is smoothed. Implementing an algorithm to derive the correct orientation and further process it as the \lstinline{MotionEvent} does, would be outside the scope of this thesis. Because of this consideration, the \lstinline{DeviceOrientation} event data is used in the following experiments.
+The data from the \lstinline{DeviceOrientation} event already provides all three Euler angles as smoothed integer values. Implementing an algorithm to derive the correct orientation and further process it as the \lstinline{MotionEvent} does, would be outside the scope of this thesis. Because of this consideration, the \lstinline{DeviceOrientation} event data is used in the following experiments.
 
 The touch position of the first finger on the smartphone display is published multiple times per second. Before sending, it is normalized to floating-point values ranging from zero to one. This keeps the data independent of the display resolution and size. Events for starting and stopping touching the screen are sent to different Topics. The acceleration of the smartphone is also sent to a Topic but is not used in any of the experiments of this thesis.
 
@@ -58,12 +58,12 @@ The smart device is registered as a Device in the \gls{UBII} network. The Device
       ]
     };
   \end{lstlisting}
-	\caption[Protobuf definition of the smart device]{The smart device definition in JavaScript. It is defined by a name and a list of \gls{UBII} Components. The structure of a Device is further described in Subsection~\ref{subsection:architecture}.}\label{fig:ubii-device-registration}
+	\caption[Protobuf definition of the smart device]{The smart device's \gls{UBII} Device definition in JavaScript. It is defined by a name and a list of \gls{UBII} Components. The structure of a Device is further described in Subsection~\ref{subsection:architecture}.}\label{fig:ubii-device-registration}
 \end{figure}
 
-A Device and all Topics must be registered with a \gls{UID} for each client because it should be possible to read the data from different devices. This allows for using multiple devices at the same time so that they can be differentiated in Interactions. If the Topic names did not include the \lstinline{clientId} each connected device would publish to the same Topic, which would make the data unusable.
+A Device and all Topics must be registered with a \gls{UID} for each Client because it should be possible to read the data from different devices. This allows for using multiple devices at the same time so that they can be differentiated in Interactions. If the Topic names did not include the \lstinline{clientId}, each connected device would publish to the same Topic, which would make the data unusable.
 
-The new type \lstinline{TouchEvent} was implemented. The \gls{Protobuf} definition can be seen in Figure~\ref{fig:ubii-event-type}. It contains the two-dimensional position and the binary type \mbox{\lstinline{ButtonEventType},} which can also be reused in other events. \lstinline{ButtonEventType} is an enumeration type which defines whether the touch interface was just touched or released.
+The new type \lstinline{TouchEvent} was implemented. The \gls{Protobuf} definition can be seen in Figure~\ref{fig:ubii-event-type}. It contains the two-dimensional position and the binary type \mbox{\lstinline{ButtonEventType},}. \lstinline{ButtonEventType} is an enumeration type which defines whether the touch interface was just touched or released.
 
 \begin{figure}[H]
 	\begin{lstlisting}[language=Protobuf]
