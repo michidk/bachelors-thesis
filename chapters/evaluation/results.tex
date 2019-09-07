@@ -132,7 +132,7 @@ The model viewer experiment, described in Section~\ref{section:model-viewer}, al
 Since in the current implementation the model cannot be rotated upside down (as mentioned in Section~\ref{subsection:topic-data}), only reachable target positions are generated.
 
 As soon as the task is started, users has 30 seconds to match as many orientations as possible. Similar to the implementation by \citeauthor{Katzakis.2010} (presented in Section~\ref{section:katzakis-2010}), the target is rotated to a new random orientation after one orientation was matched~\cite[140]{Katzakis.2010}.
-Because it is hard to match the rotation exactly on all three axes, it is enough to pose the model in a similar orientation to the target. A similar pose is reached when the smallest angle between the two rotations is less than 20 radians.
+Because it is hard to match the rotation exactly on all three axes, it is sufficient to pose the model in a similar orientation to the target. A similar pose is reached when the smallest angle between the two rotations is less than 20 degrees.
 
 %  T-Test:
 %\pgfmathparse{(\evalExpMvAvgPoses-6.5)/(\evalExpMvStdPoses/sqrt(\evalExpMvParticipants))}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult} 

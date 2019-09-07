@@ -5,20 +5,20 @@ Three experiments were implemented to demonstrate how the smartphone can help wi
 
 \begin{description}
   \item[Model Viewer:] An application to view and rotate three-dimensional models.
-  \item[Laser Pointer:] A method to select objects or \gls{UI} elements in \gls{VR}.
-  \item[Virtual Keyboard:] An application to write text on a virtual keyboard while in \gls{VR}.
+  \item[Laser Pointer:] A method to select objects or \gls{UI} elements.
+  \item[Virtual Keyboard:] An application to write text on a virtual keyboard.
 \end{description}
 
 To achieve consistency amongst all experiments in terms of optics and basic functionality, a parent class was implemented. The parent class implements utilities, which are required and inherited by each experiment. It also sets up a basic scene, which contains a background, a floor, and lights. Additionally, it handles the connection to the \gls{UBII} Server.
 
-Some three-dimensional models, used in the following experiments, were downloaded from the internet. Those resources are listed in Appendix~\ref{chapter:external-assets-used} including their licenses.
+Some three-dimensional models, used in the following experiments, were downloaded from the internet. Those resources including their licenses are listed in Appendix~\ref{chapter:external-assets-used}.
 
 
 \section{Model Viewer}\label{section:model-viewer}
 
-\acrlong{VR} provides a new way of experiencing three-dimensional content. It is convenient to view a model from different angles and gives a feel of a real presence of the object. Applications where the users can load custom three-dimensional models into the scene and use the app to explore the models are commonly called \enquote{model viewers}. One instance of such a model viewer is the online model viewing platform Sketchfab\footnote{Sketchfab is an online platform where one can publish and view three-dimensional content. Website: \href{https://sketchfab.com}{www.sketchfab.com}}, which uses Web\gls{VR} since 2016~\cite{Denoyel.2016}. 
+\acrlong{VR} provides a new way of experiencing three-dimensional content. It is convenient to view a model from different angles and gives a feel of real presence of the object. Applications where the users can load custom three-dimensional models into the scene and use the app to explore the models are commonly called \enquote{model viewers}. One instance of such a model viewer is part of the online model viewing platform Sketchfab\footnote{Sketchfab is an online platform where one can publish and view three-dimensional content. Website: \href{https://sketchfab.com}{www.sketchfab.com}}, which uses Web\gls{VR} since 2016~\cite{Denoyel.2016}. 
 
-In particular, model viewing applications can be enhanced with a smartphone. Without the need for changing the position of the \gls{HMD} or using an expensive hand motion tracking system, the orientation of the models can be manipulated.
+In particular, model viewing applications can be controlled by a smartphone. Without the need for changing the position of the \gls{HMD} or using an expensive hand motion tracking system, the orientation of the models can be manipulated.
 \citeauthor{Katzakis.2010} implemented such a system without using \gls{VR} (presented in Section~\ref{section:katzakis-2010}). Since this approach turned out to be very successful, it was used in this experiment as well.
 
 To feature how easy it is to view a more complex model using \gls{VR} and the smartphone as a manipulator, a human skeleton model is used. This experiment is the only one supporting more than one smartphone client at the same time, which opens the possibility to implement multi-user scenarios. For every client that connects, a new skeleton model is created. The position is fixed and arranged around the position of the \gls{VR} headset. A scene with multiple connected clients is shown in Figure~\ref{fig:screenshot-exp-mv}.
@@ -49,7 +49,8 @@ The implementation of the experiment always listens for new clients. As soon as 
     };
   }
  \end{lstlisting}
-	\caption[A UBII Interaction of model viewer]{This \gls{UBII} Interaction is used to convert the orientation data sent by the smart device to the format ThreeJS needs for rendering. The values are converted by multiplying with an approximate of the number $\Pi$ (\enquote{PI}) and dividing by $180$.}\label{fig:ubii-interaction-angles} %chktex 46
+  \caption[A UBII Interaction of model viewer]{This \gls{UBII} Interaction is used to convert the orientation data sent by the smart device to the format ThreeJS needs for rendering.}\label{fig:ubii-interaction-angles} %chktex 46
+  %The values are converted by multiplying with an approximate of the number $\Pi$ (\enquote{PI}) and dividing by $180$.
 \end{figure}
 
 As described in Subsection~\ref{subsection:topic-data}, the current implementation does not provide the full angular data needed. This means that the model cannot be rotated upside down, which is very impractical for a model viewing application. However, this can be fixed and is not critical for a proof-of-concept.
