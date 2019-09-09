@@ -9,14 +9,14 @@ Also, a calibration system was implemented since the orientation, obtained using
 
 \subsection{Topic Data}\label{subsection:topic-data}
 
-The orientation is provided by the Web \gls{API} through the \lstinline{DeviceOrientation} event. It is defined by three Euler angles named \lstinline{alpha}, \lstinline{beta} and \lstinline{gamma}, as seen in Figure~\ref{fig:webapi-device-orientation}.
+The orientation is provided by the Web \gls{API} through the \lstinline{DeviceOrientation} event. It is defined by three Euler angles named \lstinline{alpha}, \lstinline{beta}, and \lstinline{gamma}, as seen in Figure~\ref{fig:webapi-device-orientation}.
 While \lstinline{alpha} returns values in the range \(\left[0, 360\right)\), \lstinline{beta} only returns the range \(\left[-180, 180\right)\) and \lstinline{gamma} \(\left[-90, 90\right)\)~\cite[Chapter~4.1]{DevicesandSensorsWorkingGroup.2019}. % chktex 9
 This limitation entails that no full orientation tracking is possible with this event.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[height=5cm]{figures/implementation/webapi_device_orientation.pdf}
-	\caption[Smart device coordinate system and orientation values]{The specification of the orientation values visualized. The \(x\) and \(y\) axes are inverted for the sake of clarity in this graphic. The arrows indicated the direction where Euler angles get larger. \lstinline{alpha}, \lstinline{beta} and \lstinline{gamma} describe the three rotation angles.}\label{fig:webapi-device-orientation}
+	\caption[Smart device coordinate system and orientation values]{The specification of the orientation values visualized. The \(x\) and \(y\) axes are inverted for the sake of clarity in this graphic. The arrows indicated the direction where Euler angles increases. \lstinline{alpha}, \lstinline{beta} and \lstinline{gamma} describe the three rotation angles.}\label{fig:webapi-device-orientation}
 \end{figure}
 
 % explain further role of acceleration.. only gravity is used
@@ -63,7 +63,7 @@ The smart device is registered as a Device in the \gls{UBII} network. The Device
 
 A Device and all Topics must be registered with a \gls{UID} for each Client because it should be possible to read the data from different devices. This allows for using multiple devices at the same time so that they can be differentiated in Interactions. If the Topic names did not include the \lstinline{clientId}, each connected device would publish to the same Topic, which would make the data unusable.
 
-The new type \lstinline{TouchEvent} was implemented. The \gls{Protobuf} definition can be seen in Figure~\ref{fig:ubii-event-type}. It contains the two-dimensional position and the binary type \mbox{\lstinline{ButtonEventType},}. \lstinline{ButtonEventType} is an enumeration type which defines whether the touch interface was just touched or released.
+The new type \lstinline{TouchEvent} was implemented. The \gls{Protobuf} definition can be seen in Figure~\ref{fig:ubii-event-type}. It contains the two-dimensional position and the enumeration type \mbox{\lstinline{ButtonEventType}}. This type is an enumeration type which defines whether the touch interface was just touched or released.
 
 \begin{figure}[H]
 	\begin{lstlisting}[language=Protobuf]

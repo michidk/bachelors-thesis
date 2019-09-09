@@ -39,12 +39,12 @@ The components of the \gls{UBII} framework, as visualized in Figure~\ref{fig:ubi
 
 
 \subsection{Interactions}\label{subsection:interactions}
-A powerful feature of \gls{UBII} are Interactions. As explained in Subsection~\ref{subsection:architecture}, they are reactive components, which operate on Topics and regularly execute given code snippets on the Server. Interactions are isolated components, which depend on Topic Data. This abstraction introduces the possibility to reuse logic in other applications in a similar context. The data flow from a Device to the Interaction is visualized in the Figure~\ref{fig:ubii-cd}.
+A powerful feature of \gls{UBII} are Interactions. As explained in Subsection~\ref{subsection:architecture}, they are reactive components, which operate on Topics and regularly execute given code snippets on the Server. Interactions are isolated components, which depend on Topic Data. This abstraction introduces the possibility to reuse logic in other applications in a similar context. The data flow from a Device to the Interaction is visualized in Figure~\ref{fig:ubii-cd}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=12cm]{figures/implementation/ubii_cd.pdf}
-	\caption[UBII communication diagram]{The interaction processing overview. This graphic gives a rough overview of the dataflow when using an Interaction. The diagram was created with the help of Sandro Weber. Rectangles represent entities, rounded rectangles represent data and arrows represent the data flow. The flow is described in detail in Subsection~\ref{subsection:architecture}. Client components are on the left portion of the figure, while components running on the server are located on the right side.}\label{fig:ubii-cd}
+	\caption[UBII communication diagram]{The interaction processing overview. This graphic gives a rough overview of the dataflow when using an Interaction. The diagram was created with the help of Sandro Weber. Rectangles represent entities, rounded rectangles represent data, and arrows represent the data flow. The flow is described in detail in Subsection~\ref{subsection:architecture}. Client components are on the left portion of the figure, while components running on the server are located on the right side.}\label{fig:ubii-cd}
 \end{figure}
 
 Interactions should be designed in an atomic and generic way so that they are easy to reuse. They can be used to discretize data, convert data to other formats, or to outsource logic from the application. Concrete examples include the detection of button presses, the transformation of coordinates, and the evaluation of data. An example of an Interaction which detects position changes can be seen in Figure~\ref{fig:ubii-interaction-example}.
@@ -76,7 +76,7 @@ Interactions should be designed in an atomic and generic way so that they are ea
 
 % this might be left out or merged into above
 Another field of application would be to exchange data between two Topics, for example, to convert data from one format or unit to another one. An example of such a scenario could be an application, which consumes a rotation given in Euler angles. % replace however.. A problem might arise...
-However, some input devices publish Euler angles in degrees. An Interaction which takes Euler angles in degrees from one Topic and publishes Euler angles in radians to another one, could be implemented.
+However, some input devices publish Euler angles in degrees. An Interaction which takes Euler angles in degrees from one Topic and publishes Euler angles in radians to another one could be implemented.
 
 A code snippet, required to define an Interaction, has to define a function, which accepts three parameters:
 \lstinline{inputs} is a collection of values, which were published into a Topic. The Topic is defined by the Input Mappings of the Session. \lstinline{outputs} is an empty collection, where values can be added. Those values are then published into a Topic, defined by the output mappings of the Session. \lstinline{state} stores a persistent collection of values, which can be used in later executions of the same Interaction.

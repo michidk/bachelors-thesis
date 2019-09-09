@@ -11,7 +11,7 @@ Three experiments were implemented to demonstrate how the smartphone can help wi
 
 To achieve consistency amongst all experiments in terms of optics and basic functionality, a parent class was implemented. The parent class implements utilities, which are required and inherited by each experiment. It also sets up a basic scene, which contains a background, a floor, and lights. Additionally, it handles the connection to the \gls{UBII} Server.
 
-Some three-dimensional models, used in the following experiments, were downloaded from the internet. Those resources including their licenses are listed in Appendix~\ref{chapter:external-assets-used}.
+Some three-dimensional models, used in the following experiments, were downloaded from the internet. Those resources, including their licenses, are listed in Appendix~\ref{chapter:external-assets-used}.
 
 
 \section{Model Viewer}\label{section:model-viewer}
@@ -90,9 +90,9 @@ When a randomly colored cube is selected, it will change its color again. This w
 
 Text input is not an easy task to perform in \gls{VR}. This is why many applications try to avoid it. However, it is often required for labeling, annotating, entering filenames for saving operations, setting parameters in visualizations, and other use cases in productive \gls{VR} software~\cite[2154]{Rhoton.2002}. 
 
-Tilt Brush\footnote{Tilt Brush by Google is a tool for three-dimensional painting in VR. Website: \href{https://www.tiltbrush.com/}{www.tiltbrush.com}} avoids this by identifying scenes ih the \gls{UI} with a screenshot of the scene rather than a filename. To save a scene, users get a virtual camera attached to their hands, which they then use to create a thumbnail of the current scene~\cite{GoogleLLC.2019}. % chktex 13
+Tilt Brush\footnote{Tilt Brush by Google is a tool for three-dimensional painting in VR. Website: \href{https://www.tiltbrush.com/}{www.tiltbrush.com}} avoids this by identifying scenes in the \gls{UI} with a screenshot of the scene rather than a filename. To save a scene, users get a virtual camera attached to their hands, which they then use to create a thumbnail of the current scene~\cite{GoogleLLC.2019}. % chktex 13
 
-Some applications use a laser pointer either attached to the virtual representation of the motion controller or the \gls{HMD}, to select virtual keys on a two-dimensional image of a keyboard~\cite{Speicher.2018}. A more recent approach is the frequently called \enquote{drum keyboard} which attaches drum sticks to the hand controllers, which are then used to hit three-dimensional keys~\cite{Weisel.2017}.
+Some applications use a laser pointer either attached to the virtual representation of the motion controller or the \gls{HMD}, to select virtual keys on a two-dimensional image of a keyboard~\cite{Speicher.2018}. A more recent approach is the frequently called \enquote{drum keyboard}, which attaches drum sticks to the hand controllers, which are then used to hit three-dimensional keys~\cite{Weisel.2017}.
 
 Other approaches use hand gloves~\cite{Evans.1999,Rhoton.2002}, a real keyboard~\cite{McGill.2015,Walker.2017} or other peripherals~\cite[111\psq]{Gonzalez.2009}. Also, methods like speech recognition~\cite[2154\psqq]{Rhoton.2002} and handwritten character recognition~\cite[113]{Gonzalez.2009} are possible.
 
@@ -107,13 +107,13 @@ Instead of displaying the virtual keyboard on a fixed large display~\cite[408]{M
 
 Like in \citetitle{Markussen.2013} the surface of the virtual keyboard is mapped to the touchscreen of the smart device (see Section~\ref{section:smart-device}) and a cursor, represented by a blue circle, visualizes the position of the finger on the touchscreen~\cite[408]{Markussen.2013}.
 
-Users would not know which key they are going to hit with their finger when executing the keypress on the first touch and without a cursor (like on a regular smartphone keyboard) the \gls{HMD} physically obscures their sight. \citeauthor{Dias.2018} (presented in Section~\ref{section:dias-2018}) work around this problem by using a Leap Motion sensor, which tracks the whole hand (see Section~\ref{section:motivation}), to visualize the finger positions~\cite[4]{Dias.2018}.
+Users would not know which key they are going to hit with their finger, when executing the keypress on the first touch and without a cursor (like on a regular smartphone keyboard), because the \gls{HMD} physically obscures their sight. \citeauthor{Dias.2018} (presented in Section~\ref{section:dias-2018}) work around this problem by using a Leap Motion sensor, which tracks the whole hand (see Section~\ref{section:motivation}), to visualize the finger positions~\cite[4]{Dias.2018}.
 
 In this implementation, the cursor is only visible when users are touching the screen. To select a key, users have to move the cursor on top of a key and then keep the finger there for roughly a second. As long as users are holding the key to select it, the blue circle increases in size to display the selection progress.
 
 Three components were implemented as \acrlong{JS} classes for this experiment. The \lstinline{SmartphoneCursor} component uses the touch events and position data to display a blue circle (the cursor) on a given area in the scene. If the touch screen is touched, the position of the circle is synchronized with the position of the finger on the touch screen.
 To detect intentional movements, the current position is subtracted by the position of the previous frame. If the length of the resulting vector is smaller than a specific threshold value, it is assumed that the movement was not intentional.
-As long as intentional movements are not detected, a timer counts up to a specific value (with the default settings, roughly one second). To visualize the selection progress, the cursor is filled with blue color. After reaching the value, a select event containing the cursor position is sent to the main program and the blue color is removed. 
+As long as intentional movements are not detected, a timer counts up to a specific value (with the default settings, roughly one second). To visualize the selection progress, the cursor is filled with blue color. After reaching the value, a select event containing the cursor position is sent to the main program, and the blue color is removed. 
 
 The second component, which is implemented in the \lstinline{VirtualKeyboard} class, renders a virtual QWERTY keyboard to the scene. The keyboard layout, whose definition is shown in Figure~\ref{fig:virtual-keyboard-layout}, can be easily adjusted. Every key has a character or an action as well as properties assigned, which influence the look. Special keys like the caps, caps lock, enter and delete key are fully functional as known from a real keyboard. When caps lock is activated, the key is drawn in blue, and all characters are displayed in upper case.
 
@@ -151,4 +151,4 @@ The second component, which is implemented in the \lstinline{VirtualKeyboard} cl
 
 The \lstinline{VirtualKeyboard} class is responsible for drawing the keyboard with the given keyboard layout, height, and width as input. If the \lstinline{onPress(coordinates)} function is called, for example, by the cursor component, the pressed key is calculated and returned using the provided position. The main program then applies the function of a key to a string and sends the result to the third component. % chktex 36
 
-The \lstinline{TextDisplay} component renders a given text inside a given area to a texture. If the text is changed, it automatically updates and redraws the texture.
+The \lstinline{TextDisplay} component renders a given text inside a given area to a texture. When the text is changed, the component automatically updates and redraws the texture.

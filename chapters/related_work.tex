@@ -15,7 +15,7 @@ The approach presented in this thesis uses a comparable client-server architectu
 % Phone-based motion control in VR (Klinker)
 %\section{Phone-based Motion Control in VR}\label{section:phone-based-motion-control-vr}
 \section{Benzina et al.\@}\label{section:benzina-2011}
-\citeauthor{Benzina.2011} introduce a system for flying through \glspl{VE} by using a smartphone as input device.
+\citeauthor{Benzina.2011} introduce a system for flying through \glspl{VE} by using a smartphone as an input device.
 % Since the sight is occluded by the \gls{HMD}, the phone display cannot be used to display information.
 They try to find convenient mappings between the users' actions with the mobile phone and the subsequent reactions in the \gls{VE}. To solve this, they investigate the \glspl{DOF} required to implement a quickly learnable and comfortable travel task.
 
@@ -49,7 +49,7 @@ Different methods using the accelerometer, magnetic field sensor, and touch scre
 	\caption[Tracking setup by Dias et al.\@]{The tracking system by \citeauthor{Dias.2018}~\protect\cite[4,5]{Dias.2018}.}\label{fig:dias-2018}
 \end{figure}
 
-Because users interact with the \gls{UI} using the touch screen of the smartphone as they would do in real life, the fingers have to be tracked and visualized. Otherwise, users would not know where their fingers are going to hit the touch screen because the sight is occluded physically by the \gls{HMD}. To solve this problem, they attach a Leap Motion sensor to the \gls{HMD} which tracks the fingers to display a hand avatar~\cite{Dias.2018}.
+Because users interact with the \gls{UI} using the touch screen of the smartphone as they would do in real life, the fingers have to be tracked and visualized. Otherwise, users would not know where their fingers are going to hit the touch screen because the sight is occluded physically by the \gls{HMD}. To solve this problem, they attach a Leap Motion sensor to the \gls{HMD}, which tracks the fingers to display a hand avatar~\cite{Dias.2018}.
 
 Almost the same research team (\citeauthor{Afonso.2017}) evaluated a selection task using a tablet as an input device in \gls{VR} using the same \gls{VR} setup. They compare the selection time of users selecting a button on the tablet using a realistic hand avatar, a translucent hand avatar, and without any avatar of the hand. Surprisingly, the evaluation shows that users performed the best without any virtual avatar. The authors explain that this is due to the tracking inaccuracies of the tablet and the hand. However, users made fewer selection errors when an avatar was displayed~\cite[247-248]{Afonso.2017}.
 
@@ -77,7 +77,7 @@ A similar system, but in use with \gls{VR}, is used in the model viewer experime
 \section{Pietroszek et al.\@}\label{section:pietroszek-2014}
 \citeauthor{Pietroszek.2014} developed a system called \enquote{Smartcasting}, which allows multiple users to interact with 3D content on a large display using their personal smartphone. They try to explore whether a smartphone can be used as an effective three-dimensional input device for large displays~\cite[119]{Pietroszek.2014}.
 
-The approach uses the orientation from the smartphone to cast a ray into the direction the phone is pointing. A fixed position is used as the origin of the ray as shown in Figure~\ref{fig:pietroszek-2014}, since no positional tracking is available. Objects colliding with the ray can be selected. The depth can be adjusted using the touch screen of the smartphone, to select objects in the three-dimensional world at different depths. The ray and a depth marker are visualized on the display~\cite[121]{Pietroszek.2014}.
+The approach uses the orientation from the smartphone to cast a ray into the direction the phone is pointing. A fixed position is used as the origin of the ray, as shown in Figure~\ref{fig:pietroszek-2014} since no positional tracking is available. Objects colliding with the ray can be selected. The depth can be adjusted using the touch screen of the smartphone, to select objects in the three-dimensional world at different depths. The ray and a depth marker are visualized on the display~\cite[121]{Pietroszek.2014}.
 
 \begin{figure}[H]%
   \centering%
@@ -123,7 +123,7 @@ A similar selection approach is implemented in the laser pointer experiment of t
 
 
 \section{Markussen et al.\@}\label{section:markussen-2013}
-In {\citetitle{Markussen.2013}} \citeauthor{Markussen.2013} explore three different mid-air text input methods for large displays. Mid-air approaches track the users' hands and display a cursor on a external display. This method requires little to no visual attention of the users on their hands, because all the visual feedback is displayed on the large display. With common touch surfaces or displays, visual attention is required because the user has to aim for a virtual button or \gls{UI} element displayed on the touch device.
+In {\citetitle{Markussen.2013}} \citeauthor{Markussen.2013} explore three different mid-air text input methods for large displays. Mid-air approaches track the users' hands and display a cursor on an external display. This method requires little to no visual attention of the users on their hands because all the visual feedback is displayed on the large display. With common touch surfaces or displays, visual attention is required because the user has to aim for a virtual button or \gls{UI} element displayed on the touch device.
 This approach also allows typing without restricting the users' movement around the display since the user does not have to touch any physical device~\cite[401]{Markussen.2013}.
 
 The first approach, the \enquote{H4 Mid-Air} text entry method, allows to type using four buttons on a physical game controller. To type a character, a specific sequence of the four buttons has to be pressed in the correct order~\cite[406]{Markussen.2013}.

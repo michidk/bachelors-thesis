@@ -41,7 +41,7 @@
 
 %The results were evaluated in Python. Also, the plots were created using several Python libraries.
 
-\participantsCount{} people participated in the evaluation. \participantsMale{} identified as male, the others identified as female. The average age is \participantsAge{} years. This could influence the results since younger people may have more exposure to new technologies and could therefore pick up new technologies faster.
+\participantsCount{} people participated in the evaluation. \participantsMale{} identified as male, the others identified as female. The average age is \participantsAge{} years. This could influence the results since younger people may have more exposure to new technologies and therefore, could pick up new technologies faster.
 % The evaluation was conducted during different times of the day. does say nothing
 
 The main disciplines and degrees of the participants are shown in Table~\ref{tab:sus-d}. As seen in Table~\ref{tab:sus-degree}, the highest degree of half of the participants is a high school degree or equivalent.
@@ -96,7 +96,7 @@ Table~\ref{tab:sus-discipline} exhibits that the disciplines are spread amongst 
 	\caption[Degree and discipline of participants]{This table shows the participants' highest degree (Question A3) and main disciplines (Question A4).}\label{tab:sus-d}
 \end{table}
 
-All participants used their smartphone multiple times a day during the last six months. Most participants (78.26\%) used their computer to work or to study more than once per day during the last six months. 17.39\% state that they used it daily, and only one participant used his or her computer one to three times a week for work or studies during the last six months.
+All participants used their smartphone multiple times a day during the last six months. Most participants (78.26\%) used their computer to work or to study more than once per day during the last six months. 17.39\% state that they used it daily and only one participant used his or her computer one to three times a week for work or studies during the last six months.
 
 As seen in Figure~\ref{fig:res-demo-q8-s3}, most participants (60.87\%) played computer games more than three times a month during the last six months. Figure~\ref{fig:res-demo-q8-s4} shows that most participants (91.30\%) used \gls{VR} less than once per month during the last six months. A huge portion (39.13\%) did not use \gls{VR} at all in the last six months.
 
@@ -121,7 +121,7 @@ The participants were asked three questions regarding their experience with \gls
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=10cm]{figures/evaluation/res_demo_q9.pdf}
-	\caption[VR experience of the participants]{The answers to the Question A6 about the experience of the participants with \gls{VR}. The questions are rated with values ranging from one (\enquote{none}) to five (\enquote{a lot}). While the knowledge about \gls{VR} is rather low (Mean: 2.83; \gls{STD}: 1.03), the interest in the topic \gls{VR} is quite high (Mean: 3.48; \gls{STD}: 0.99). In average participants answered with 3.30 (\gls{STD}: 1.22) as estimate for their experience with motion controllers.}\label{fig:res-demo-q9}
+	\caption[VR experience of the participants]{The answers to the Question A6 about the experience of the participants with \gls{VR}. The questions are rated with values ranging from one (\enquote{none}) to five (\enquote{a lot}). While the knowledge about \gls{VR} is rather low (Mean: 2.83; \gls{STD}: 1.03), the interest in the topic \gls{VR} is quite high (Mean: 3.48; \gls{STD}: 0.99). on average participants answered with 3.30 (\gls{STD}: 1.22) as an estimate for their experience with motion controllers.}\label{fig:res-demo-q9}
 \end{figure}
 
 The second question asked about the interest in \gls{VR} to which no participant answered with \enquote{none} (Mean: 3.48; \gls{STD}: 0.99). The last question asked about the experience with motion controllers. It was explicitly mentioned that the Wii remote counts as a motion controller, which might be the reason for the high average being above the one asking about the knowledge of \gls{VR} (Mean: 3.30; \gls{STD}: 1.22).
@@ -138,7 +138,7 @@ Because it is hard to match the rotation exactly on all three axes, it is suffic
 %  T-Test:
 %\pgfmathparse{(\evalExpMvAvgPoses-6.5)/(\evalExpMvStdPoses/sqrt(\evalExpMvParticipants))}\pgfmathprintnumber[fixed, precision=2]{\pgfmathresult} 
 % chktex 1
-\citeauthor{Katzakis.2010} tracked the time it takes to match a pre-defined pose with a smartphone, a mouse, and a touch panel. The lowest time in average to match one pose, 6.5 seconds, was achieved using the smartphone as an input device~\cite[140]{Katzakis.2010}. As seen in Figure~\ref{fig:eval-exp-mv}, the average time it took to match a correct pose in the model viewer experiment presented in this thesis is roughly \evalExpMvAvgPoses{} seconds, which is lower than the average time of \citeauthor{Katzakis.2010}. This can be due to the fact that users never had to turn the smartphone entirely upside down, because to the previously mentioned limitation.
+\citeauthor{Katzakis.2010} tracked the time it takes to match a pre-defined pose with a smartphone, a mouse, and a touch panel. The lowest time on average to match one pose, 6.5 seconds, was achieved using the smartphone as an input device~\cite[140]{Katzakis.2010}. As seen in Figure~\ref{fig:eval-exp-mv}, the average time it took to match a correct pose in the model viewer experiment presented in this thesis is roughly \evalExpMvAvgPoses{} seconds, which is lower than the average time of \citeauthor{Katzakis.2010}. This can be due to the fact that users never had to turn the smartphone entirely upside down, because of the previously mentioned limitation.
 
 \begin{figure}[H]
 	\centering
@@ -148,7 +148,7 @@ Because it is hard to match the rotation exactly on all three axes, it is suffic
 
 Another reason for the lower average time is that the target and the controlled model are not displayed in two separate locations like in {\citetitle{Katzakis.2010}} by \citeauthor{Katzakis.2010}, but instead with the same origin in the same coordinate space, which makes it easier to see the difference between both rotations~\cite[140]{Katzakis.2010}. Also, the fact that a skeleton model, instead of a multi-colored cube was used, could play a role.
 
-Not only the measured statistics from the experiment but also the \gls{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-mv-stats}. A score of \evalExpMvSusScore{} is considered \evalExpMvSusAdj{} and mapped to the grade \evalExpMvSusGrade, according to \citeauthor{Bangor.2009}~\cite[120\psq]{Bangor.2009}.
+Not only the measured statistics from the experiment but also the \gls{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-mv-stats}. A score of \evalExpMvSusScore{} is considered \evalExpMvSusAdj{} and mapped to grade \evalExpMvSusGrade, according to \citeauthor{Bangor.2009}~\cite[120\psq]{Bangor.2009}.
 
 \begin{figure}[H]
 	\centering
@@ -171,11 +171,11 @@ Participants provided additional feedback after the \gls{SUS} user study. They r
 
 \subsection{Laser Pointer}\label{section:eval-res-lp}
 
-Section~\ref{section:laser-pointer} introduces the laser pointer experiment. To test the performance of participants using this interaction, the participants had to select as many targets as possible in 30 seconds. The users were told to be as fast and in particular as accurate as possible, since the miss-hits are counted. To trigger a selection, the users have to touch the smartphone display, which counts as one click. If no target was selected, a miss is counted. The total selection (click) count is the sum of hits and miss-clicks.
+Section~\ref{section:laser-pointer} introduces the laser pointer experiment. To test the performance of participants using this interaction, the participants had to select as many targets as possible in 30 seconds. The users were told to be as fast and in particular as accurate as possible since the miss-hits are counted. To trigger a selection, the users have to touch the smartphone display, which counts as one click. If no target was selected, a miss is counted. The total selection (click) count is the sum of hits and miss-clicks.
 
 %Cubes were chosen as target objects, because \gls{UI} elements are often rectangular like the two-dimensional projection of a cube.
 Three cubes (the targets) are spawned at random locations in front of the users. The cubes are always spawned in the view of the users so that the users do not have to look for the targets actively. 
-If one cube was hit, another one is spawned, so that three cubes are always visible. This is important because the users can plan to hit the next target while aiming for the current one. Otherwise the task would test the users' reaction time, which is not desired. It was found that three cubes are a good amount because too many targets would not only clutter the view but also shorten the aiming periods.
+If one cube was hit, another one is spawned, so that three cubes are always visible. This is important because the users can plan to hit the next target while aiming for the current one. Otherwise, the task would test the users' reaction time, which is not desired. It was found that three cubes are a good amount because too many targets would clutter not only the view but also shorten the aiming periods.
 
 Figure~\ref{fig:eval-exp-lp} visualizes the total click count (Mean: 31.83; \gls{STD}: 6.89), the actual hit count (Mean: 26.13; \gls{STD}: 5.52) and the count of miss-hits (Mean: 5.70; \gls{STD}: 4.37) per 30 seconds. Participants were able to successfully point to and select objects with a speed of nearly one click per second. As seen in Figure~\ref{fig:eval-exp-lp-ratio-scatter}, the hit to miss ratio is very high for slightly lower speeds but decreases quickly with higher click speeds.
 
@@ -192,7 +192,7 @@ Figure~\ref{fig:eval-exp-lp} visualizes the total click count (Mean: 31.83; \gls
 		\includegraphics[width=\linewidth]{figures/evaluation/eval_exp_lp_ratio_scatter.pdf}
 		\caption{The hit to miss ratio per click speed.}\label{fig:eval-exp-lp-ratio-scatter} %The line visualizes the linear regression with a 95\% confidence interval.
 	\end{subfigure}%
-	\caption[Laser pointer task results]{These figures represent the measured statistics of the laser pointer experiment. Participants hit targets more often (Mean: 26.13; \gls{STD}: 5.52) than they missed targets (Mean: 5.70; \gls{STD}: 4.37) in average per 30 seconds. The hit to miss ratio decreases with increasing click speeds.}\label{fig:exp-lp-eval}
+	\caption[Laser pointer task results]{These figures represent the measured statistics of the laser pointer experiment. Participants hit targets more often (Mean: 26.13; \gls{STD}: 5.52) than they missed targets (Mean: 5.70; \gls{STD}: 4.37) on average per 30 seconds. The hit to miss ratio decreases with increasing click speeds.}\label{fig:exp-lp-eval}
 \end{figure}
 
 The performance of this experiment is hard to compare with other implementations without a standardized experiment setup. For example, the size, shape, position, and distance of the targets as well as the spawn area and whether distracting elements are present, varies between different task evaluations of other research. However, a comparison should still give a rough estimate of the performance. Often the hit count is measured in different time intervals. To compare the results, the average hit count per second is calculated.
@@ -217,7 +217,7 @@ As seen in Table~\ref{tab:lp-comp}, the technique presented in Section~\ref{sect
 	\caption[Comparison of laser pointer task results]{This table compares the average hits per second from similar laser pointer evaluations of other research. The implementation from Section~\ref{section:eval-res-lp} achieved the highest average hits per second.}\label{tab:lp-comp}
 \end{table}
 
-Not only the measured interaction times but also the \gls{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-lp-stats}. A score of \evalExpLpSusScore{} is considered \evalExpLpSusAdj{} and mapped to the grade \evalExpLpSusGrade{}, according to \citeauthor{Bangor.2009}~\cite[120\psq]{Bangor.2009}.
+Not only the measured interaction times but also the \gls{SUS} study results indicate a useable implementation, as seen in Figure~\ref{fig:exp-lp-stats}. A score of \evalExpLpSusScore{} is considered \evalExpLpSusAdj{} and mapped to grade \evalExpLpSusGrade{}, according to \citeauthor{Bangor.2009}~\cite[120\psq]{Bangor.2009}.
 
 \begin{figure}[H]
 	\centering
@@ -235,14 +235,14 @@ Not only the measured interaction times but also the \gls{SUS} study results ind
 	\caption[Laser pointer SUS results]{The results of the \gls{SUS} user study for the laser pointer. Ignoring a few outliers, participants clearly agree on most \gls{SUS} questions, as seen in Figure~\ref{fig:res-exp-lp}.}\label{fig:exp-lp-stats}
 \end{figure}
 
-Some participants mentioned that it is hard to notice whether the laser pointer hitting an object or not. They suggested better indicators, like a bigger laser beam or an indicator at the position where the laser hits an object.
+Some participants mentioned that it is hard to notice whether the laser pointer is hitting an object or not. They suggested better indicators, like a bigger laser beam or an indicator at the position where the laser hits an object.
 
 
 \subsection{Virtual Keyboard}\label{section:eval-res-vk}
 
 The task for the virtual keyboard experiment (presented in Section~\ref{section:virtual-keyboard}) is to enter a text as fast as possible without mistakes. The text chosen for this task is \enquote{A quick brown fox jumps over the lazy dog}, which is commonly used when testing keyboards, typewriters or fonts because it contains every character of the alphabet.
 
-To test special characters, an exclamation mark is also added to the end of the task's text. This given text is displayed above the text which is being typed using the keyboard. If a mistake was made, it has to be corrected in order to complete the task. After starting the task, a timer counts the time until the \enquote{enter}-button is pressed.
+To test special characters, an exclamation mark is also added to the end of the task's text. This given text is displayed above the text, which is being typed using the keyboard. If a mistake was made, it has to be corrected in order to complete the task. After starting the task, a timer counts the time until the \enquote{enter}-button is pressed.
 
 The number of corrections the participants made while entering the given text has an average of 2.7 corrections (mean: 2.74; \gls{STD}: 2.38). A correction is counted when users used the \enquote{backspace}-key to remove one character. If the participants did not recognize their error soon enough, it is possible that in order to correct one letter, they had to remove multiple characters, because it is not possible to move the caret. Since participants had to type a total of 42 characters, the average correction count to character count ratio is at 6.52\%.
 Participants took 31.7 seconds on average (\gls{STD}: 5.1) to complete the task. Figure~\ref{fig:eval-exp-vk-ratio-scatter} shows that the more mistakes were made, the more time users needed to complete the task.
@@ -255,7 +255,7 @@ Participants took 31.7 seconds on average (\gls{STD}: 5.1) to complete the task.
 \end{figure}
 
 The \gls{SUS} score for this experiment, shown in Figure~\ref{fig:exp-mv-stats}, is \evalExpVkSusScore{}.
-According to \citeauthor{Bangor.2009}, this score is considered \evalExpVkSusAdj{} and mapped to the grade \evalExpVkSusGrade~\cite[120\psq]{Bangor.2009}. Since this score is still in the \enquote{acceptable} range~\cite[120\psq]{Bangor.2009}, it can be considered \enquote{usable}.
+According to \citeauthor{Bangor.2009}, this score is considered \evalExpVkSusAdj{} and mapped to grade \evalExpVkSusGrade~\cite[120\psq]{Bangor.2009}. Since this score is still in the \enquote{acceptable} range~\cite[120\psq]{Bangor.2009}, it can be considered \enquote{usable}.
 
 \begin{figure}[H]
 	\centering
