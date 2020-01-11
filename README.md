@@ -1,28 +1,40 @@
 # Bachelor Thesis
+
 My Bachelor's Thesis in computer science, written at Technical University of Munich.
+View current version as `.pdf` on [thesis.lohr.dev](https://thesis.lohr.dev/).
+
+## Artifacts
+
+The original repository is hosted on the public GitLab instance and mirrored to the university's private instance as well as GitHub.com.
+The project is automatically built using the GitLab CI. The artifacts are published on [thesis.lohr.dev](https://thesis.lohr.dev/).
+
+## Study Evaluation Data
+
+The raw results of the user study as well as the LimeSurvey export can be found in the `evaluation_data/` folder.
 
 ## Prerequisites
+
 Dependencies are Texlive-Full (including biber and latexmk) and make.
-I am using [this Docker-image](https://github.com/michidk/texlive-docker) to build the pdf.
 
 ## Building
+
 To build the .pdf-file, execute:
-```make pdf```
+`make pdf`
 
 ## Development
+
 To launch latexmk in development-mode with live reloading, use:
-```make watch```
+`make watch`
 
 ## Commands
+
 Additional commands are available:
 
 To clean the output folder from built artifacts:
-```make clean```
+`make clean`
 
 To remove the whole output folder:
-```make purge```
-
-
+`make purge`
 
 ## Credits
 
