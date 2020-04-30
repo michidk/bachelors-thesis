@@ -1,4 +1,4 @@
-# Bachelor Thesis
+# Bachelor's Thesis
 
 My Bachelor's Thesis in computer science, written at Technical University of Munich.
 View current version as `.pdf` on [thesis.lohr.dev](https://thesis.lohr.dev/).
