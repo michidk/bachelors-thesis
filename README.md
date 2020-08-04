@@ -1,12 +1,12 @@
 # Bachelor's Thesis
 
 My Bachelor's Thesis in computer science, written at Technical University of Munich.
-View current version as `.pdf` on [thesis.lohr.dev](https://thesis.lohr.dev/).
+View current version as `.pdf` on [wiki.tum.de](https://wiki.tum.de/display/infar/BA%3A+Smartphone-Assisted+Virtual+Reality+Using+Ubi-Interact).
 
 ## Artifacts
 
 The original repository is hosted on the public GitLab instance and mirrored to the university's private instance as well as GitHub.com.
-The project is automatically built using the GitLab CI. The artifacts are published on [thesis.lohr.dev](https://thesis.lohr.dev/).
+The project is automatically built using the GitLab CI. The artifacts are published on [wiki.tum.de](https://wiki.tum.de/display/infar/BA%3A+Smartphone-Assisted+Virtual+Reality+Using+Ubi-Interact).
 
 ## Study Evaluation Data
 
