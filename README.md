@@ -6,7 +6,7 @@ View current version as `.pdf` on [wiki.tum.de](https://wiki.tum.de/display/infa
 ## Artifacts
 
 The original repository is hosted on the public GitLab instance and mirrored to the university's private instance as well as GitHub.com.
-The project is automatically built using the GitLab CI. The artifacts are published on [wiki.tum.de](https://wiki.tum.de/display/infar/BA%3A+Smartphone-Assisted+Virtual+Reality+Using+Ubi-Interact).
+The project is automatically built using the GitLab CI. The artifacts are published on [wiki.tum.de](https://wiki.tum.de/display/infar/%5B19SS+-+BA%5D+Smartphone-Assisted+Virtual+Reality+Using+Ubi-Interact).
 
 ## Study Evaluation Data
 
