@@ -1,7 +1,7 @@
 # Bachelor's Thesis
 
 My Bachelor's Thesis in computer science, written at Technical University of Munich.
-View current version as `.pdf` on [wiki.tum.de](https://wiki.tum.de/display/infar/BA%3A+Smartphone-Assisted+Virtual+Reality+Using+Ubi-Interact).
+View current version as `.pdf` on [wiki.tum.de](https://wiki.tum.de/display/infar/%5B19SS+-+BA%5D+Smartphone-Assisted+Virtual+Reality+Using+Ubi-Interact?preview=/265388526/304742706/main.pdf).
 
 ## Artifacts
 
